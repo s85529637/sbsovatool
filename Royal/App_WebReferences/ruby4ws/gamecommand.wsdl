@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetMemberWinloseCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccount" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="WID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="GameID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberWinloseCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMemberWinloseCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberWinloseDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccount" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="WID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="GameID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberWinloseDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMemberWinloseDetailResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GameId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPlayerAccountResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KickAllUser">
+        <s:complexType />
+      </s:element>
+      <s:element name="KickAllUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KickAllUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KickUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccount" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KickUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KickUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginStateChage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginStateChageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginStateChageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="int" type="s:int" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetMemberWinloseCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMemberWinloseCount" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberWinloseCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMemberWinloseCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberWinloseDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMemberWinloseDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberWinloseDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMemberWinloseDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlayerAccount" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlayerAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="KickAllUserSoapIn">
+    <wsdl:part name="parameters" element="tns:KickAllUser" />
+  </wsdl:message>
+  <wsdl:message name="KickAllUserSoapOut">
+    <wsdl:part name="parameters" element="tns:KickAllUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="KickUserSoapIn">
+    <wsdl:part name="parameters" element="tns:KickUser" />
+  </wsdl:message>
+  <wsdl:message name="KickUserSoapOut">
+    <wsdl:part name="parameters" element="tns:KickUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginStateChageSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginStateChage" />
+  </wsdl:message>
+  <wsdl:message name="LoginStateChageSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginStateChageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberWinloseCountHttpGetIn">
+    <wsdl:part name="MemberAccount" type="s:string" />
+    <wsdl:part name="WID" type="s:string" />
+    <wsdl:part name="GameID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberWinloseCountHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberWinloseDetailHttpGetIn">
+    <wsdl:part name="MemberAccount" type="s:string" />
+    <wsdl:part name="WID" type="s:string" />
+    <wsdl:part name="GameID" type="s:string" />
+    <wsdl:part name="PageIndex" type="s:string" />
+    <wsdl:part name="PageSize" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberWinloseDetailHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerAccountHttpGetIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="SessionId" type="s:string" />
+    <wsdl:part name="GameId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerAccountHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="KickAllUserHttpGetIn" />
+  <wsdl:message name="KickAllUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="KickUserHttpGetIn">
+    <wsdl:part name="MemberAccount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="KickUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginStateChageHttpGetIn">
+    <wsdl:part name="State" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginStateChageHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberWinloseCountHttpPostIn">
+    <wsdl:part name="MemberAccount" type="s:string" />
+    <wsdl:part name="WID" type="s:string" />
+    <wsdl:part name="GameID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberWinloseCountHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberWinloseDetailHttpPostIn">
+    <wsdl:part name="MemberAccount" type="s:string" />
+    <wsdl:part name="WID" type="s:string" />
+    <wsdl:part name="GameID" type="s:string" />
+    <wsdl:part name="PageIndex" type="s:string" />
+    <wsdl:part name="PageSize" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberWinloseDetailHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerAccountHttpPostIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="SessionId" type="s:string" />
+    <wsdl:part name="GameId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerAccountHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="KickAllUserHttpPostIn" />
+  <wsdl:message name="KickAllUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="KickUserHttpPostIn">
+    <wsdl:part name="MemberAccount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="KickUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginStateChageHttpPostIn">
+    <wsdl:part name="State" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginStateChageHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="GameCommandSoap">
+    <wsdl:operation name="GetMemberWinloseCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取得明細帳筆數&lt;br&gt;
+				MemberAccount：會員帳號(string)&lt;br&gt;
+				WID：開洗分單號(long)&lt;br&gt;
+				GameID：遊戲編號(int)</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberWinloseCountSoapIn" />
+      <wsdl:output message="tns:GetMemberWinloseCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberWinloseDetail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+					取得會員明細帳&lt;br&gt;
+					MemberAccount：會員帳號(string)&lt;br&gt;
+					WID：開洗分單號(long)&lt;br&gt;
+					GameID：遊戲編號(int)&lt;br&gt;
+					PageIndex:分頁頁數，從1開始(int)&lt;br&gt;
+					PageSize:每頁筆數(int)&lt;br&gt;
+					回傳XML格式:&lt;pre&gt;
+				&amp;lt;WinloseDetail MemberAccount=&amp;quot;1110180001&amp;quot; WID=&amp;quot;20120621145444650&amp;quot; GameID=&amp;quot;0&amp;quot;&amp;gt;
+					&amp;lt;WinloseLog WinloseID=&amp;quot;1&amp;quot; MemberAccount=&amp;quot;1110180001&amp;quot; WID=&amp;quot;20120621145444650&amp;quot; SeatID=&amp;quot;1&amp;quot; 
+						RoundNo=&amp;quot;2&amp;quot; GameID=&amp;quot;3&amp;quot; Winlose=&amp;quot;273.00&amp;quot; Bet=&amp;quot;27.00&amp;quot; GetJPMoney=&amp;quot;0.00&amp;quot; CurrentPoints=&amp;quot;10079516.48&amp;quot; 
+						CreateDate=&amp;quot;2012/06/21 14:54:55&amp;quot; IPAddr=&amp;quot;&amp;quot;/&amp;gt;
+				&amp;lt;WinloseLog WinloseID=&amp;quot;2&amp;quot; MemberAccount=&amp;quot;1110180001&amp;quot; WID=&amp;quot;20120621145444650&amp;quot; SeatID=&amp;quot;1&amp;quot; RoundNo=&amp;quot;3&amp;quot; 
+						GameID=&amp;quot;3&amp;quot; Winlose=&amp;quot;-27.00&amp;quot; Bet=&amp;quot;27.00&amp;quot; GetJPMoney=&amp;quot;0.00&amp;quot; CurrentPoints=&amp;quot;10079489.48&amp;quot; 
+						CreateDate=&amp;quot;2012/06/21 14:54:59&amp;quot; IPAddr=&amp;quot;&amp;quot;/&amp;gt;
+					&amp;lt;WinloseLog WinloseID=&amp;quot;3&amp;quot; MemberAccount=&amp;quot;1110180001&amp;quot; WID=&amp;quot;20120621145444650&amp;quot; SeatID=&amp;quot;1&amp;quot; 
+						RoundNo=&amp;quot;4&amp;quot; GameID=&amp;quot;3&amp;quot; Winlose=&amp;quot;-27.00&amp;quot; Bet=&amp;quot;27.00&amp;quot; GetJPMoney=&amp;quot;0.00&amp;quot; CurrentPoints=&amp;quot;10079462.48&amp;quot; 
+						CreateDate=&amp;quot;2012/06/21 14:55:06&amp;quot; IPAddr=&amp;quot;&amp;quot;/&amp;gt;
+				&amp;lt;/WinloseDetail&amp;gt;&lt;/pre&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberWinloseDetailSoapIn" />
+      <wsdl:output message="tns:GetMemberWinloseDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerAccount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取得會員於該遊戲中最終的額度，用做驗證&lt;br&gt;
+				PlayerId:玩家編號&lt;br&gt;
+				SessionId:開分識別碼&lt;br&gt;
+				GameId:遊戲編號&lt;br&gt;
+				回傳XML格式:&lt;br&gt;&lt;pre&gt;
+			&amp;lt;decimal&amp;gt;-1.0000&amp;lt;/decimal&amp;gt;
+				&lt;/pre&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetPlayerAccountSoapIn" />
+      <wsdl:output message="tns:GetPlayerAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KickAllUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">踢出所有玩家&lt;br&gt;
+				回傳格式:string&lt;br&gt;
+					1:成功&lt;br&gt;
+					其他:失敗</wsdl:documentation>
+      <wsdl:input message="tns:KickAllUserSoapIn" />
+      <wsdl:output message="tns:KickAllUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">踢出指定玩家&lt;br&gt;
+				MemberAccount:玩家帳號&lt;br&gt;
+				回傳格式:string&lt;br&gt;
+					1:成功&lt;br&gt;
+					其他:失敗</wsdl:documentation>
+      <wsdl:input message="tns:KickUserSoapIn" />
+      <wsdl:output message="tns:KickUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginStateChage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">變更登入狀態&lt;br&gt;
+				State:登入狀態&lt;br&gt;
+				-1: 查詢目前狀態, 0: 開放登入, 1: 只允許維護線路登入&lt;br&gt;
+				回傳格式:string&lt;br&gt;
+				0: 開放登入, 1: 只允許維護線路登入</wsdl:documentation>
+      <wsdl:input message="tns:LoginStateChageSoapIn" />
+      <wsdl:output message="tns:LoginStateChageSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="GameCommandHttpGet">
+    <wsdl:operation name="GetMemberWinloseCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取得明細帳筆數&lt;br&gt;
+				MemberAccount：會員帳號(string)&lt;br&gt;
+				WID：開洗分單號(long)&lt;br&gt;
+				GameID：遊戲編號(int)</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberWinloseCountHttpGetIn" />
+      <wsdl:output message="tns:GetMemberWinloseCountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberWinloseDetail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+					取得會員明細帳&lt;br&gt;
+					MemberAccount：會員帳號(string)&lt;br&gt;
+					WID：開洗分單號(long)&lt;br&gt;
+					GameID：遊戲編號(int)&lt;br&gt;
+					PageIndex:分頁頁數，從1開始(int)&lt;br&gt;
+					PageSize:每頁筆數(int)&lt;br&gt;
+					回傳XML格式:&lt;pre&gt;
+				&amp;lt;WinloseDetail MemberAccount=&amp;quot;1110180001&amp;quot; WID=&amp;quot;20120621145444650&amp;quot; GameID=&amp;quot;0&amp;quot;&amp;gt;
+					&amp;lt;WinloseLog WinloseID=&amp;quot;1&amp;quot; MemberAccount=&amp;quot;1110180001&amp;quot; WID=&amp;quot;20120621145444650&amp;quot; SeatID=&amp;quot;1&amp;quot; 
+						RoundNo=&amp;quot;2&amp;quot; GameID=&amp;quot;3&amp;quot; Winlose=&amp;quot;273.00&amp;quot; Bet=&amp;quot;27.00&amp;quot; GetJPMoney=&amp;quot;0.00&amp;quot; CurrentPoints=&amp;quot;10079516.48&amp;quot; 
+						CreateDate=&amp;quot;2012/06/21 14:54:55&amp;quot; IPAddr=&amp;quot;&amp;quot;/&amp;gt;
+				&amp;lt;WinloseLog WinloseID=&amp;quot;2&amp;quot; MemberAccount=&amp;quot;1110180001&amp;quot; WID=&amp;quot;20120621145444650&amp;quot; SeatID=&amp;quot;1&amp;quot; RoundNo=&amp;quot;3&amp;quot; 
+						GameID=&amp;quot;3&amp;quot; Winlose=&amp;quot;-27.00&amp;quot; Bet=&amp;quot;27.00&amp;quot; GetJPMoney=&amp;quot;0.00&amp;quot; CurrentPoints=&amp;quot;10079489.48&amp;quot; 
+						CreateDate=&amp;quot;2012/06/21 14:54:59&amp;quot; IPAddr=&amp;quot;&amp;quot;/&amp;gt;
+					&amp;lt;WinloseLog WinloseID=&amp;quot;3&amp;quot; MemberAccount=&amp;quot;1110180001&amp;quot; WID=&amp;quot;20120621145444650&amp;quot; SeatID=&amp;quot;1&amp;quot; 
+						RoundNo=&amp;quot;4&amp;quot; GameID=&amp;quot;3&amp;quot; Winlose=&amp;quot;-27.00&amp;quot; Bet=&amp;quot;27.00&amp;quot; GetJPMoney=&amp;quot;0.00&amp;quot; CurrentPoints=&amp;quot;10079462.48&amp;quot; 
+						CreateDate=&amp;quot;2012/06/21 14:55:06&amp;quot; IPAddr=&amp;quot;&amp;quot;/&amp;gt;
+				&amp;lt;/WinloseDetail&amp;gt;&lt;/pre&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberWinloseDetailHttpGetIn" />
+      <wsdl:output message="tns:GetMemberWinloseDetailHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerAccount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取得會員於該遊戲中最終的額度，用做驗證&lt;br&gt;
+				PlayerId:玩家編號&lt;br&gt;
+				SessionId:開分識別碼&lt;br&gt;
+				GameId:遊戲編號&lt;br&gt;
+				回傳XML格式:&lt;br&gt;&lt;pre&gt;
+			&amp;lt;decimal&amp;gt;-1.0000&amp;lt;/decimal&amp;gt;
+				&lt;/pre&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetPlayerAccountHttpGetIn" />
+      <wsdl:output message="tns:GetPlayerAccountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KickAllUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">踢出所有玩家&lt;br&gt;
+				回傳格式:string&lt;br&gt;
+					1:成功&lt;br&gt;
+					其他:失敗</wsdl:documentation>
+      <wsdl:input message="tns:KickAllUserHttpGetIn" />
+      <wsdl:output message="tns:KickAllUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">踢出指定玩家&lt;br&gt;
+				MemberAccount:玩家帳號&lt;br&gt;
+				回傳格式:string&lt;br&gt;
+					1:成功&lt;br&gt;
+					其他:失敗</wsdl:documentation>
+      <wsdl:input message="tns:KickUserHttpGetIn" />
+      <wsdl:output message="tns:KickUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginStateChage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">變更登入狀態&lt;br&gt;
+				State:登入狀態&lt;br&gt;
+				-1: 查詢目前狀態, 0: 開放登入, 1: 只允許維護線路登入&lt;br&gt;
+				回傳格式:string&lt;br&gt;
+				0: 開放登入, 1: 只允許維護線路登入</wsdl:documentation>
+      <wsdl:input message="tns:LoginStateChageHttpGetIn" />
+      <wsdl:output message="tns:LoginStateChageHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="GameCommandHttpPost">
+    <wsdl:operation name="GetMemberWinloseCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取得明細帳筆數&lt;br&gt;
+				MemberAccount：會員帳號(string)&lt;br&gt;
+				WID：開洗分單號(long)&lt;br&gt;
+				GameID：遊戲編號(int)</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberWinloseCountHttpPostIn" />
+      <wsdl:output message="tns:GetMemberWinloseCountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberWinloseDetail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+					取得會員明細帳&lt;br&gt;
+					MemberAccount：會員帳號(string)&lt;br&gt;
+					WID：開洗分單號(long)&lt;br&gt;
+					GameID：遊戲編號(int)&lt;br&gt;
+					PageIndex:分頁頁數，從1開始(int)&lt;br&gt;
+					PageSize:每頁筆數(int)&lt;br&gt;
+					回傳XML格式:&lt;pre&gt;
+				&amp;lt;WinloseDetail MemberAccount=&amp;quot;1110180001&amp;quot; WID=&amp;quot;20120621145444650&amp;quot; GameID=&amp;quot;0&amp;quot;&amp;gt;
+					&amp;lt;WinloseLog WinloseID=&amp;quot;1&amp;quot; MemberAccount=&amp;quot;1110180001&amp;quot; WID=&amp;quot;20120621145444650&amp;quot; SeatID=&amp;quot;1&amp;quot; 
+						RoundNo=&amp;quot;2&amp;quot; GameID=&amp;quot;3&amp;quot; Winlose=&amp;quot;273.00&amp;quot; Bet=&amp;quot;27.00&amp;quot; GetJPMoney=&amp;quot;0.00&amp;quot; CurrentPoints=&amp;quot;10079516.48&amp;quot; 
+						CreateDate=&amp;quot;2012/06/21 14:54:55&amp;quot; IPAddr=&amp;quot;&amp;quot;/&amp;gt;
+				&amp;lt;WinloseLog WinloseID=&amp;quot;2&amp;quot; MemberAccount=&amp;quot;1110180001&amp;quot; WID=&amp;quot;20120621145444650&amp;quot; SeatID=&amp;quot;1&amp;quot; RoundNo=&amp;quot;3&amp;quot; 
+						GameID=&amp;quot;3&amp;quot; Winlose=&amp;quot;-27.00&amp;quot; Bet=&amp;quot;27.00&amp;quot; GetJPMoney=&amp;quot;0.00&amp;quot; CurrentPoints=&amp;quot;10079489.48&amp;quot; 
+						CreateDate=&amp;quot;2012/06/21 14:54:59&amp;quot; IPAddr=&amp;quot;&amp;quot;/&amp;gt;
+					&amp;lt;WinloseLog WinloseID=&amp;quot;3&amp;quot; MemberAccount=&amp;quot;1110180001&amp;quot; WID=&amp;quot;20120621145444650&amp;quot; SeatID=&amp;quot;1&amp;quot; 
+						RoundNo=&amp;quot;4&amp;quot; GameID=&amp;quot;3&amp;quot; Winlose=&amp;quot;-27.00&amp;quot; Bet=&amp;quot;27.00&amp;quot; GetJPMoney=&amp;quot;0.00&amp;quot; CurrentPoints=&amp;quot;10079462.48&amp;quot; 
+						CreateDate=&amp;quot;2012/06/21 14:55:06&amp;quot; IPAddr=&amp;quot;&amp;quot;/&amp;gt;
+				&amp;lt;/WinloseDetail&amp;gt;&lt;/pre&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetMemberWinloseDetailHttpPostIn" />
+      <wsdl:output message="tns:GetMemberWinloseDetailHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerAccount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取得會員於該遊戲中最終的額度，用做驗證&lt;br&gt;
+				PlayerId:玩家編號&lt;br&gt;
+				SessionId:開分識別碼&lt;br&gt;
+				GameId:遊戲編號&lt;br&gt;
+				回傳XML格式:&lt;br&gt;&lt;pre&gt;
+			&amp;lt;decimal&amp;gt;-1.0000&amp;lt;/decimal&amp;gt;
+				&lt;/pre&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetPlayerAccountHttpPostIn" />
+      <wsdl:output message="tns:GetPlayerAccountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KickAllUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">踢出所有玩家&lt;br&gt;
+				回傳格式:string&lt;br&gt;
+					1:成功&lt;br&gt;
+					其他:失敗</wsdl:documentation>
+      <wsdl:input message="tns:KickAllUserHttpPostIn" />
+      <wsdl:output message="tns:KickAllUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">踢出指定玩家&lt;br&gt;
+				MemberAccount:玩家帳號&lt;br&gt;
+				回傳格式:string&lt;br&gt;
+					1:成功&lt;br&gt;
+					其他:失敗</wsdl:documentation>
+      <wsdl:input message="tns:KickUserHttpPostIn" />
+      <wsdl:output message="tns:KickUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginStateChage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">變更登入狀態&lt;br&gt;
+				State:登入狀態&lt;br&gt;
+				-1: 查詢目前狀態, 0: 開放登入, 1: 只允許維護線路登入&lt;br&gt;
+				回傳格式:string&lt;br&gt;
+				0: 開放登入, 1: 只允許維護線路登入</wsdl:documentation>
+      <wsdl:input message="tns:LoginStateChageHttpPostIn" />
+      <wsdl:output message="tns:LoginStateChageHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GameCommandSoap" type="tns:GameCommandSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMemberWinloseCount">
+      <soap:operation soapAction="http://tempuri.org/GetMemberWinloseCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberWinloseDetail">
+      <soap:operation soapAction="http://tempuri.org/GetMemberWinloseDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerAccount">
+      <soap:operation soapAction="http://tempuri.org/GetPlayerAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KickAllUser">
+      <soap:operation soapAction="http://tempuri.org/KickAllUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <soap:operation soapAction="http://tempuri.org/KickUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginStateChage">
+      <soap:operation soapAction="http://tempuri.org/LoginStateChage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GameCommandSoap12" type="tns:GameCommandSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMemberWinloseCount">
+      <soap12:operation soapAction="http://tempuri.org/GetMemberWinloseCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberWinloseDetail">
+      <soap12:operation soapAction="http://tempuri.org/GetMemberWinloseDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerAccount">
+      <soap12:operation soapAction="http://tempuri.org/GetPlayerAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KickAllUser">
+      <soap12:operation soapAction="http://tempuri.org/KickAllUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <soap12:operation soapAction="http://tempuri.org/KickUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginStateChage">
+      <soap12:operation soapAction="http://tempuri.org/LoginStateChage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GameCommandHttpGet" type="tns:GameCommandHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetMemberWinloseCount">
+      <http:operation location="/GetMemberWinloseCount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberWinloseDetail">
+      <http:operation location="/GetMemberWinloseDetail" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerAccount">
+      <http:operation location="/GetPlayerAccount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KickAllUser">
+      <http:operation location="/KickAllUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <http:operation location="/KickUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginStateChage">
+      <http:operation location="/LoginStateChage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GameCommandHttpPost" type="tns:GameCommandHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetMemberWinloseCount">
+      <http:operation location="/GetMemberWinloseCount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberWinloseDetail">
+      <http:operation location="/GetMemberWinloseDetail" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerAccount">
+      <http:operation location="/GetPlayerAccount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KickAllUser">
+      <http:operation location="/KickAllUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <http:operation location="/KickUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginStateChage">
+      <http:operation location="/LoginStateChage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GameCommand">
+    <wsdl:port name="GameCommandSoap" binding="tns:GameCommandSoap">
+      <soap:address location="http://ws.ruby4.otm.itsvc.biz/gamecommand.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GameCommandSoap12" binding="tns:GameCommandSoap12">
+      <soap12:address location="http://ws.ruby4.otm.itsvc.biz/gamecommand.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GameCommandHttpGet" binding="tns:GameCommandHttpGet">
+      <http:address location="http://ws.ruby4.otm.itsvc.biz/gamecommand.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GameCommandHttpPost" binding="tns:GameCommandHttpPost">
+      <http:address location="http://ws.ruby4.otm.itsvc.biz/gamecommand.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

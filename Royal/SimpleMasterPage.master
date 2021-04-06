@@ -1,0 +1,43 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="MasterPage" CodeFile="~/SimpleMasterPage.master.cs" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .menu {
+            width: 100%;
+        }
+
+        .site {
+            color: red;
+        }
+
+        body {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <table cellpadding="0" cellspacing="0" class="menu">
+            <tr>
+                <td class="site">[ <%=ConfigurationManager.AppSettings["SiteId"].ToString() %> ]</td>
+                <td align="left">
+                    <asp:Panel ID="plToolBar" runat="server">
+                    <asp:HyperLink ID="lnk1" runat="server" NavigateUrl="GetPlayerInfo.aspx">取得帳號資訊</asp:HyperLink>
+                        &nbsp;                
+                    <asp:HyperLink ID="lnk2" runat="server" NavigateUrl="UnReturnAccount_Royal.aspx">Royal手動洗分</asp:HyperLink>
+                        &nbsp;
+                    <asp:HyperLink ID="lnk3" runat="server" NavigateUrl="Logout.aspx">登出</asp:HyperLink>
+                    </asp:Panel>
+                </td>
+            </tr>
+        </table>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

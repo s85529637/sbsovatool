@@ -1,0 +1,2092 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://mobileLogWrapper.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://mobileLogWrapper.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://mobileLogWrapper.com/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerLoginWeb">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerEname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerLoginWebResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerLoginWebResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerEname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GameID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeskID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerLoginResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerChangeServer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerEname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GameID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeskID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerChangeServerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerChangeServerResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerLogout">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerEname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerLogoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerLogoutResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerStakeScore">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GameId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Desk" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StakeName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StakeScore" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="NoRun" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NoActive" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerStakeScoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerStakeScoreResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerStakeScoreBatch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GameId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Desk" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="arrStakeName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="arrStakeScore" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NoRun" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NoActive" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerStakeScoreBatchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerStakeScoreBatchResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerWinScore">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GameId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Desk" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NoRun" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NoActive" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerWinScoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerWinScoreResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerGetBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerGetBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerGetBalanceResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerGetLimit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GameId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeskId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerGetLimitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerGetLimitResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerGetOpenDesk">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerEname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerGetOpenDeskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerGetOpenDeskResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoadCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ServerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NoRun" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoadCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRoadCountResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GameId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeskId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMessageResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOpenListBatch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ServerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartRunDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartActive" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndActive" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOpenListBatchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOpenListBatchResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNowStakeScore">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ServerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NoRun" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NoActive" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClubId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MaHao" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNowStakeScoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNowStakeScoreResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnlineList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnlineListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOnlineListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServerLimit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GameId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeskId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServerLimitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServerLimitResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServerStakeScore">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GameId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeskId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServerStakeScoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServerStakeScoreResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTongJiList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GameId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeskId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="MaxId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="TOP" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTongJiListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTongJiListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTongJiMaxId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GameId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DeskId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTongJiMaxIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTongJiMaxIdResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessageList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MaxId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="TOP" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessageListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMessageListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestTimeOut">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RequestTime" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestTimeOutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestTimeOutResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLoginWebSoapIn">
+    <wsdl:part name="parameters" element="tns:PlayerLoginWeb" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLoginWebSoapOut">
+    <wsdl:part name="parameters" element="tns:PlayerLoginWebResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:PlayerLogin" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:PlayerLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlayerChangeServerSoapIn">
+    <wsdl:part name="parameters" element="tns:PlayerChangeServer" />
+  </wsdl:message>
+  <wsdl:message name="PlayerChangeServerSoapOut">
+    <wsdl:part name="parameters" element="tns:PlayerChangeServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLogoutSoapIn">
+    <wsdl:part name="parameters" element="tns:PlayerLogout" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLogoutSoapOut">
+    <wsdl:part name="parameters" element="tns:PlayerLogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlayerStakeScoreSoapIn">
+    <wsdl:part name="parameters" element="tns:PlayerStakeScore" />
+  </wsdl:message>
+  <wsdl:message name="PlayerStakeScoreSoapOut">
+    <wsdl:part name="parameters" element="tns:PlayerStakeScoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlayerStakeScoreBatchSoapIn">
+    <wsdl:part name="parameters" element="tns:PlayerStakeScoreBatch" />
+  </wsdl:message>
+  <wsdl:message name="PlayerStakeScoreBatchSoapOut">
+    <wsdl:part name="parameters" element="tns:PlayerStakeScoreBatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlayerWinScoreSoapIn">
+    <wsdl:part name="parameters" element="tns:PlayerWinScore" />
+  </wsdl:message>
+  <wsdl:message name="PlayerWinScoreSoapOut">
+    <wsdl:part name="parameters" element="tns:PlayerWinScoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlayerGetBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:PlayerGetBalance" />
+  </wsdl:message>
+  <wsdl:message name="PlayerGetBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:PlayerGetBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlayerGetLimitSoapIn">
+    <wsdl:part name="parameters" element="tns:PlayerGetLimit" />
+  </wsdl:message>
+  <wsdl:message name="PlayerGetLimitSoapOut">
+    <wsdl:part name="parameters" element="tns:PlayerGetLimitResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlayerGetOpenDeskSoapIn">
+    <wsdl:part name="parameters" element="tns:PlayerGetOpenDesk" />
+  </wsdl:message>
+  <wsdl:message name="PlayerGetOpenDeskSoapOut">
+    <wsdl:part name="parameters" element="tns:PlayerGetOpenDeskResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRoadCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRoadCount" />
+  </wsdl:message>
+  <wsdl:message name="GetRoadCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRoadCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMessage" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOpenListBatchSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOpenListBatch" />
+  </wsdl:message>
+  <wsdl:message name="GetOpenListBatchSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOpenListBatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNowStakeScoreSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNowStakeScore" />
+  </wsdl:message>
+  <wsdl:message name="GetNowStakeScoreSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNowStakeScoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOnlineList" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOnlineListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServerLimitSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServerLimit" />
+  </wsdl:message>
+  <wsdl:message name="GetServerLimitSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServerLimitResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServerStakeScoreSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServerStakeScore" />
+  </wsdl:message>
+  <wsdl:message name="GetServerStakeScoreSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServerStakeScoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTongJiListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTongJiList" />
+  </wsdl:message>
+  <wsdl:message name="GetTongJiListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTongJiListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTongJiMaxIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTongJiMaxId" />
+  </wsdl:message>
+  <wsdl:message name="GetTongJiMaxIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTongJiMaxIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMessageList" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMessageListResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestTimeOutSoapIn">
+    <wsdl:part name="parameters" element="tns:TestTimeOut" />
+  </wsdl:message>
+  <wsdl:message name="TestTimeOutSoapOut">
+    <wsdl:part name="parameters" element="tns:TestTimeOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn" />
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLoginWebHttpGetIn">
+    <wsdl:part name="PlayerEname" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="IP" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLoginWebHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLoginHttpGetIn">
+    <wsdl:part name="PlayerEname" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="IP" type="s:string" />
+    <wsdl:part name="GameID" type="s:string" />
+    <wsdl:part name="DeskID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLoginHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerChangeServerHttpGetIn">
+    <wsdl:part name="PlayerEname" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="IP" type="s:string" />
+    <wsdl:part name="GameID" type="s:string" />
+    <wsdl:part name="DeskID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerChangeServerHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLogoutHttpGetIn">
+    <wsdl:part name="PlayerEname" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="IP" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLogoutHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerStakeScoreHttpGetIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="GameId" type="s:string" />
+    <wsdl:part name="Desk" type="s:string" />
+    <wsdl:part name="StakeName" type="s:string" />
+    <wsdl:part name="StakeScore" type="s:string" />
+    <wsdl:part name="NoRun" type="s:string" />
+    <wsdl:part name="NoActive" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerStakeScoreHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerStakeScoreBatchHttpGetIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="GameId" type="s:string" />
+    <wsdl:part name="Desk" type="s:string" />
+    <wsdl:part name="arrStakeName" type="s:string" />
+    <wsdl:part name="arrStakeScore" type="s:string" />
+    <wsdl:part name="NoRun" type="s:string" />
+    <wsdl:part name="NoActive" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerStakeScoreBatchHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerWinScoreHttpGetIn">
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="GameId" type="s:string" />
+    <wsdl:part name="Desk" type="s:string" />
+    <wsdl:part name="NoRun" type="s:string" />
+    <wsdl:part name="NoActive" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerWinScoreHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerGetBalanceHttpGetIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerGetBalanceHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerGetLimitHttpGetIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="GameId" type="s:string" />
+    <wsdl:part name="DeskId" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerGetLimitHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerGetOpenDeskHttpGetIn">
+    <wsdl:part name="PlayerEname" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerGetOpenDeskHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetRoadCountHttpGetIn">
+    <wsdl:part name="ServerId" type="s:string" />
+    <wsdl:part name="NoRun" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRoadCountHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageHttpGetIn">
+    <wsdl:part name="GameId" type="s:string" />
+    <wsdl:part name="DeskId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetOpenListBatchHttpGetIn">
+    <wsdl:part name="ServerId" type="s:string" />
+    <wsdl:part name="StartRunDate" type="s:string" />
+    <wsdl:part name="StartActive" type="s:string" />
+    <wsdl:part name="EndActive" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOpenListBatchHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetNowStakeScoreHttpGetIn">
+    <wsdl:part name="ServerId" type="s:string" />
+    <wsdl:part name="NoRun" type="s:string" />
+    <wsdl:part name="NoActive" type="s:string" />
+    <wsdl:part name="ClubId" type="s:string" />
+    <wsdl:part name="MaHao" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetNowStakeScoreHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineListHttpGetIn">
+    <wsdl:part name="WebID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineListHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetServerLimitHttpGetIn">
+    <wsdl:part name="GameId" type="s:string" />
+    <wsdl:part name="DeskId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetServerLimitHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetServerStakeScoreHttpGetIn">
+    <wsdl:part name="GameId" type="s:string" />
+    <wsdl:part name="DeskId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetServerStakeScoreHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetTongJiListHttpGetIn">
+    <wsdl:part name="GameId" type="s:string" />
+    <wsdl:part name="DeskId" type="s:string" />
+    <wsdl:part name="MaxId" type="s:string" />
+    <wsdl:part name="TOP" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTongJiListHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetTongJiMaxIdHttpGetIn">
+    <wsdl:part name="GameId" type="s:string" />
+    <wsdl:part name="DeskId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTongJiMaxIdHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageListHttpGetIn">
+    <wsdl:part name="MaxId" type="s:string" />
+    <wsdl:part name="TOP" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageListHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="TestTimeOutHttpGetIn">
+    <wsdl:part name="RequestTime" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TestTimeOutHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLoginWebHttpPostIn">
+    <wsdl:part name="PlayerEname" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="IP" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLoginWebHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLoginHttpPostIn">
+    <wsdl:part name="PlayerEname" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="IP" type="s:string" />
+    <wsdl:part name="GameID" type="s:string" />
+    <wsdl:part name="DeskID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLoginHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerChangeServerHttpPostIn">
+    <wsdl:part name="PlayerEname" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="IP" type="s:string" />
+    <wsdl:part name="GameID" type="s:string" />
+    <wsdl:part name="DeskID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerChangeServerHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLogoutHttpPostIn">
+    <wsdl:part name="PlayerEname" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="IP" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLogoutHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerStakeScoreHttpPostIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="GameId" type="s:string" />
+    <wsdl:part name="Desk" type="s:string" />
+    <wsdl:part name="StakeName" type="s:string" />
+    <wsdl:part name="StakeScore" type="s:string" />
+    <wsdl:part name="NoRun" type="s:string" />
+    <wsdl:part name="NoActive" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerStakeScoreHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerStakeScoreBatchHttpPostIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="GameId" type="s:string" />
+    <wsdl:part name="Desk" type="s:string" />
+    <wsdl:part name="arrStakeName" type="s:string" />
+    <wsdl:part name="arrStakeScore" type="s:string" />
+    <wsdl:part name="NoRun" type="s:string" />
+    <wsdl:part name="NoActive" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerStakeScoreBatchHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerWinScoreHttpPostIn">
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="GameId" type="s:string" />
+    <wsdl:part name="Desk" type="s:string" />
+    <wsdl:part name="NoRun" type="s:string" />
+    <wsdl:part name="NoActive" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerWinScoreHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerGetBalanceHttpPostIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerGetBalanceHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerGetLimitHttpPostIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="GameId" type="s:string" />
+    <wsdl:part name="DeskId" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerGetLimitHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerGetOpenDeskHttpPostIn">
+    <wsdl:part name="PlayerEname" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerGetOpenDeskHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetRoadCountHttpPostIn">
+    <wsdl:part name="ServerId" type="s:string" />
+    <wsdl:part name="NoRun" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRoadCountHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageHttpPostIn">
+    <wsdl:part name="GameId" type="s:string" />
+    <wsdl:part name="DeskId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetOpenListBatchHttpPostIn">
+    <wsdl:part name="ServerId" type="s:string" />
+    <wsdl:part name="StartRunDate" type="s:string" />
+    <wsdl:part name="StartActive" type="s:string" />
+    <wsdl:part name="EndActive" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOpenListBatchHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetNowStakeScoreHttpPostIn">
+    <wsdl:part name="ServerId" type="s:string" />
+    <wsdl:part name="NoRun" type="s:string" />
+    <wsdl:part name="NoActive" type="s:string" />
+    <wsdl:part name="ClubId" type="s:string" />
+    <wsdl:part name="MaHao" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetNowStakeScoreHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineListHttpPostIn">
+    <wsdl:part name="WebID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineListHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetServerLimitHttpPostIn">
+    <wsdl:part name="GameId" type="s:string" />
+    <wsdl:part name="DeskId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetServerLimitHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetServerStakeScoreHttpPostIn">
+    <wsdl:part name="GameId" type="s:string" />
+    <wsdl:part name="DeskId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetServerStakeScoreHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetTongJiListHttpPostIn">
+    <wsdl:part name="GameId" type="s:string" />
+    <wsdl:part name="DeskId" type="s:string" />
+    <wsdl:part name="MaxId" type="s:string" />
+    <wsdl:part name="TOP" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTongJiListHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetTongJiMaxIdHttpPostIn">
+    <wsdl:part name="GameId" type="s:string" />
+    <wsdl:part name="DeskId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTongJiMaxIdHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageListHttpPostIn">
+    <wsdl:part name="MaxId" type="s:string" />
+    <wsdl:part name="TOP" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageListHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="TestTimeOutHttpPostIn">
+    <wsdl:part name="RequestTime" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TestTimeOutHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:portType name="MobileLogWrapperSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLoginWeb">
+      <wsdl:input message="tns:PlayerLoginWebSoapIn" />
+      <wsdl:output message="tns:PlayerLoginWebSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLogin">
+      <wsdl:input message="tns:PlayerLoginSoapIn" />
+      <wsdl:output message="tns:PlayerLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerChangeServer">
+      <wsdl:input message="tns:PlayerChangeServerSoapIn" />
+      <wsdl:output message="tns:PlayerChangeServerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLogout">
+      <wsdl:input message="tns:PlayerLogoutSoapIn" />
+      <wsdl:output message="tns:PlayerLogoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerStakeScore">
+      <wsdl:input message="tns:PlayerStakeScoreSoapIn" />
+      <wsdl:output message="tns:PlayerStakeScoreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerStakeScoreBatch">
+      <wsdl:input message="tns:PlayerStakeScoreBatchSoapIn" />
+      <wsdl:output message="tns:PlayerStakeScoreBatchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerWinScore">
+      <wsdl:input message="tns:PlayerWinScoreSoapIn" />
+      <wsdl:output message="tns:PlayerWinScoreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerGetBalance">
+      <wsdl:input message="tns:PlayerGetBalanceSoapIn" />
+      <wsdl:output message="tns:PlayerGetBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerGetLimit">
+      <wsdl:input message="tns:PlayerGetLimitSoapIn" />
+      <wsdl:output message="tns:PlayerGetLimitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerGetOpenDesk">
+      <wsdl:input message="tns:PlayerGetOpenDeskSoapIn" />
+      <wsdl:output message="tns:PlayerGetOpenDeskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoadCount">
+      <wsdl:input message="tns:GetRoadCountSoapIn" />
+      <wsdl:output message="tns:GetRoadCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <wsdl:input message="tns:GetMessageSoapIn" />
+      <wsdl:output message="tns:GetMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenListBatch">
+      <wsdl:input message="tns:GetOpenListBatchSoapIn" />
+      <wsdl:output message="tns:GetOpenListBatchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNowStakeScore">
+      <wsdl:input message="tns:GetNowStakeScoreSoapIn" />
+      <wsdl:output message="tns:GetNowStakeScoreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineList">
+      <wsdl:input message="tns:GetOnlineListSoapIn" />
+      <wsdl:output message="tns:GetOnlineListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerLimit">
+      <wsdl:input message="tns:GetServerLimitSoapIn" />
+      <wsdl:output message="tns:GetServerLimitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerStakeScore">
+      <wsdl:input message="tns:GetServerStakeScoreSoapIn" />
+      <wsdl:output message="tns:GetServerStakeScoreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTongJiList">
+      <wsdl:input message="tns:GetTongJiListSoapIn" />
+      <wsdl:output message="tns:GetTongJiListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTongJiMaxId">
+      <wsdl:input message="tns:GetTongJiMaxIdSoapIn" />
+      <wsdl:output message="tns:GetTongJiMaxIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageList">
+      <wsdl:input message="tns:GetMessageListSoapIn" />
+      <wsdl:output message="tns:GetMessageListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestTimeOut">
+      <wsdl:input message="tns:TestTimeOutSoapIn" />
+      <wsdl:output message="tns:TestTimeOutSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MobileLogWrapperHttpGet">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpGetIn" />
+      <wsdl:output message="tns:HelloWorldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLoginWeb">
+      <wsdl:input message="tns:PlayerLoginWebHttpGetIn" />
+      <wsdl:output message="tns:PlayerLoginWebHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLogin">
+      <wsdl:input message="tns:PlayerLoginHttpGetIn" />
+      <wsdl:output message="tns:PlayerLoginHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerChangeServer">
+      <wsdl:input message="tns:PlayerChangeServerHttpGetIn" />
+      <wsdl:output message="tns:PlayerChangeServerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLogout">
+      <wsdl:input message="tns:PlayerLogoutHttpGetIn" />
+      <wsdl:output message="tns:PlayerLogoutHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerStakeScore">
+      <wsdl:input message="tns:PlayerStakeScoreHttpGetIn" />
+      <wsdl:output message="tns:PlayerStakeScoreHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerStakeScoreBatch">
+      <wsdl:input message="tns:PlayerStakeScoreBatchHttpGetIn" />
+      <wsdl:output message="tns:PlayerStakeScoreBatchHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerWinScore">
+      <wsdl:input message="tns:PlayerWinScoreHttpGetIn" />
+      <wsdl:output message="tns:PlayerWinScoreHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerGetBalance">
+      <wsdl:input message="tns:PlayerGetBalanceHttpGetIn" />
+      <wsdl:output message="tns:PlayerGetBalanceHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerGetLimit">
+      <wsdl:input message="tns:PlayerGetLimitHttpGetIn" />
+      <wsdl:output message="tns:PlayerGetLimitHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerGetOpenDesk">
+      <wsdl:input message="tns:PlayerGetOpenDeskHttpGetIn" />
+      <wsdl:output message="tns:PlayerGetOpenDeskHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoadCount">
+      <wsdl:input message="tns:GetRoadCountHttpGetIn" />
+      <wsdl:output message="tns:GetRoadCountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <wsdl:input message="tns:GetMessageHttpGetIn" />
+      <wsdl:output message="tns:GetMessageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenListBatch">
+      <wsdl:input message="tns:GetOpenListBatchHttpGetIn" />
+      <wsdl:output message="tns:GetOpenListBatchHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNowStakeScore">
+      <wsdl:input message="tns:GetNowStakeScoreHttpGetIn" />
+      <wsdl:output message="tns:GetNowStakeScoreHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineList">
+      <wsdl:input message="tns:GetOnlineListHttpGetIn" />
+      <wsdl:output message="tns:GetOnlineListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerLimit">
+      <wsdl:input message="tns:GetServerLimitHttpGetIn" />
+      <wsdl:output message="tns:GetServerLimitHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerStakeScore">
+      <wsdl:input message="tns:GetServerStakeScoreHttpGetIn" />
+      <wsdl:output message="tns:GetServerStakeScoreHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTongJiList">
+      <wsdl:input message="tns:GetTongJiListHttpGetIn" />
+      <wsdl:output message="tns:GetTongJiListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTongJiMaxId">
+      <wsdl:input message="tns:GetTongJiMaxIdHttpGetIn" />
+      <wsdl:output message="tns:GetTongJiMaxIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageList">
+      <wsdl:input message="tns:GetMessageListHttpGetIn" />
+      <wsdl:output message="tns:GetMessageListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestTimeOut">
+      <wsdl:input message="tns:TestTimeOutHttpGetIn" />
+      <wsdl:output message="tns:TestTimeOutHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MobileLogWrapperHttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLoginWeb">
+      <wsdl:input message="tns:PlayerLoginWebHttpPostIn" />
+      <wsdl:output message="tns:PlayerLoginWebHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLogin">
+      <wsdl:input message="tns:PlayerLoginHttpPostIn" />
+      <wsdl:output message="tns:PlayerLoginHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerChangeServer">
+      <wsdl:input message="tns:PlayerChangeServerHttpPostIn" />
+      <wsdl:output message="tns:PlayerChangeServerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLogout">
+      <wsdl:input message="tns:PlayerLogoutHttpPostIn" />
+      <wsdl:output message="tns:PlayerLogoutHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerStakeScore">
+      <wsdl:input message="tns:PlayerStakeScoreHttpPostIn" />
+      <wsdl:output message="tns:PlayerStakeScoreHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerStakeScoreBatch">
+      <wsdl:input message="tns:PlayerStakeScoreBatchHttpPostIn" />
+      <wsdl:output message="tns:PlayerStakeScoreBatchHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerWinScore">
+      <wsdl:input message="tns:PlayerWinScoreHttpPostIn" />
+      <wsdl:output message="tns:PlayerWinScoreHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerGetBalance">
+      <wsdl:input message="tns:PlayerGetBalanceHttpPostIn" />
+      <wsdl:output message="tns:PlayerGetBalanceHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerGetLimit">
+      <wsdl:input message="tns:PlayerGetLimitHttpPostIn" />
+      <wsdl:output message="tns:PlayerGetLimitHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerGetOpenDesk">
+      <wsdl:input message="tns:PlayerGetOpenDeskHttpPostIn" />
+      <wsdl:output message="tns:PlayerGetOpenDeskHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoadCount">
+      <wsdl:input message="tns:GetRoadCountHttpPostIn" />
+      <wsdl:output message="tns:GetRoadCountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <wsdl:input message="tns:GetMessageHttpPostIn" />
+      <wsdl:output message="tns:GetMessageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenListBatch">
+      <wsdl:input message="tns:GetOpenListBatchHttpPostIn" />
+      <wsdl:output message="tns:GetOpenListBatchHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNowStakeScore">
+      <wsdl:input message="tns:GetNowStakeScoreHttpPostIn" />
+      <wsdl:output message="tns:GetNowStakeScoreHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineList">
+      <wsdl:input message="tns:GetOnlineListHttpPostIn" />
+      <wsdl:output message="tns:GetOnlineListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerLimit">
+      <wsdl:input message="tns:GetServerLimitHttpPostIn" />
+      <wsdl:output message="tns:GetServerLimitHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerStakeScore">
+      <wsdl:input message="tns:GetServerStakeScoreHttpPostIn" />
+      <wsdl:output message="tns:GetServerStakeScoreHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTongJiList">
+      <wsdl:input message="tns:GetTongJiListHttpPostIn" />
+      <wsdl:output message="tns:GetTongJiListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTongJiMaxId">
+      <wsdl:input message="tns:GetTongJiMaxIdHttpPostIn" />
+      <wsdl:output message="tns:GetTongJiMaxIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageList">
+      <wsdl:input message="tns:GetMessageListHttpPostIn" />
+      <wsdl:output message="tns:GetMessageListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestTimeOut">
+      <wsdl:input message="tns:TestTimeOutHttpPostIn" />
+      <wsdl:output message="tns:TestTimeOutHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MobileLogWrapperSoap" type="tns:MobileLogWrapperSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://mobileLogWrapper.com/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLoginWeb">
+      <soap:operation soapAction="http://mobileLogWrapper.com/PlayerLoginWeb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLogin">
+      <soap:operation soapAction="http://mobileLogWrapper.com/PlayerLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerChangeServer">
+      <soap:operation soapAction="http://mobileLogWrapper.com/PlayerChangeServer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLogout">
+      <soap:operation soapAction="http://mobileLogWrapper.com/PlayerLogout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerStakeScore">
+      <soap:operation soapAction="http://mobileLogWrapper.com/PlayerStakeScore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerStakeScoreBatch">
+      <soap:operation soapAction="http://mobileLogWrapper.com/PlayerStakeScoreBatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerWinScore">
+      <soap:operation soapAction="http://mobileLogWrapper.com/PlayerWinScore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerGetBalance">
+      <soap:operation soapAction="http://mobileLogWrapper.com/PlayerGetBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerGetLimit">
+      <soap:operation soapAction="http://mobileLogWrapper.com/PlayerGetLimit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerGetOpenDesk">
+      <soap:operation soapAction="http://mobileLogWrapper.com/PlayerGetOpenDesk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoadCount">
+      <soap:operation soapAction="http://mobileLogWrapper.com/GetRoadCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <soap:operation soapAction="http://mobileLogWrapper.com/GetMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenListBatch">
+      <soap:operation soapAction="http://mobileLogWrapper.com/GetOpenListBatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNowStakeScore">
+      <soap:operation soapAction="http://mobileLogWrapper.com/GetNowStakeScore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineList">
+      <soap:operation soapAction="http://mobileLogWrapper.com/GetOnlineList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerLimit">
+      <soap:operation soapAction="http://mobileLogWrapper.com/GetServerLimit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerStakeScore">
+      <soap:operation soapAction="http://mobileLogWrapper.com/GetServerStakeScore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTongJiList">
+      <soap:operation soapAction="http://mobileLogWrapper.com/GetTongJiList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTongJiMaxId">
+      <soap:operation soapAction="http://mobileLogWrapper.com/GetTongJiMaxId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageList">
+      <soap:operation soapAction="http://mobileLogWrapper.com/GetMessageList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestTimeOut">
+      <soap:operation soapAction="http://mobileLogWrapper.com/TestTimeOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MobileLogWrapperSoap12" type="tns:MobileLogWrapperSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://mobileLogWrapper.com/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLoginWeb">
+      <soap12:operation soapAction="http://mobileLogWrapper.com/PlayerLoginWeb" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLogin">
+      <soap12:operation soapAction="http://mobileLogWrapper.com/PlayerLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerChangeServer">
+      <soap12:operation soapAction="http://mobileLogWrapper.com/PlayerChangeServer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLogout">
+      <soap12:operation soapAction="http://mobileLogWrapper.com/PlayerLogout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerStakeScore">
+      <soap12:operation soapAction="http://mobileLogWrapper.com/PlayerStakeScore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerStakeScoreBatch">
+      <soap12:operation soapAction="http://mobileLogWrapper.com/PlayerStakeScoreBatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerWinScore">
+      <soap12:operation soapAction="http://mobileLogWrapper.com/PlayerWinScore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerGetBalance">
+      <soap12:operation soapAction="http://mobileLogWrapper.com/PlayerGetBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerGetLimit">
+      <soap12:operation soapAction="http://mobileLogWrapper.com/PlayerGetLimit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerGetOpenDesk">
+      <soap12:operation soapAction="http://mobileLogWrapper.com/PlayerGetOpenDesk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoadCount">
+      <soap12:operation soapAction="http://mobileLogWrapper.com/GetRoadCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <soap12:operation soapAction="http://mobileLogWrapper.com/GetMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenListBatch">
+      <soap12:operation soapAction="http://mobileLogWrapper.com/GetOpenListBatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNowStakeScore">
+      <soap12:operation soapAction="http://mobileLogWrapper.com/GetNowStakeScore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineList">
+      <soap12:operation soapAction="http://mobileLogWrapper.com/GetOnlineList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerLimit">
+      <soap12:operation soapAction="http://mobileLogWrapper.com/GetServerLimit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerStakeScore">
+      <soap12:operation soapAction="http://mobileLogWrapper.com/GetServerStakeScore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTongJiList">
+      <soap12:operation soapAction="http://mobileLogWrapper.com/GetTongJiList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTongJiMaxId">
+      <soap12:operation soapAction="http://mobileLogWrapper.com/GetTongJiMaxId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageList">
+      <soap12:operation soapAction="http://mobileLogWrapper.com/GetMessageList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestTimeOut">
+      <soap12:operation soapAction="http://mobileLogWrapper.com/TestTimeOut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MobileLogWrapperHttpGet" type="tns:MobileLogWrapperHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLoginWeb">
+      <http:operation location="/PlayerLoginWeb" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLogin">
+      <http:operation location="/PlayerLogin" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerChangeServer">
+      <http:operation location="/PlayerChangeServer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLogout">
+      <http:operation location="/PlayerLogout" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerStakeScore">
+      <http:operation location="/PlayerStakeScore" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerStakeScoreBatch">
+      <http:operation location="/PlayerStakeScoreBatch" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerWinScore">
+      <http:operation location="/PlayerWinScore" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerGetBalance">
+      <http:operation location="/PlayerGetBalance" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerGetLimit">
+      <http:operation location="/PlayerGetLimit" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerGetOpenDesk">
+      <http:operation location="/PlayerGetOpenDesk" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoadCount">
+      <http:operation location="/GetRoadCount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <http:operation location="/GetMessage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenListBatch">
+      <http:operation location="/GetOpenListBatch" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNowStakeScore">
+      <http:operation location="/GetNowStakeScore" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineList">
+      <http:operation location="/GetOnlineList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerLimit">
+      <http:operation location="/GetServerLimit" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerStakeScore">
+      <http:operation location="/GetServerStakeScore" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTongJiList">
+      <http:operation location="/GetTongJiList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTongJiMaxId">
+      <http:operation location="/GetTongJiMaxId" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageList">
+      <http:operation location="/GetMessageList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestTimeOut">
+      <http:operation location="/TestTimeOut" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MobileLogWrapperHttpPost" type="tns:MobileLogWrapperHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLoginWeb">
+      <http:operation location="/PlayerLoginWeb" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLogin">
+      <http:operation location="/PlayerLogin" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerChangeServer">
+      <http:operation location="/PlayerChangeServer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLogout">
+      <http:operation location="/PlayerLogout" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerStakeScore">
+      <http:operation location="/PlayerStakeScore" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerStakeScoreBatch">
+      <http:operation location="/PlayerStakeScoreBatch" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerWinScore">
+      <http:operation location="/PlayerWinScore" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerGetBalance">
+      <http:operation location="/PlayerGetBalance" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerGetLimit">
+      <http:operation location="/PlayerGetLimit" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerGetOpenDesk">
+      <http:operation location="/PlayerGetOpenDesk" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoadCount">
+      <http:operation location="/GetRoadCount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <http:operation location="/GetMessage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenListBatch">
+      <http:operation location="/GetOpenListBatch" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNowStakeScore">
+      <http:operation location="/GetNowStakeScore" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineList">
+      <http:operation location="/GetOnlineList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerLimit">
+      <http:operation location="/GetServerLimit" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerStakeScore">
+      <http:operation location="/GetServerStakeScore" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTongJiList">
+      <http:operation location="/GetTongJiList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTongJiMaxId">
+      <http:operation location="/GetTongJiMaxId" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageList">
+      <http:operation location="/GetMessageList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestTimeOut">
+      <http:operation location="/TestTimeOut" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MobileLogWrapper">
+    <wsdl:port name="MobileLogWrapperSoap" binding="tns:MobileLogWrapperSoap">
+      <soap:address location="http://210.66.176.241:8990/mobile.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MobileLogWrapperSoap12" binding="tns:MobileLogWrapperSoap12">
+      <soap12:address location="http://210.66.176.241:8990/mobile.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MobileLogWrapperHttpGet" binding="tns:MobileLogWrapperHttpGet">
+      <http:address location="http://210.66.176.241:8990/mobile.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MobileLogWrapperHttpPost" binding="tns:MobileLogWrapperHttpPost">
+      <http:address location="http://210.66.176.241:8990/mobile.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,1982 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://slotgame.org" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://slotgame.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://slotgame.org">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAPILogBySessionNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Web_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Player_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAPILogBySessionNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAPILogBySessionNoResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAPILogErrorList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Web_id" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Max_id" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="DataCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAPILogErrorListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAPILogErrorListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAPILogList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Web_id" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Max_id" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="DataCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAPILogListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAPILogListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAPILogMaxid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Web_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAPILogMaxidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAPILogMaxidResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJackpotHitList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SubSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Web_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJackpotHitListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetJackpotHitListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJackpotHitListByMaxid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Web_id" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Maxid" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJackpotHitListByMaxidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetJackpotHitListByMaxidResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJackpotPoolValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubSystem" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJackpotPoolValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetJackpotPoolValueResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberOnilneLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="date_filter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SubSystem" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberOnilneLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMemberOnilneLogResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnlineMemberCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Web_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnlineMemberCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOnlineMemberCountResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnlineMemberList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Web_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnlineMemberListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOnlineMemberListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnlineMemberListBySize">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Web_id" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Page_index" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Page_Size" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnlineMemberListBySizeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOnlineMemberListBySizeResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerGameHistory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="player_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SubSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="web_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="session_no" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageindex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pagesize" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerGameHistoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPlayerGameHistoryResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KickUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Web_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Player_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KickUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KickUserResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGameTokenUrl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SerialNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SubSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Web_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Player_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Game_id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CurrencyName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExitAction" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGameTokenUrlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGameTokenUrlResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerFishGameMinuteSummery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="player_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SubSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="web_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="session_no" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageindex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pagesize" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerFishGameMinuteSummeryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPlayerFishGameMinuteSummeryResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGameRecordURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="player_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SubSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="web_id" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SequenNumber" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="session_no" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGameRecordURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGameRecordURLResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFishGameRecordURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="player_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SubSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="web_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="session_no" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Minute" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFishGameRecordURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFishGameRecordURLResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaintenanceStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubSystem" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaintenanceStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMaintenanceStatusResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetMaintenanceStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubSystem" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SetStatus" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetMaintenanceStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetMaintenanceStatusResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KickAllUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubSystem" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KickAllUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KickAllUserResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogBySessionNoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAPILogBySessionNo" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogBySessionNoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAPILogBySessionNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogErrorListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAPILogErrorList" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogErrorListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAPILogErrorListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAPILogList" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAPILogListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogMaxidSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAPILogMaxid" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogMaxidSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAPILogMaxidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotHitListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetJackpotHitList" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotHitListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetJackpotHitListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotHitListByMaxidSoapIn">
+    <wsdl:part name="parameters" element="tns:GetJackpotHitListByMaxid" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotHitListByMaxidSoapOut">
+    <wsdl:part name="parameters" element="tns:GetJackpotHitListByMaxidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotPoolValueSoapIn">
+    <wsdl:part name="parameters" element="tns:GetJackpotPoolValue" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotPoolValueSoapOut">
+    <wsdl:part name="parameters" element="tns:GetJackpotPoolValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberOnilneLogSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMemberOnilneLog" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberOnilneLogSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMemberOnilneLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOnlineMemberCount" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOnlineMemberCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOnlineMemberList" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOnlineMemberListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberListBySizeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOnlineMemberListBySize" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberListBySizeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOnlineMemberListBySizeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerGameHistorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlayerGameHistory" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerGameHistorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlayerGameHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="KickUserSoapIn">
+    <wsdl:part name="parameters" element="tns:KickUser" />
+  </wsdl:message>
+  <wsdl:message name="KickUserSoapOut">
+    <wsdl:part name="parameters" element="tns:KickUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGameTokenUrlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGameTokenUrl" />
+  </wsdl:message>
+  <wsdl:message name="GetGameTokenUrlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGameTokenUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerFishGameMinuteSummerySoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlayerFishGameMinuteSummery" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerFishGameMinuteSummerySoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlayerFishGameMinuteSummeryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGameRecordURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGameRecordURL" />
+  </wsdl:message>
+  <wsdl:message name="GetGameRecordURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGameRecordURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFishGameRecordURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFishGameRecordURL" />
+  </wsdl:message>
+  <wsdl:message name="GetFishGameRecordURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFishGameRecordURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintenanceStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMaintenanceStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintenanceStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMaintenanceStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetMaintenanceStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:SetMaintenanceStatus" />
+  </wsdl:message>
+  <wsdl:message name="SetMaintenanceStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:SetMaintenanceStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="KickAllUserSoapIn">
+    <wsdl:part name="parameters" element="tns:KickAllUser" />
+  </wsdl:message>
+  <wsdl:message name="KickAllUserSoapOut">
+    <wsdl:part name="parameters" element="tns:KickAllUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn" />
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogBySessionNoHttpGetIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+    <wsdl:part name="SessionNo" type="s:string" />
+    <wsdl:part name="Player_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogBySessionNoHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogErrorListHttpGetIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+    <wsdl:part name="Max_id" type="s:string" />
+    <wsdl:part name="DataCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogErrorListHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogListHttpGetIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+    <wsdl:part name="Max_id" type="s:string" />
+    <wsdl:part name="DataCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogListHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogMaxidHttpGetIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogMaxidHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotHitListHttpGetIn">
+    <wsdl:part name="iType" type="s:string" />
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotHitListHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotHitListByMaxidHttpGetIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+    <wsdl:part name="Maxid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotHitListByMaxidHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotPoolValueHttpGetIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotPoolValueHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberOnilneLogHttpGetIn">
+    <wsdl:part name="type" type="s:string" />
+    <wsdl:part name="date_filter" type="s:string" />
+    <wsdl:part name="SubSystem" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberOnilneLogHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberCountHttpGetIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberCountHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberListHttpGetIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberListHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberListBySizeHttpGetIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+    <wsdl:part name="Page_index" type="s:string" />
+    <wsdl:part name="Page_Size" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberListBySizeHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerGameHistoryHttpGetIn">
+    <wsdl:part name="player_id" type="s:string" />
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="web_id" type="s:string" />
+    <wsdl:part name="session_no" type="s:string" />
+    <wsdl:part name="pageindex" type="s:string" />
+    <wsdl:part name="pagesize" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerGameHistoryHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="KickUserHttpGetIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+    <wsdl:part name="Player_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="KickUserHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetGameTokenUrlHttpGetIn">
+    <wsdl:part name="SerialNo" type="s:string" />
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+    <wsdl:part name="Player_id" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="Game_id" type="s:string" />
+    <wsdl:part name="Language" type="s:string" />
+    <wsdl:part name="CurrencyName" type="s:string" />
+    <wsdl:part name="ExitAction" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGameTokenUrlHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerFishGameMinuteSummeryHttpGetIn">
+    <wsdl:part name="player_id" type="s:string" />
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="web_id" type="s:string" />
+    <wsdl:part name="session_no" type="s:string" />
+    <wsdl:part name="pageindex" type="s:string" />
+    <wsdl:part name="pagesize" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerFishGameMinuteSummeryHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetGameRecordURLHttpGetIn">
+    <wsdl:part name="player_id" type="s:string" />
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="web_id" type="s:string" />
+    <wsdl:part name="SequenNumber" type="s:string" />
+    <wsdl:part name="session_no" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGameRecordURLHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetFishGameRecordURLHttpGetIn">
+    <wsdl:part name="player_id" type="s:string" />
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="web_id" type="s:string" />
+    <wsdl:part name="session_no" type="s:string" />
+    <wsdl:part name="Minute" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFishGameRecordURLHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintenanceStatusHttpGetIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintenanceStatusHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="SetMaintenanceStatusHttpGetIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="SetStatus" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetMaintenanceStatusHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="KickAllUserHttpGetIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="KickAllUserHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogBySessionNoHttpPostIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+    <wsdl:part name="SessionNo" type="s:string" />
+    <wsdl:part name="Player_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogBySessionNoHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogErrorListHttpPostIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+    <wsdl:part name="Max_id" type="s:string" />
+    <wsdl:part name="DataCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogErrorListHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogListHttpPostIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+    <wsdl:part name="Max_id" type="s:string" />
+    <wsdl:part name="DataCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogListHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogMaxidHttpPostIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogMaxidHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotHitListHttpPostIn">
+    <wsdl:part name="iType" type="s:string" />
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotHitListHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotHitListByMaxidHttpPostIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+    <wsdl:part name="Maxid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotHitListByMaxidHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotPoolValueHttpPostIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotPoolValueHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberOnilneLogHttpPostIn">
+    <wsdl:part name="type" type="s:string" />
+    <wsdl:part name="date_filter" type="s:string" />
+    <wsdl:part name="SubSystem" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberOnilneLogHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberCountHttpPostIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberCountHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberListHttpPostIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberListHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberListBySizeHttpPostIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+    <wsdl:part name="Page_index" type="s:string" />
+    <wsdl:part name="Page_Size" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberListBySizeHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerGameHistoryHttpPostIn">
+    <wsdl:part name="player_id" type="s:string" />
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="web_id" type="s:string" />
+    <wsdl:part name="session_no" type="s:string" />
+    <wsdl:part name="pageindex" type="s:string" />
+    <wsdl:part name="pagesize" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerGameHistoryHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="KickUserHttpPostIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+    <wsdl:part name="Player_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="KickUserHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetGameTokenUrlHttpPostIn">
+    <wsdl:part name="SerialNo" type="s:string" />
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+    <wsdl:part name="Player_id" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="Game_id" type="s:string" />
+    <wsdl:part name="Language" type="s:string" />
+    <wsdl:part name="CurrencyName" type="s:string" />
+    <wsdl:part name="ExitAction" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGameTokenUrlHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerFishGameMinuteSummeryHttpPostIn">
+    <wsdl:part name="player_id" type="s:string" />
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="web_id" type="s:string" />
+    <wsdl:part name="session_no" type="s:string" />
+    <wsdl:part name="pageindex" type="s:string" />
+    <wsdl:part name="pagesize" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerFishGameMinuteSummeryHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetGameRecordURLHttpPostIn">
+    <wsdl:part name="player_id" type="s:string" />
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="web_id" type="s:string" />
+    <wsdl:part name="SequenNumber" type="s:string" />
+    <wsdl:part name="session_no" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGameRecordURLHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetFishGameRecordURLHttpPostIn">
+    <wsdl:part name="player_id" type="s:string" />
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="web_id" type="s:string" />
+    <wsdl:part name="session_no" type="s:string" />
+    <wsdl:part name="Minute" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFishGameRecordURLHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintenanceStatusHttpPostIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMaintenanceStatusHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="SetMaintenanceStatusHttpPostIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+    <wsdl:part name="SetStatus" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetMaintenanceStatusHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="KickAllUserHttpPostIn">
+    <wsdl:part name="SubSystem" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="KickAllUserHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:portType name="SlotGameWSSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogBySessionNo">
+      <wsdl:input message="tns:GetAPILogBySessionNoSoapIn" />
+      <wsdl:output message="tns:GetAPILogBySessionNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogErrorList">
+      <wsdl:input message="tns:GetAPILogErrorListSoapIn" />
+      <wsdl:output message="tns:GetAPILogErrorListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogList">
+      <wsdl:input message="tns:GetAPILogListSoapIn" />
+      <wsdl:output message="tns:GetAPILogListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogMaxid">
+      <wsdl:input message="tns:GetAPILogMaxidSoapIn" />
+      <wsdl:output message="tns:GetAPILogMaxidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitList">
+      <wsdl:input message="tns:GetJackpotHitListSoapIn" />
+      <wsdl:output message="tns:GetJackpotHitListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitListByMaxid">
+      <wsdl:input message="tns:GetJackpotHitListByMaxidSoapIn" />
+      <wsdl:output message="tns:GetJackpotHitListByMaxidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotPoolValue">
+      <wsdl:input message="tns:GetJackpotPoolValueSoapIn" />
+      <wsdl:output message="tns:GetJackpotPoolValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberOnilneLog">
+      <wsdl:input message="tns:GetMemberOnilneLogSoapIn" />
+      <wsdl:output message="tns:GetMemberOnilneLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberCount">
+      <wsdl:input message="tns:GetOnlineMemberCountSoapIn" />
+      <wsdl:output message="tns:GetOnlineMemberCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberList">
+      <wsdl:input message="tns:GetOnlineMemberListSoapIn" />
+      <wsdl:output message="tns:GetOnlineMemberListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberListBySize">
+      <wsdl:input message="tns:GetOnlineMemberListBySizeSoapIn" />
+      <wsdl:output message="tns:GetOnlineMemberListBySizeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerGameHistory">
+      <wsdl:input message="tns:GetPlayerGameHistorySoapIn" />
+      <wsdl:output message="tns:GetPlayerGameHistorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <wsdl:input message="tns:KickUserSoapIn" />
+      <wsdl:output message="tns:KickUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGameTokenUrl">
+      <wsdl:input message="tns:GetGameTokenUrlSoapIn" />
+      <wsdl:output message="tns:GetGameTokenUrlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerFishGameMinuteSummery">
+      <wsdl:input message="tns:GetPlayerFishGameMinuteSummerySoapIn" />
+      <wsdl:output message="tns:GetPlayerFishGameMinuteSummerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGameRecordURL">
+      <wsdl:input message="tns:GetGameRecordURLSoapIn" />
+      <wsdl:output message="tns:GetGameRecordURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFishGameRecordURL">
+      <wsdl:input message="tns:GetFishGameRecordURLSoapIn" />
+      <wsdl:output message="tns:GetFishGameRecordURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintenanceStatus">
+      <wsdl:input message="tns:GetMaintenanceStatusSoapIn" />
+      <wsdl:output message="tns:GetMaintenanceStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMaintenanceStatus">
+      <wsdl:input message="tns:SetMaintenanceStatusSoapIn" />
+      <wsdl:output message="tns:SetMaintenanceStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KickAllUser">
+      <wsdl:input message="tns:KickAllUserSoapIn" />
+      <wsdl:output message="tns:KickAllUserSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SlotGameWSHttpGet">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpGetIn" />
+      <wsdl:output message="tns:HelloWorldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogBySessionNo">
+      <wsdl:input message="tns:GetAPILogBySessionNoHttpGetIn" />
+      <wsdl:output message="tns:GetAPILogBySessionNoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogErrorList">
+      <wsdl:input message="tns:GetAPILogErrorListHttpGetIn" />
+      <wsdl:output message="tns:GetAPILogErrorListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogList">
+      <wsdl:input message="tns:GetAPILogListHttpGetIn" />
+      <wsdl:output message="tns:GetAPILogListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogMaxid">
+      <wsdl:input message="tns:GetAPILogMaxidHttpGetIn" />
+      <wsdl:output message="tns:GetAPILogMaxidHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitList">
+      <wsdl:input message="tns:GetJackpotHitListHttpGetIn" />
+      <wsdl:output message="tns:GetJackpotHitListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitListByMaxid">
+      <wsdl:input message="tns:GetJackpotHitListByMaxidHttpGetIn" />
+      <wsdl:output message="tns:GetJackpotHitListByMaxidHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotPoolValue">
+      <wsdl:input message="tns:GetJackpotPoolValueHttpGetIn" />
+      <wsdl:output message="tns:GetJackpotPoolValueHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberOnilneLog">
+      <wsdl:input message="tns:GetMemberOnilneLogHttpGetIn" />
+      <wsdl:output message="tns:GetMemberOnilneLogHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberCount">
+      <wsdl:input message="tns:GetOnlineMemberCountHttpGetIn" />
+      <wsdl:output message="tns:GetOnlineMemberCountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberList">
+      <wsdl:input message="tns:GetOnlineMemberListHttpGetIn" />
+      <wsdl:output message="tns:GetOnlineMemberListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberListBySize">
+      <wsdl:input message="tns:GetOnlineMemberListBySizeHttpGetIn" />
+      <wsdl:output message="tns:GetOnlineMemberListBySizeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerGameHistory">
+      <wsdl:input message="tns:GetPlayerGameHistoryHttpGetIn" />
+      <wsdl:output message="tns:GetPlayerGameHistoryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <wsdl:input message="tns:KickUserHttpGetIn" />
+      <wsdl:output message="tns:KickUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGameTokenUrl">
+      <wsdl:input message="tns:GetGameTokenUrlHttpGetIn" />
+      <wsdl:output message="tns:GetGameTokenUrlHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerFishGameMinuteSummery">
+      <wsdl:input message="tns:GetPlayerFishGameMinuteSummeryHttpGetIn" />
+      <wsdl:output message="tns:GetPlayerFishGameMinuteSummeryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGameRecordURL">
+      <wsdl:input message="tns:GetGameRecordURLHttpGetIn" />
+      <wsdl:output message="tns:GetGameRecordURLHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFishGameRecordURL">
+      <wsdl:input message="tns:GetFishGameRecordURLHttpGetIn" />
+      <wsdl:output message="tns:GetFishGameRecordURLHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintenanceStatus">
+      <wsdl:input message="tns:GetMaintenanceStatusHttpGetIn" />
+      <wsdl:output message="tns:GetMaintenanceStatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMaintenanceStatus">
+      <wsdl:input message="tns:SetMaintenanceStatusHttpGetIn" />
+      <wsdl:output message="tns:SetMaintenanceStatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KickAllUser">
+      <wsdl:input message="tns:KickAllUserHttpGetIn" />
+      <wsdl:output message="tns:KickAllUserHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SlotGameWSHttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogBySessionNo">
+      <wsdl:input message="tns:GetAPILogBySessionNoHttpPostIn" />
+      <wsdl:output message="tns:GetAPILogBySessionNoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogErrorList">
+      <wsdl:input message="tns:GetAPILogErrorListHttpPostIn" />
+      <wsdl:output message="tns:GetAPILogErrorListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogList">
+      <wsdl:input message="tns:GetAPILogListHttpPostIn" />
+      <wsdl:output message="tns:GetAPILogListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogMaxid">
+      <wsdl:input message="tns:GetAPILogMaxidHttpPostIn" />
+      <wsdl:output message="tns:GetAPILogMaxidHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitList">
+      <wsdl:input message="tns:GetJackpotHitListHttpPostIn" />
+      <wsdl:output message="tns:GetJackpotHitListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitListByMaxid">
+      <wsdl:input message="tns:GetJackpotHitListByMaxidHttpPostIn" />
+      <wsdl:output message="tns:GetJackpotHitListByMaxidHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotPoolValue">
+      <wsdl:input message="tns:GetJackpotPoolValueHttpPostIn" />
+      <wsdl:output message="tns:GetJackpotPoolValueHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberOnilneLog">
+      <wsdl:input message="tns:GetMemberOnilneLogHttpPostIn" />
+      <wsdl:output message="tns:GetMemberOnilneLogHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberCount">
+      <wsdl:input message="tns:GetOnlineMemberCountHttpPostIn" />
+      <wsdl:output message="tns:GetOnlineMemberCountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberList">
+      <wsdl:input message="tns:GetOnlineMemberListHttpPostIn" />
+      <wsdl:output message="tns:GetOnlineMemberListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberListBySize">
+      <wsdl:input message="tns:GetOnlineMemberListBySizeHttpPostIn" />
+      <wsdl:output message="tns:GetOnlineMemberListBySizeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerGameHistory">
+      <wsdl:input message="tns:GetPlayerGameHistoryHttpPostIn" />
+      <wsdl:output message="tns:GetPlayerGameHistoryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <wsdl:input message="tns:KickUserHttpPostIn" />
+      <wsdl:output message="tns:KickUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGameTokenUrl">
+      <wsdl:input message="tns:GetGameTokenUrlHttpPostIn" />
+      <wsdl:output message="tns:GetGameTokenUrlHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerFishGameMinuteSummery">
+      <wsdl:input message="tns:GetPlayerFishGameMinuteSummeryHttpPostIn" />
+      <wsdl:output message="tns:GetPlayerFishGameMinuteSummeryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGameRecordURL">
+      <wsdl:input message="tns:GetGameRecordURLHttpPostIn" />
+      <wsdl:output message="tns:GetGameRecordURLHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFishGameRecordURL">
+      <wsdl:input message="tns:GetFishGameRecordURLHttpPostIn" />
+      <wsdl:output message="tns:GetFishGameRecordURLHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintenanceStatus">
+      <wsdl:input message="tns:GetMaintenanceStatusHttpPostIn" />
+      <wsdl:output message="tns:GetMaintenanceStatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMaintenanceStatus">
+      <wsdl:input message="tns:SetMaintenanceStatusHttpPostIn" />
+      <wsdl:output message="tns:SetMaintenanceStatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KickAllUser">
+      <wsdl:input message="tns:KickAllUserHttpPostIn" />
+      <wsdl:output message="tns:KickAllUserHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SlotGameWSSoap" type="tns:SlotGameWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://slotgame.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogBySessionNo">
+      <soap:operation soapAction="http://slotgame.org/GetAPILogBySessionNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogErrorList">
+      <soap:operation soapAction="http://slotgame.org/GetAPILogErrorList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogList">
+      <soap:operation soapAction="http://slotgame.org/GetAPILogList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogMaxid">
+      <soap:operation soapAction="http://slotgame.org/GetAPILogMaxid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitList">
+      <soap:operation soapAction="http://slotgame.org/GetJackpotHitList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitListByMaxid">
+      <soap:operation soapAction="http://slotgame.org/GetJackpotHitListByMaxid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotPoolValue">
+      <soap:operation soapAction="http://slotgame.org/GetJackpotPoolValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberOnilneLog">
+      <soap:operation soapAction="http://slotgame.org/GetMemberOnilneLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberCount">
+      <soap:operation soapAction="http://slotgame.org/GetOnlineMemberCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberList">
+      <soap:operation soapAction="http://slotgame.org/GetOnlineMemberList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberListBySize">
+      <soap:operation soapAction="http://slotgame.org/GetOnlineMemberListBySize" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerGameHistory">
+      <soap:operation soapAction="http://slotgame.org/GetPlayerGameHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <soap:operation soapAction="http://slotgame.org/KickUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameTokenUrl">
+      <soap:operation soapAction="http://slotgame.org/GetGameTokenUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerFishGameMinuteSummery">
+      <soap:operation soapAction="http://slotgame.org/GetPlayerFishGameMinuteSummery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameRecordURL">
+      <soap:operation soapAction="http://slotgame.org/GetGameRecordURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFishGameRecordURL">
+      <soap:operation soapAction="http://slotgame.org/GetFishGameRecordURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintenanceStatus">
+      <soap:operation soapAction="http://slotgame.org/GetMaintenanceStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMaintenanceStatus">
+      <soap:operation soapAction="http://slotgame.org/SetMaintenanceStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KickAllUser">
+      <soap:operation soapAction="http://slotgame.org/KickAllUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SlotGameWSSoap12" type="tns:SlotGameWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://slotgame.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogBySessionNo">
+      <soap12:operation soapAction="http://slotgame.org/GetAPILogBySessionNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogErrorList">
+      <soap12:operation soapAction="http://slotgame.org/GetAPILogErrorList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogList">
+      <soap12:operation soapAction="http://slotgame.org/GetAPILogList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogMaxid">
+      <soap12:operation soapAction="http://slotgame.org/GetAPILogMaxid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitList">
+      <soap12:operation soapAction="http://slotgame.org/GetJackpotHitList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitListByMaxid">
+      <soap12:operation soapAction="http://slotgame.org/GetJackpotHitListByMaxid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotPoolValue">
+      <soap12:operation soapAction="http://slotgame.org/GetJackpotPoolValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberOnilneLog">
+      <soap12:operation soapAction="http://slotgame.org/GetMemberOnilneLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberCount">
+      <soap12:operation soapAction="http://slotgame.org/GetOnlineMemberCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberList">
+      <soap12:operation soapAction="http://slotgame.org/GetOnlineMemberList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberListBySize">
+      <soap12:operation soapAction="http://slotgame.org/GetOnlineMemberListBySize" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerGameHistory">
+      <soap12:operation soapAction="http://slotgame.org/GetPlayerGameHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <soap12:operation soapAction="http://slotgame.org/KickUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameTokenUrl">
+      <soap12:operation soapAction="http://slotgame.org/GetGameTokenUrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerFishGameMinuteSummery">
+      <soap12:operation soapAction="http://slotgame.org/GetPlayerFishGameMinuteSummery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameRecordURL">
+      <soap12:operation soapAction="http://slotgame.org/GetGameRecordURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFishGameRecordURL">
+      <soap12:operation soapAction="http://slotgame.org/GetFishGameRecordURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintenanceStatus">
+      <soap12:operation soapAction="http://slotgame.org/GetMaintenanceStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMaintenanceStatus">
+      <soap12:operation soapAction="http://slotgame.org/SetMaintenanceStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KickAllUser">
+      <soap12:operation soapAction="http://slotgame.org/KickAllUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SlotGameWSHttpGet" type="tns:SlotGameWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogBySessionNo">
+      <http:operation location="/GetAPILogBySessionNo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogErrorList">
+      <http:operation location="/GetAPILogErrorList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogList">
+      <http:operation location="/GetAPILogList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogMaxid">
+      <http:operation location="/GetAPILogMaxid" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitList">
+      <http:operation location="/GetJackpotHitList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitListByMaxid">
+      <http:operation location="/GetJackpotHitListByMaxid" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotPoolValue">
+      <http:operation location="/GetJackpotPoolValue" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberOnilneLog">
+      <http:operation location="/GetMemberOnilneLog" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberCount">
+      <http:operation location="/GetOnlineMemberCount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberList">
+      <http:operation location="/GetOnlineMemberList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberListBySize">
+      <http:operation location="/GetOnlineMemberListBySize" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerGameHistory">
+      <http:operation location="/GetPlayerGameHistory" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <http:operation location="/KickUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameTokenUrl">
+      <http:operation location="/GetGameTokenUrl" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerFishGameMinuteSummery">
+      <http:operation location="/GetPlayerFishGameMinuteSummery" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameRecordURL">
+      <http:operation location="/GetGameRecordURL" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFishGameRecordURL">
+      <http:operation location="/GetFishGameRecordURL" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintenanceStatus">
+      <http:operation location="/GetMaintenanceStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMaintenanceStatus">
+      <http:operation location="/SetMaintenanceStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KickAllUser">
+      <http:operation location="/KickAllUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SlotGameWSHttpPost" type="tns:SlotGameWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogBySessionNo">
+      <http:operation location="/GetAPILogBySessionNo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogErrorList">
+      <http:operation location="/GetAPILogErrorList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogList">
+      <http:operation location="/GetAPILogList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogMaxid">
+      <http:operation location="/GetAPILogMaxid" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitList">
+      <http:operation location="/GetJackpotHitList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitListByMaxid">
+      <http:operation location="/GetJackpotHitListByMaxid" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotPoolValue">
+      <http:operation location="/GetJackpotPoolValue" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberOnilneLog">
+      <http:operation location="/GetMemberOnilneLog" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberCount">
+      <http:operation location="/GetOnlineMemberCount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberList">
+      <http:operation location="/GetOnlineMemberList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberListBySize">
+      <http:operation location="/GetOnlineMemberListBySize" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerGameHistory">
+      <http:operation location="/GetPlayerGameHistory" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <http:operation location="/KickUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameTokenUrl">
+      <http:operation location="/GetGameTokenUrl" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerFishGameMinuteSummery">
+      <http:operation location="/GetPlayerFishGameMinuteSummery" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameRecordURL">
+      <http:operation location="/GetGameRecordURL" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFishGameRecordURL">
+      <http:operation location="/GetFishGameRecordURL" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaintenanceStatus">
+      <http:operation location="/GetMaintenanceStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMaintenanceStatus">
+      <http:operation location="/SetMaintenanceStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KickAllUser">
+      <http:operation location="/KickAllUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SlotGameWS">
+    <wsdl:port name="SlotGameWSSoap" binding="tns:SlotGameWSSoap">
+      <soap:address location="http://tsgameapi.bacctest.com/SlotGameWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SlotGameWSSoap12" binding="tns:SlotGameWSSoap12">
+      <soap12:address location="http://tsgameapi.bacctest.com/SlotGameWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SlotGameWSHttpGet" binding="tns:SlotGameWSHttpGet">
+      <http:address location="http://tsgameapi.bacctest.com/SlotGameWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SlotGameWSHttpPost" binding="tns:SlotGameWSHttpPost">
+      <http:address location="http://tsgameapi.bacctest.com/SlotGameWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

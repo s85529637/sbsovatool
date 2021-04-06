@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WrongUidInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberUid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WrongUidInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WrongUidInfoResult" type="tns:ApiReuslt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ApiReuslt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Reuslt">
+            <s:complexType>
+              <s:sequence>
+                <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="SResultMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IResult" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="NSP_Member_KaDan_Check">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jqu_subsystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="jqu_website" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="jqu_vendor_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberUid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberAccount" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NSP_Member_KaDan_CheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NSP_Member_KaDan_CheckResult" type="tns:ApiMultReuslt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ApiMultReuslt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Reuslt">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="SResultMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IResult" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="ApiReuslt" nillable="true" type="tns:ApiReuslt" />
+      <s:element name="ApiMultReuslt" nillable="true" type="tns:ApiMultReuslt" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="WrongUidInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:WrongUidInfo" />
+  </wsdl:message>
+  <wsdl:message name="WrongUidInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:WrongUidInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="NSP_Member_KaDan_CheckSoapIn">
+    <wsdl:part name="parameters" element="tns:NSP_Member_KaDan_Check" />
+  </wsdl:message>
+  <wsdl:message name="NSP_Member_KaDan_CheckSoapOut">
+    <wsdl:part name="parameters" element="tns:NSP_Member_KaDan_CheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn" />
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="WrongUidInfoHttpGetIn">
+    <wsdl:part name="MemberUid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="WrongUidInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ApiReuslt" />
+  </wsdl:message>
+  <wsdl:message name="NSP_Member_KaDan_CheckHttpGetIn">
+    <wsdl:part name="jqu_subsystem" type="s:string" />
+    <wsdl:part name="jqu_website" type="s:string" />
+    <wsdl:part name="jqu_vendor_id" type="s:string" />
+    <wsdl:part name="MemberUid" type="s:string" />
+    <wsdl:part name="MemberAccount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NSP_Member_KaDan_CheckHttpGetOut">
+    <wsdl:part name="Body" element="tns:ApiMultReuslt" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="WrongUidInfoHttpPostIn">
+    <wsdl:part name="MemberUid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="WrongUidInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:ApiReuslt" />
+  </wsdl:message>
+  <wsdl:message name="NSP_Member_KaDan_CheckHttpPostIn">
+    <wsdl:part name="jqu_subsystem" type="s:string" />
+    <wsdl:part name="jqu_website" type="s:string" />
+    <wsdl:part name="jqu_vendor_id" type="s:string" />
+    <wsdl:part name="MemberUid" type="s:string" />
+    <wsdl:part name="MemberAccount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NSP_Member_KaDan_CheckHttpPostOut">
+    <wsdl:part name="Body" element="tns:ApiMultReuslt" />
+  </wsdl:message>
+  <wsdl:portType name="LogsSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WrongUidInfo">
+      <wsdl:input message="tns:WrongUidInfoSoapIn" />
+      <wsdl:output message="tns:WrongUidInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NSP_Member_KaDan_Check">
+      <wsdl:input message="tns:NSP_Member_KaDan_CheckSoapIn" />
+      <wsdl:output message="tns:NSP_Member_KaDan_CheckSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="LogsHttpGet">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpGetIn" />
+      <wsdl:output message="tns:HelloWorldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WrongUidInfo">
+      <wsdl:input message="tns:WrongUidInfoHttpGetIn" />
+      <wsdl:output message="tns:WrongUidInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NSP_Member_KaDan_Check">
+      <wsdl:input message="tns:NSP_Member_KaDan_CheckHttpGetIn" />
+      <wsdl:output message="tns:NSP_Member_KaDan_CheckHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="LogsHttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WrongUidInfo">
+      <wsdl:input message="tns:WrongUidInfoHttpPostIn" />
+      <wsdl:output message="tns:WrongUidInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NSP_Member_KaDan_Check">
+      <wsdl:input message="tns:NSP_Member_KaDan_CheckHttpPostIn" />
+      <wsdl:output message="tns:NSP_Member_KaDan_CheckHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LogsSoap" type="tns:LogsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WrongUidInfo">
+      <soap:operation soapAction="http://tempuri.org/WrongUidInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NSP_Member_KaDan_Check">
+      <soap:operation soapAction="http://tempuri.org/NSP_Member_KaDan_Check" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LogsSoap12" type="tns:LogsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WrongUidInfo">
+      <soap12:operation soapAction="http://tempuri.org/WrongUidInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NSP_Member_KaDan_Check">
+      <soap12:operation soapAction="http://tempuri.org/NSP_Member_KaDan_Check" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LogsHttpGet" type="tns:LogsHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WrongUidInfo">
+      <http:operation location="/WrongUidInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NSP_Member_KaDan_Check">
+      <http:operation location="/NSP_Member_KaDan_Check" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LogsHttpPost" type="tns:LogsHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WrongUidInfo">
+      <http:operation location="/WrongUidInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NSP_Member_KaDan_Check">
+      <http:operation location="/NSP_Member_KaDan_Check" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Logs">
+    <wsdl:port name="LogsSoap" binding="tns:LogsSoap">
+      <soap:address location="http://192.168.0.37:7774/Logs.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LogsSoap12" binding="tns:LogsSoap12">
+      <soap12:address location="http://192.168.0.37:7774/Logs.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LogsHttpGet" binding="tns:LogsHttpGet">
+      <http:address location="http://192.168.0.37:7774/Logs.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LogsHttpPost" binding="tns:LogsHttpPost">
+      <http:address location="http://192.168.0.37:7774/Logs.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

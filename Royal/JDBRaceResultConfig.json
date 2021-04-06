@@ -1,0 +1,10 @@
+{"RaceData" :[
+		{"JDBGameCode" : "อันดับมังกรรายวัน","H1GameCode" : "1","Name" : "每日龍榜"},
+		{"JDBGameCode" : "อันดับเสือรายวัน","H1GameCode" : "2","Name" : "每日虎榜"},
+		{"JDBGameCode" : "ราชามังกรอัลติเมท","H1GameCode" : "3","Name" : "終極龍王"},
+		{"JDBGameCode" : "ราชาเสืออัลติเมท","H1GameCode" : "4","Name" : "究極虎霸"},
+		{"JDBGameCode" : "อันดับความมั่งคั่ง","H1GameCode" : "5","Name" : "財神榜"},
+		{"JDBGameCode" : "อันดับล่ามังกร","H1GameCode" : "6","Name" : "獵龍榜"},
+		{"JDBGameCode" : "ราชานักจับปลา","H1GameCode" : "7","Name" : "捕魚王"},
+	]
+}

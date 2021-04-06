@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="MicroSovaWS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="MicroSovaWS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="MicroSovaWS">
+      <s:element name="GetPlayerAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GameTypeId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetPlayerAccountResult" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckServer">
+        <s:complexType />
+      </s:element>
+      <s:element name="CheckServerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckServerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendPlayerBlanceChanged">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BalanceValue" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendPlayerBlanceChangedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendPlayerBlanceChangedResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ServerKickPlayer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ServerKickPlayerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ServerKickPlayerResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClearPlayerAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClearPlayerAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ClearPlayerAccountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PassSuccess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PassToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PassSuccessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PassSuccessResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="decimal" type="s:decimal" />
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="int" type="s:int" />
+      <s:element name="boolean" type="s:boolean" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetPlayerAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlayerAccount" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlayerAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckServerSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckServer" />
+  </wsdl:message>
+  <wsdl:message name="CheckServerSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendPlayerBlanceChangedSoapIn">
+    <wsdl:part name="parameters" element="tns:SendPlayerBlanceChanged" />
+  </wsdl:message>
+  <wsdl:message name="SendPlayerBlanceChangedSoapOut">
+    <wsdl:part name="parameters" element="tns:SendPlayerBlanceChangedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServerKickPlayerSoapIn">
+    <wsdl:part name="parameters" element="tns:ServerKickPlayer" />
+  </wsdl:message>
+  <wsdl:message name="ServerKickPlayerSoapOut">
+    <wsdl:part name="parameters" element="tns:ServerKickPlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ClearPlayerAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:ClearPlayerAccount" />
+  </wsdl:message>
+  <wsdl:message name="ClearPlayerAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:ClearPlayerAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="PassSuccessSoapIn">
+    <wsdl:part name="parameters" element="tns:PassSuccess" />
+  </wsdl:message>
+  <wsdl:message name="PassSuccessSoapOut">
+    <wsdl:part name="parameters" element="tns:PassSuccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerAccountHttpGetIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="SessionId" type="s:string" />
+    <wsdl:part name="GameTypeId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerAccountHttpGetOut">
+    <wsdl:part name="Body" element="tns:decimal" />
+  </wsdl:message>
+  <wsdl:message name="CheckServerHttpGetIn" />
+  <wsdl:message name="CheckServerHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendPlayerBlanceChangedHttpGetIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="BalanceValue" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendPlayerBlanceChangedHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ServerKickPlayerHttpGetIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ServerKickPlayerHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ClearPlayerAccountHttpGetIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ClearPlayerAccountHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="PassSuccessHttpGetIn">
+    <wsdl:part name="AccountId" type="s:string" />
+    <wsdl:part name="PassToken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PassSuccessHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerAccountHttpPostIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="SessionId" type="s:string" />
+    <wsdl:part name="GameTypeId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerAccountHttpPostOut">
+    <wsdl:part name="Body" element="tns:decimal" />
+  </wsdl:message>
+  <wsdl:message name="CheckServerHttpPostIn" />
+  <wsdl:message name="CheckServerHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendPlayerBlanceChangedHttpPostIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="BalanceValue" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendPlayerBlanceChangedHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ServerKickPlayerHttpPostIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ServerKickPlayerHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ClearPlayerAccountHttpPostIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ClearPlayerAccountHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="PassSuccessHttpPostIn">
+    <wsdl:part name="AccountId" type="s:string" />
+    <wsdl:part name="PassToken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PassSuccessHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:portType name="MicroSovaWSSoap">
+    <wsdl:operation name="GetPlayerAccount">
+      <wsdl:input message="tns:GetPlayerAccountSoapIn" />
+      <wsdl:output message="tns:GetPlayerAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckServer">
+      <wsdl:input message="tns:CheckServerSoapIn" />
+      <wsdl:output message="tns:CheckServerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendPlayerBlanceChanged">
+      <wsdl:input message="tns:SendPlayerBlanceChangedSoapIn" />
+      <wsdl:output message="tns:SendPlayerBlanceChangedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ServerKickPlayer">
+      <wsdl:input message="tns:ServerKickPlayerSoapIn" />
+      <wsdl:output message="tns:ServerKickPlayerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearPlayerAccount">
+      <wsdl:input message="tns:ClearPlayerAccountSoapIn" />
+      <wsdl:output message="tns:ClearPlayerAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PassSuccess">
+      <wsdl:input message="tns:PassSuccessSoapIn" />
+      <wsdl:output message="tns:PassSuccessSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MicroSovaWSHttpGet">
+    <wsdl:operation name="GetPlayerAccount">
+      <wsdl:input message="tns:GetPlayerAccountHttpGetIn" />
+      <wsdl:output message="tns:GetPlayerAccountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckServer">
+      <wsdl:input message="tns:CheckServerHttpGetIn" />
+      <wsdl:output message="tns:CheckServerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendPlayerBlanceChanged">
+      <wsdl:input message="tns:SendPlayerBlanceChangedHttpGetIn" />
+      <wsdl:output message="tns:SendPlayerBlanceChangedHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ServerKickPlayer">
+      <wsdl:input message="tns:ServerKickPlayerHttpGetIn" />
+      <wsdl:output message="tns:ServerKickPlayerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearPlayerAccount">
+      <wsdl:input message="tns:ClearPlayerAccountHttpGetIn" />
+      <wsdl:output message="tns:ClearPlayerAccountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PassSuccess">
+      <wsdl:input message="tns:PassSuccessHttpGetIn" />
+      <wsdl:output message="tns:PassSuccessHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MicroSovaWSHttpPost">
+    <wsdl:operation name="GetPlayerAccount">
+      <wsdl:input message="tns:GetPlayerAccountHttpPostIn" />
+      <wsdl:output message="tns:GetPlayerAccountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckServer">
+      <wsdl:input message="tns:CheckServerHttpPostIn" />
+      <wsdl:output message="tns:CheckServerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendPlayerBlanceChanged">
+      <wsdl:input message="tns:SendPlayerBlanceChangedHttpPostIn" />
+      <wsdl:output message="tns:SendPlayerBlanceChangedHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ServerKickPlayer">
+      <wsdl:input message="tns:ServerKickPlayerHttpPostIn" />
+      <wsdl:output message="tns:ServerKickPlayerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearPlayerAccount">
+      <wsdl:input message="tns:ClearPlayerAccountHttpPostIn" />
+      <wsdl:output message="tns:ClearPlayerAccountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PassSuccess">
+      <wsdl:input message="tns:PassSuccessHttpPostIn" />
+      <wsdl:output message="tns:PassSuccessHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MicroSovaWSSoap" type="tns:MicroSovaWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPlayerAccount">
+      <soap:operation soapAction="MicroSovaWS/GetPlayerAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckServer">
+      <soap:operation soapAction="MicroSovaWS/CheckServer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendPlayerBlanceChanged">
+      <soap:operation soapAction="MicroSovaWS/SendPlayerBlanceChanged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ServerKickPlayer">
+      <soap:operation soapAction="MicroSovaWS/ServerKickPlayer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearPlayerAccount">
+      <soap:operation soapAction="MicroSovaWS/ClearPlayerAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PassSuccess">
+      <soap:operation soapAction="MicroSovaWS/PassSuccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MicroSovaWSSoap12" type="tns:MicroSovaWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPlayerAccount">
+      <soap12:operation soapAction="MicroSovaWS/GetPlayerAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckServer">
+      <soap12:operation soapAction="MicroSovaWS/CheckServer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendPlayerBlanceChanged">
+      <soap12:operation soapAction="MicroSovaWS/SendPlayerBlanceChanged" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ServerKickPlayer">
+      <soap12:operation soapAction="MicroSovaWS/ServerKickPlayer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearPlayerAccount">
+      <soap12:operation soapAction="MicroSovaWS/ClearPlayerAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PassSuccess">
+      <soap12:operation soapAction="MicroSovaWS/PassSuccess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MicroSovaWSHttpGet" type="tns:MicroSovaWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetPlayerAccount">
+      <http:operation location="/GetPlayerAccount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckServer">
+      <http:operation location="/CheckServer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendPlayerBlanceChanged">
+      <http:operation location="/SendPlayerBlanceChanged" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ServerKickPlayer">
+      <http:operation location="/ServerKickPlayer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearPlayerAccount">
+      <http:operation location="/ClearPlayerAccount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PassSuccess">
+      <http:operation location="/PassSuccess" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MicroSovaWSHttpPost" type="tns:MicroSovaWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetPlayerAccount">
+      <http:operation location="/GetPlayerAccount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckServer">
+      <http:operation location="/CheckServer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendPlayerBlanceChanged">
+      <http:operation location="/SendPlayerBlanceChanged" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ServerKickPlayer">
+      <http:operation location="/ServerKickPlayer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearPlayerAccount">
+      <http:operation location="/ClearPlayerAccount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PassSuccess">
+      <http:operation location="/PassSuccess" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MicroSovaWS">
+    <wsdl:port name="MicroSovaWSSoap" binding="tns:MicroSovaWSSoap">
+      <soap:address location="http://210.66.176.243/MicroSovaWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MicroSovaWSSoap12" binding="tns:MicroSovaWSSoap12">
+      <soap12:address location="http://210.66.176.243/MicroSovaWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MicroSovaWSHttpGet" binding="tns:MicroSovaWSHttpGet">
+      <http:address location="http://210.66.176.243/MicroSovaWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MicroSovaWSHttpPost" binding="tns:MicroSovaWSHttpPost">
+      <http:address location="http://210.66.176.243/MicroSovaWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

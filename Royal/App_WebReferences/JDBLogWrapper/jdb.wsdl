@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://JDBLogWrapper.com/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://JDBLogWrapper.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://JDBLogWrapper.com/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerLockAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GameId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerLockAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerLockAccountResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerReturnAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerAccount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StakeScore" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountScore" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Rows" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MaxDateTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Location" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GameId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JackPot" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JDBSessionId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerReturnAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerReturnAccountResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerInfoResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JDBGetMaintain">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GameID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JDBGetMaintainResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JDBGetMaintainResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLockAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:PlayerLockAccount" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLockAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:PlayerLockAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlayerReturnAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:PlayerReturnAccount" />
+  </wsdl:message>
+  <wsdl:message name="PlayerReturnAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:PlayerReturnAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlayerInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:PlayerInfo" />
+  </wsdl:message>
+  <wsdl:message name="PlayerInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:PlayerInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="JDBGetMaintainSoapIn">
+    <wsdl:part name="parameters" element="tns:JDBGetMaintain" />
+  </wsdl:message>
+  <wsdl:message name="JDBGetMaintainSoapOut">
+    <wsdl:part name="parameters" element="tns:JDBGetMaintainResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn" />
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLockAccountHttpGetIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="IP" type="s:string" />
+    <wsdl:part name="GameId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLockAccountHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerReturnAccountHttpGetIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="PlayerAccount" type="s:string" />
+    <wsdl:part name="SessionId" type="s:string" />
+    <wsdl:part name="StakeScore" type="s:string" />
+    <wsdl:part name="AccountScore" type="s:string" />
+    <wsdl:part name="Rows" type="s:string" />
+    <wsdl:part name="MaxDateTime" type="s:string" />
+    <wsdl:part name="Location" type="s:string" />
+    <wsdl:part name="GameId" type="s:string" />
+    <wsdl:part name="JackPot" type="s:string" />
+    <wsdl:part name="JDBSessionId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerReturnAccountHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerInfoHttpGetIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="WebId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerInfoHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="JDBGetMaintainHttpGetIn">
+    <wsdl:part name="GameID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="JDBGetMaintainHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLockAccountHttpPostIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="IP" type="s:string" />
+    <wsdl:part name="GameId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLockAccountHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerReturnAccountHttpPostIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="PlayerAccount" type="s:string" />
+    <wsdl:part name="SessionId" type="s:string" />
+    <wsdl:part name="StakeScore" type="s:string" />
+    <wsdl:part name="AccountScore" type="s:string" />
+    <wsdl:part name="Rows" type="s:string" />
+    <wsdl:part name="MaxDateTime" type="s:string" />
+    <wsdl:part name="Location" type="s:string" />
+    <wsdl:part name="GameId" type="s:string" />
+    <wsdl:part name="JackPot" type="s:string" />
+    <wsdl:part name="JDBSessionId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerReturnAccountHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerInfoHttpPostIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="WebId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerInfoHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="JDBGetMaintainHttpPostIn">
+    <wsdl:part name="GameID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="JDBGetMaintainHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:portType name="JDBLogWrapperSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLockAccount">
+      <wsdl:input message="tns:PlayerLockAccountSoapIn" />
+      <wsdl:output message="tns:PlayerLockAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerReturnAccount">
+      <wsdl:input message="tns:PlayerReturnAccountSoapIn" />
+      <wsdl:output message="tns:PlayerReturnAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerInfo">
+      <wsdl:input message="tns:PlayerInfoSoapIn" />
+      <wsdl:output message="tns:PlayerInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JDBGetMaintain">
+      <wsdl:input message="tns:JDBGetMaintainSoapIn" />
+      <wsdl:output message="tns:JDBGetMaintainSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="JDBLogWrapperHttpGet">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpGetIn" />
+      <wsdl:output message="tns:HelloWorldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLockAccount">
+      <wsdl:input message="tns:PlayerLockAccountHttpGetIn" />
+      <wsdl:output message="tns:PlayerLockAccountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerReturnAccount">
+      <wsdl:input message="tns:PlayerReturnAccountHttpGetIn" />
+      <wsdl:output message="tns:PlayerReturnAccountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerInfo">
+      <wsdl:input message="tns:PlayerInfoHttpGetIn" />
+      <wsdl:output message="tns:PlayerInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JDBGetMaintain">
+      <wsdl:input message="tns:JDBGetMaintainHttpGetIn" />
+      <wsdl:output message="tns:JDBGetMaintainHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="JDBLogWrapperHttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLockAccount">
+      <wsdl:input message="tns:PlayerLockAccountHttpPostIn" />
+      <wsdl:output message="tns:PlayerLockAccountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerReturnAccount">
+      <wsdl:input message="tns:PlayerReturnAccountHttpPostIn" />
+      <wsdl:output message="tns:PlayerReturnAccountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerInfo">
+      <wsdl:input message="tns:PlayerInfoHttpPostIn" />
+      <wsdl:output message="tns:PlayerInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JDBGetMaintain">
+      <wsdl:input message="tns:JDBGetMaintainHttpPostIn" />
+      <wsdl:output message="tns:JDBGetMaintainHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="JDBLogWrapperSoap" type="tns:JDBLogWrapperSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://JDBLogWrapper.com/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLockAccount">
+      <soap:operation soapAction="http://JDBLogWrapper.com/PlayerLockAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerReturnAccount">
+      <soap:operation soapAction="http://JDBLogWrapper.com/PlayerReturnAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerInfo">
+      <soap:operation soapAction="http://JDBLogWrapper.com/PlayerInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JDBGetMaintain">
+      <soap:operation soapAction="http://JDBLogWrapper.com/JDBGetMaintain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="JDBLogWrapperSoap12" type="tns:JDBLogWrapperSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://JDBLogWrapper.com/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLockAccount">
+      <soap12:operation soapAction="http://JDBLogWrapper.com/PlayerLockAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerReturnAccount">
+      <soap12:operation soapAction="http://JDBLogWrapper.com/PlayerReturnAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerInfo">
+      <soap12:operation soapAction="http://JDBLogWrapper.com/PlayerInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JDBGetMaintain">
+      <soap12:operation soapAction="http://JDBLogWrapper.com/JDBGetMaintain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="JDBLogWrapperHttpGet" type="tns:JDBLogWrapperHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLockAccount">
+      <http:operation location="/PlayerLockAccount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerReturnAccount">
+      <http:operation location="/PlayerReturnAccount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerInfo">
+      <http:operation location="/PlayerInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JDBGetMaintain">
+      <http:operation location="/JDBGetMaintain" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="JDBLogWrapperHttpPost" type="tns:JDBLogWrapperHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLockAccount">
+      <http:operation location="/PlayerLockAccount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerReturnAccount">
+      <http:operation location="/PlayerReturnAccount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerInfo">
+      <http:operation location="/PlayerInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JDBGetMaintain">
+      <http:operation location="/JDBGetMaintain" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="JDBLogWrapper">
+    <wsdl:port name="JDBLogWrapperSoap" binding="tns:JDBLogWrapperSoap">
+      <soap:address location="http://api.h1.bt2win.com/jdb.asmx" />
+    </wsdl:port>
+    <wsdl:port name="JDBLogWrapperSoap12" binding="tns:JDBLogWrapperSoap12">
+      <soap12:address location="http://api.h1.bt2win.com/jdb.asmx" />
+    </wsdl:port>
+    <wsdl:port name="JDBLogWrapperHttpGet" binding="tns:JDBLogWrapperHttpGet">
+      <http:address location="http://api.h1.bt2win.com/jdb.asmx" />
+    </wsdl:port>
+    <wsdl:port name="JDBLogWrapperHttpPost" binding="tns:JDBLogWrapperHttpPost">
+      <http:address location="http://api.h1.bt2win.com/jdb.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

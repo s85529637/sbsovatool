@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://livegame.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://livegame.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://livegame.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KickUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="system_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="web_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="player_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KickUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KickUserResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnlineMemberList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="system_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="web_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="player_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="game_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="desk_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnlineMemberListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOnlineMemberListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnlineMemberCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="system_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="web_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="game_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="desk_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnlineMemberCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOnlineMemberCountResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDeviceOnlineCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="system_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="web_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="game_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="desk_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDeviceOnlineCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDeviceOnlineCountResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLobbyInfo">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLobbyInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLobbyInfoResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDeviceCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDeviceCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDeviceCountResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="KickUserSoapIn">
+    <wsdl:part name="parameters" element="tns:KickUser" />
+  </wsdl:message>
+  <wsdl:message name="KickUserSoapOut">
+    <wsdl:part name="parameters" element="tns:KickUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOnlineMemberList" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOnlineMemberListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOnlineMemberCount" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOnlineMemberCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDeviceOnlineCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDeviceOnlineCount" />
+  </wsdl:message>
+  <wsdl:message name="GetDeviceOnlineCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDeviceOnlineCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLobbyInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLobbyInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetLobbyInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLobbyInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDeviceCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDeviceCount" />
+  </wsdl:message>
+  <wsdl:message name="GetDeviceCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDeviceCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="KickUserHttpPostIn">
+    <wsdl:part name="system_code" type="s:string" />
+    <wsdl:part name="web_id" type="s:string" />
+    <wsdl:part name="player_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="KickUserHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberListHttpPostIn">
+    <wsdl:part name="system_code" type="s:string" />
+    <wsdl:part name="web_id" type="s:string" />
+    <wsdl:part name="player_id" type="s:string" />
+    <wsdl:part name="game_id" type="s:string" />
+    <wsdl:part name="desk_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberListHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberCountHttpPostIn">
+    <wsdl:part name="system_code" type="s:string" />
+    <wsdl:part name="web_id" type="s:string" />
+    <wsdl:part name="game_id" type="s:string" />
+    <wsdl:part name="desk_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberCountHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetDeviceOnlineCountHttpPostIn">
+    <wsdl:part name="system_code" type="s:string" />
+    <wsdl:part name="web_id" type="s:string" />
+    <wsdl:part name="game_id" type="s:string" />
+    <wsdl:part name="desk_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDeviceOnlineCountHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetLobbyInfoHttpPostIn" />
+  <wsdl:message name="GetLobbyInfoHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetDeviceCountHttpPostIn">
+    <wsdl:part name="LogDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDeviceCountHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:portType name="LiveGameSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <wsdl:input message="tns:KickUserSoapIn" />
+      <wsdl:output message="tns:KickUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberList">
+      <wsdl:input message="tns:GetOnlineMemberListSoapIn" />
+      <wsdl:output message="tns:GetOnlineMemberListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberCount">
+      <wsdl:input message="tns:GetOnlineMemberCountSoapIn" />
+      <wsdl:output message="tns:GetOnlineMemberCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceOnlineCount">
+      <wsdl:input message="tns:GetDeviceOnlineCountSoapIn" />
+      <wsdl:output message="tns:GetDeviceOnlineCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLobbyInfo">
+      <wsdl:input message="tns:GetLobbyInfoSoapIn" />
+      <wsdl:output message="tns:GetLobbyInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceCount">
+      <wsdl:input message="tns:GetDeviceCountSoapIn" />
+      <wsdl:output message="tns:GetDeviceCountSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="LiveGameHttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <wsdl:input message="tns:KickUserHttpPostIn" />
+      <wsdl:output message="tns:KickUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberList">
+      <wsdl:input message="tns:GetOnlineMemberListHttpPostIn" />
+      <wsdl:output message="tns:GetOnlineMemberListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberCount">
+      <wsdl:input message="tns:GetOnlineMemberCountHttpPostIn" />
+      <wsdl:output message="tns:GetOnlineMemberCountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceOnlineCount">
+      <wsdl:input message="tns:GetDeviceOnlineCountHttpPostIn" />
+      <wsdl:output message="tns:GetDeviceOnlineCountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLobbyInfo">
+      <wsdl:input message="tns:GetLobbyInfoHttpPostIn" />
+      <wsdl:output message="tns:GetLobbyInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceCount">
+      <wsdl:input message="tns:GetDeviceCountHttpPostIn" />
+      <wsdl:output message="tns:GetDeviceCountHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LiveGameSoap" type="tns:LiveGameSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://livegame.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <soap:operation soapAction="http://livegame.org/KickUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberList">
+      <soap:operation soapAction="http://livegame.org/GetOnlineMemberList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberCount">
+      <soap:operation soapAction="http://livegame.org/GetOnlineMemberCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceOnlineCount">
+      <soap:operation soapAction="http://livegame.org/GetDeviceOnlineCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLobbyInfo">
+      <soap:operation soapAction="http://livegame.org/GetLobbyInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceCount">
+      <soap:operation soapAction="http://livegame.org/GetDeviceCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LiveGameSoap12" type="tns:LiveGameSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://livegame.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <soap12:operation soapAction="http://livegame.org/KickUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberList">
+      <soap12:operation soapAction="http://livegame.org/GetOnlineMemberList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberCount">
+      <soap12:operation soapAction="http://livegame.org/GetOnlineMemberCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceOnlineCount">
+      <soap12:operation soapAction="http://livegame.org/GetDeviceOnlineCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLobbyInfo">
+      <soap12:operation soapAction="http://livegame.org/GetLobbyInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceCount">
+      <soap12:operation soapAction="http://livegame.org/GetDeviceCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LiveGameHttpPost" type="tns:LiveGameHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <http:operation location="/KickUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberList">
+      <http:operation location="/GetOnlineMemberList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberCount">
+      <http:operation location="/GetOnlineMemberCount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceOnlineCount">
+      <http:operation location="/GetDeviceOnlineCount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLobbyInfo">
+      <http:operation location="/GetLobbyInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeviceCount">
+      <http:operation location="/GetDeviceCount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LiveGame">
+    <wsdl:port name="LiveGameSoap" binding="tns:LiveGameSoap">
+      <soap:address location="http://mapi.bt2win.com/livegame.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LiveGameSoap12" binding="tns:LiveGameSoap12">
+      <soap12:address location="http://mapi.bt2win.com/livegame.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LiveGameHttpPost" binding="tns:LiveGameHttpPost">
+      <http:address location="http://mapi.bt2win.com/livegame.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

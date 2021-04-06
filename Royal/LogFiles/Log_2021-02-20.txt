@@ -1,0 +1,16 @@
+{"Event":"PageStart","RequestTime":"2021-02-20 13:21:34.877","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/GetPlayerInfo.aspx","RemoteUrl":"http://localhost:65298/GameSwitch.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageEnd","RequestTime":"2021-02-20 13:21:34.964","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/GetPlayerInfo.aspx","RemoteUrl":"http://localhost:65298/GameSwitch.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageStart","RequestTime":"2021-02-20 13:21:49.763","UserHostName":"::1","UserHostAddress":"::1","ContentType":"application/x-www-form-urlencoded","LocalUrl":"http://localhost:65298/GetPlayerInfo.aspx","RemoteUrl":"http://localhost:65298/GetPlayerInfo.aspx","HttpMethod":"POST","Params":{"ctl00$ContentPlaceHolder1$txtAccount":"h1test004","ctl00$ContentPlaceHolder1$btnQuery":"琩高","ctl00$ContentPlaceHolder1$hdnClub_id":"","ctl00$ContentPlaceHolder1$hdnSession":""}}
+
+{"Event":"PageEnd","RequestTime":"2021-02-20 13:21:49.821","UserHostName":"::1","UserHostAddress":"::1","ContentType":"application/x-www-form-urlencoded","LocalUrl":"http://localhost:65298/GetPlayerInfo.aspx","RemoteUrl":"http://localhost:65298/GetPlayerInfo.aspx","HttpMethod":"POST","Params":{"ctl00$ContentPlaceHolder1$txtAccount":"h1test004","ctl00$ContentPlaceHolder1$btnQuery":"琩高","ctl00$ContentPlaceHolder1$hdnClub_id":"","ctl00$ContentPlaceHolder1$hdnSession":""}}
+
+{"Event":"PageStart","RequestTime":"2021-02-20 13:22:02.260","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/GetPlayerInfoadmin.aspx","RemoteUrl":"","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageEnd","RequestTime":"2021-02-20 13:22:02.280","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/GetPlayerInfoadmin.aspx","RemoteUrl":"","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageStart","RequestTime":"2021-02-20 13:22:06.498","UserHostName":"::1","UserHostAddress":"::1","ContentType":"application/x-www-form-urlencoded","LocalUrl":"http://localhost:65298/GetPlayerInfoadmin.aspx","RemoteUrl":"http://localhost:65298/GetPlayerInfoadmin.aspx","HttpMethod":"POST","Params":{"ctl00$ContentPlaceHolder1$txtAccount":"h1test004","ctl00$ContentPlaceHolder1$btnQuery":"琩高","ctl00$ContentPlaceHolder1$hdnClub_id":"","ctl00$ContentPlaceHolder1$hdnSession":"","ctl00$ContentPlaceHolder1$hdLogin_Game_Id":""}}
+
+{"Event":"PageEnd","RequestTime":"2021-02-20 13:22:06.524","UserHostName":"::1","UserHostAddress":"::1","ContentType":"application/x-www-form-urlencoded","LocalUrl":"http://localhost:65298/GetPlayerInfoadmin.aspx","RemoteUrl":"http://localhost:65298/GetPlayerInfoadmin.aspx","HttpMethod":"POST","Params":{"ctl00$ContentPlaceHolder1$txtAccount":"h1test004","ctl00$ContentPlaceHolder1$btnQuery":"琩高","ctl00$ContentPlaceHolder1$hdnClub_id":"","ctl00$ContentPlaceHolder1$hdnSession":"","ctl00$ContentPlaceHolder1$hdLogin_Game_Id":""}}
+

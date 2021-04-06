@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://api.h1.bt2win.com/jdb.asmx?wsdl" docRef="http://api.h1.bt2win.com/jdb.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://api.h1.bt2win.com/jdb.asmx" xmlns:q1="http://JDBLogWrapper.com/" binding="q1:JDBLogWrapperSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://api.h1.bt2win.com/jdb.asmx" xmlns:q2="http://JDBLogWrapper.com/" binding="q2:JDBLogWrapperSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

@@ -1,0 +1,2765 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StdLib</name>
+    </assembly>
+    <members>
+        <member name="T:cst">
+            <summary>
+            常數設定類別(能用 const 則優先使用 const，否則才用 static readonly)
+            </summary>
+        </member>
+        <member name="F:cst.YearStrFormat">
+            <summary>
+            日期和時間格式字串：yy
+            </summary>
+        </member>
+        <member name="F:cst.YearStringFormat">
+            <summary>
+            日期和時間格式字串：yyyy
+            </summary>
+        </member>
+        <member name="F:cst.HourStringFormat">
+            <summary>
+            日期和時間格式字串：HH
+            </summary>
+        </member>
+        <member name="F:cst.DateStrFormat">
+            <summary>
+            日期和時間格式字串：yyyy-MM
+            </summary>
+        </member>
+        <member name="F:cst.DateStringFormat">
+            <summary>
+            日期和時間格式字串：yyyy-MM-dd
+            </summary>
+        </member>
+        <member name="F:cst.DateHourStringFormat">
+            <summary>
+            日期和時間格式字串：yyyy-MM-dd HH
+            </summary>
+        </member>
+        <member name="F:cst.DateTimeStrFormat">
+            <summary>
+            日期和時間格式字串：yyyy-MM-dd HH:mm
+            </summary>
+        </member>
+        <member name="F:cst.DateTimeStringFormat">
+            <summary>
+            日期和時間格式字串：yyyy-MM-dd HH:mm:ss
+            </summary>
+        </member>
+        <member name="F:cst.DateTimeMillisecondStringFormat">
+            <summary>
+            日期和時間格式字串：yyyy-MM-dd HH:mm:ss.fff
+            </summary>
+        </member>
+        <member name="F:cst.DateTimeFullStringFormat">
+            <summary>
+            日期和時間格式字串：yyyy-MM-dd HH:mm:ss.fffffff
+            </summary>
+        </member>
+        <member name="F:cst.DateTimeIso8601StringFormat">
+            <summary>
+            日期和時間格式字串：yyyy-MM-ddTHH:mm:ss.FFF
+            </summary>
+        </member>
+        <member name="F:cst.DateTimeJsonStringFormat">
+            <summary>
+            日期和時間格式字串：yyyy-MM-ddTHH:mm:ss.fffzzz
+            </summary>
+        </member>
+        <member name="F:cst.TimeStrFormat">
+            <summary>
+            日期和時間格式字串：HH:mm
+            </summary>
+        </member>
+        <member name="F:cst.TimeStringFormat">
+            <summary>
+            日期和時間格式字串：HH:mm:ss
+            </summary>
+        </member>
+        <member name="F:cst.DigitalFormat1">
+            <summary>
+            數值格式字串：固定顯示到小數第一位
+            </summary>
+        </member>
+        <member name="F:cst.DigitalFormat1WithComma">
+            <summary>
+            數值格式字串：固定顯示到小數第一位，並且加入千位符號(逗號)
+            </summary>
+        </member>
+        <member name="F:cst.DigitalFormat2">
+            <summary>
+            數值格式字串：固定顯示到小數第二位
+            </summary>
+        </member>
+        <member name="F:cst.DigitalFormat2WithComma">
+            <summary>
+            數值格式字串：固定顯示到小數第二位，並且加入千位符號(逗號)
+            </summary>
+        </member>
+        <member name="F:cst.DigitalFormat3">
+            <summary>
+            數值格式字串：固定顯示到小數第三位
+            </summary>
+        </member>
+        <member name="F:cst.DigitalFormat3WithComma">
+            <summary>
+            數值格式字串：固定顯示到小數第三位，並且加入千位符號(逗號)
+            </summary>
+        </member>
+        <member name="F:cst.DigitalDefaultFormat">
+            <summary>
+            數值格式字串：去除小數點後尾數的 0 及避免顯示科學符號
+            </summary>
+        </member>
+        <member name="F:cst.DigitalDefaultFormatWithComma">
+            <summary>
+            數值格式字串：去除小數點後尾數的 0 及避免顯示科學符號，並且加入千位符號(逗號)
+            </summary>
+        </member>
+        <member name="T:ext">
+            <summary>
+            擴充方法類別(強烈建議只擴充強型別物件，非 Dot NET 內建物件不在此擴充)
+            </summary>
+        </member>
+        <member name="M:ext.CopyProperties(System.Object,System.Object,System.Boolean,System.Boolean,System.String[])">
+            <summary>
+            複製物件的屬性值(屬性名稱及型別需相同，目標屬性需可寫，來源屬性需可讀)
+            </summary>
+            <param name="targetObject">目標物件</param>
+            <param name="sourceObject">來源物件</param>
+            <param name="excludeNullValue">是否排除來源物件屬性值為 null 的屬性</param>
+            <param name="excludeEmptyString">是否排除來源物件屬性值為空字串的屬性</param>
+            <param name="excludeNames">其他要排除的目標物件屬性的名稱</param>
+            <returns>傳回成功複製的屬性名稱</returns>
+        </member>
+        <member name="M:ext.CopyProperties(System.Object,System.Object,System.Boolean,System.String[])">
+            <summary>
+            複製物件的屬性值(屬性名稱及型別需相同，目標屬性需可寫，來源屬性需可讀)
+            </summary>
+            <param name="targetObject">目標物件</param>
+            <param name="sourceObject">來源物件</param>
+            <param name="excludeNullValue">是否排除來源物件屬性值為 null 的屬性</param>
+            <param name="excludeNames">其他要排除的目標物件屬性的名稱</param>
+            <returns>傳回成功複製的屬性名稱</returns>
+        </member>
+        <member name="M:ext.CopyProperties(System.Object,System.Object,System.String[])">
+            <summary>
+            複製物件的屬性值(屬性名稱及型別需相同，目標屬性需可寫，來源屬性需可讀)
+            </summary>
+            <param name="targetObject">目標物件</param>
+            <param name="sourceObject">來源物件</param>
+            <param name="excludeNames">其他要排除的目標物件屬性的名稱</param>
+            <returns>傳回成功複製的屬性名稱</returns>
+        </member>
+        <member name="M:ext.ToStr``1(``0)">
+            <summary>
+            將物件轉成字串，Null 會傳回空字串
+            </summary>
+            <param name="t">物件</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.Nullable{System.DateTime},System.String)">
+            <summary>
+            將 DateTime 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.Nullable{System.TimeSpan},System.String)">
+            <summary>
+            將 TimeSpan 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="timeSpan">TimeSpan</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToYearStr(System.Nullable{System.DateTime})">
+            <summary>
+            將 DateTime 轉成 yy 格式字串(Null 會傳回空字串)
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToYearString(System.Nullable{System.DateTime})">
+            <summary>
+            將 DateTime 轉成 yyyy 格式字串(Null 會傳回空字串)
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToHourString(System.Nullable{System.DateTime})">
+            <summary>
+            將 DateTime 轉成 HH 格式字串(Null 會傳回空字串)
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToDateStr(System.Nullable{System.DateTime})">
+            <summary>
+            將 DateTime 轉成 yyyy-MM 格式字串(Null 會傳回空字串)
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToDateString(System.Nullable{System.DateTime})">
+            <summary>
+            將 DateTime 轉成 yyyy-MM-dd 格式字串(Null 會傳回空字串)
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToDateHourString(System.Nullable{System.DateTime})">
+            <summary>
+            將 DateTime 轉成 yyyy-MM-dd HH 格式字串(Null 會傳回空字串)
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToDateTimeStr(System.Nullable{System.DateTime})">
+            <summary>
+            將 DateTime 轉成 yyyy-MM-dd HH:mm 格式字串(Null 會傳回空字串)
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToDateTimeString(System.Nullable{System.DateTime})">
+            <summary>
+            將 DateTime 轉成 yyyy-MM-dd HH:mm:ss 格式字串(Null 會傳回空字串)
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToDateTimeMillisecondString(System.Nullable{System.DateTime})">
+            <summary>
+            將 DateTime 轉成 yyyy-MM-dd HH:mm:ss.fff 格式字串(Null 會傳回空字串)
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToDateTimeFullString(System.Nullable{System.DateTime})">
+            <summary>
+            將 DateTime 轉成 yyyy-MM-dd HH:mm:ss.fffffff 格式字串(Null 會傳回空字串)
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToDateTimeIso8601String(System.Nullable{System.DateTime})">
+            <summary>
+            將 DateTime 轉成 yyyy-MM-ddTHH:mm:ss.FFF 格式字串(Null 會傳回空字串)
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToDateTimeJsonString(System.Nullable{System.DateTime})">
+            <summary>
+            將 DateTime 轉成 yyyy-MM-ddTHH:mm:ss.fffzzz 格式字串(Null 會傳回空字串)
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToTimeStr(System.Nullable{System.DateTime})">
+            <summary>
+            將 DateTime 轉成 HH:mm 格式字串(Null 會傳回空字串)
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToTimeString(System.Nullable{System.DateTime})">
+            <summary>
+            將 DateTime 轉成 HH:mm:ss 格式字串(Null 會傳回空字串)
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.DateTime,System.String)">
+            <summary>
+            將 DateTime 依格式轉成字串
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.TimeSpan,System.String)">
+            <summary>
+            將 TimeSpan 依格式轉成字串
+            </summary>
+            <param name="timeSpan">TimeSpan</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToYearStr(System.DateTime)">
+            <summary>
+            將 DateTime 轉成 yy 格式字串
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToYearString(System.DateTime)">
+            <summary>
+            將 DateTime 轉成 yyyy 格式字串
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToHourString(System.DateTime)">
+            <summary>
+            將 DateTime 轉成 HH 格式字串
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToDateStr(System.DateTime)">
+            <summary>
+            將 DateTime 轉成 yyyy-MM 格式字串
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToDateString(System.DateTime)">
+            <summary>
+            將 DateTime 轉成 yyyy-MM-dd 格式字串
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToDateHourString(System.DateTime)">
+            <summary>
+            將 DateTime 轉成 yyyy-MM-dd HH 格式字串
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToDateTimeStr(System.DateTime)">
+            <summary>
+            將 DateTime 轉成 yyyy-MM-dd HH:mm 格式字串
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToDateTimeString(System.DateTime)">
+            <summary>
+            將 DateTime 轉成 yyyy-MM-dd HH:mm:ss 格式字串
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToDateTimeMillisecondString(System.DateTime)">
+            <summary>
+            將 DateTime 轉成 yyyy-MM-dd HH:mm:ss.fff 格式字串
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToDateTimeFullString(System.DateTime)">
+            <summary>
+            將 DateTime 轉成 yyyy-MM-dd HH:mm:ss.fffffff 格式字串
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToDateTimeIso8601String(System.DateTime)">
+            <summary>
+            將 DateTime 轉成 yyyy-MM-ddTHH:mm:ss.FFF 格式字串
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToDateTimeJsonString(System.DateTime)">
+            <summary>
+            將 DateTime 轉成 yyyy-MM-ddTHH:mm:ss.fffzzz 格式字串
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToTimeStr(System.DateTime)">
+            <summary>
+            將 DateTime 轉成 HH:mm 格式字串
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToTimeString(System.DateTime)">
+            <summary>
+            將 DateTime 轉成 HH:mm:ss 格式字串
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.Nullable{System.Guid},System.String)">
+            <summary>
+            將 Guid 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="guid">Guid</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.Guid,System.String)">
+            <summary>
+            將 Guid 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="guid">Guid</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.Nullable{System.Byte},System.String)">
+            <summary>
+            將 Byte 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="b">Byte</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.Byte,System.String)">
+            <summary>
+            將 Byte 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="b">Byte</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.Nullable{System.Int16},System.String)">
+            <summary>
+            將 Int16 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="i">Int16</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.Int16,System.String)">
+            <summary>
+            將 Int16 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="i">Int16</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.Nullable{System.Int32},System.String)">
+            <summary>
+            將 Int32 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="i">Int32</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.Int32,System.String)">
+            <summary>
+            將 Int32 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="i">Int32</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.Nullable{System.Int64},System.String)">
+            <summary>
+            將 Int64 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="i">Int64</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.Int64,System.String)">
+            <summary>
+            將 Int64 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="i">Int64</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.Nullable{System.Decimal},System.String)">
+            <summary>
+            將 Decimal 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="dec">Decimal</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.Decimal,System.String)">
+            <summary>
+            將 Decimal 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="dec">Decimal</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.Nullable{System.Single},System.String)">
+            <summary>
+            將 Single 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="sgl">Single</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.Single,System.String)">
+            <summary>
+            將 Single 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="sgl">Single</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.Nullable{System.Double},System.String)">
+            <summary>
+            將 Double 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="dbl">Double</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.Double,System.String)">
+            <summary>
+            將 Double 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="dbl">Double</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.Nullable{System.SByte},System.String)">
+            <summary>
+            將 SByte 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="b">SByte</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.SByte,System.String)">
+            <summary>
+            將 SByte 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="b">SByte</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.Nullable{System.UInt16},System.String)">
+            <summary>
+            將 UInt16 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="i">UInt16</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.UInt16,System.String)">
+            <summary>
+            將 UInt16 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="i">UInt16</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.Nullable{System.UInt32},System.String)">
+            <summary>
+            將 UInt32 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="i">UInt32</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.UInt32,System.String)">
+            <summary>
+            將 UInt32 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="i">UInt32</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.Nullable{System.UInt64},System.String)">
+            <summary>
+            將 UInt64 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="i">UInt64</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToStr(System.UInt64,System.String)">
+            <summary>
+            將 UInt64 依格式轉成字串(Null 會傳回空字串)
+            </summary>
+            <param name="i">UInt64</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToIPAddress(System.String)">
+            <summary>
+            轉成標準的 IP 位址
+            </summary>
+            <param name="s">要轉換的字串</param>
+            <returns>傳回 IP 位址，轉換失敗時傳回 Null</returns>
+        </member>
+        <member name="M:ext.IsIPAddress(System.String)">
+            <summary>
+            判斷字串是否可以轉成 IP 位址
+            </summary>
+            <param name="s">IP 位址</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.ToDateTime(System.String)">
+            <summary>
+            將時間字串依格式轉為時間
+            </summary>
+            <param name="s">要轉換的字串，轉換失敗時傳回 Null</param>
+            <returns>傳回時間</returns>
+        </member>
+        <member name="M:ext.IsDateTime(System.String)">
+            <summary>
+            判斷字串是否符合時間格式
+            </summary>
+            <param name="s">要檢查的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.ToDateTime(System.String,System.String)">
+            <summary>
+            將時間字串依格式轉為時間
+            </summary>
+            <param name="s">要轉換的字串</param>
+            <param name="format">格式化字串，範例【yyyy-MM-dd HH:mm:ss】</param>
+            <returns>傳回時間</returns>
+        </member>
+        <member name="M:ext.IsDateTime(System.String,System.String)">
+            <summary>
+            判斷字串是否符合時間格式
+            </summary>
+            <param name="s">要檢查的字串</param>
+            <param name="format">格式化字串，範例【yyyy-MM-dd HH:mm:ss】</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.ToDateTime(System.String,System.String[])">
+            <summary>
+            將時間字串依格式轉為時間
+            </summary>
+            <param name="s">要轉換的字串</param>
+            <param name="formats">格式化字串，範例【yyyy-MM-dd HH:mm:ss】</param>
+            <returns>傳回時間</returns>
+        </member>
+        <member name="M:ext.IsDateTime(System.String,System.String[])">
+            <summary>
+            判斷字串是否符合時間格式
+            </summary>
+            <param name="s">要檢查的字串</param>
+            <param name="formats">格式化字串，範例【yyyy-MM-dd HH:mm:ss】</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.ToTwCalendar(System.DateTime,System.String)">
+            <summary>
+            西元年轉民國年
+            </summary>
+            <param name="dateTime">西元年</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回民國年</returns>
+        </member>
+        <member name="M:ext.ToTwCalendar(System.Nullable{System.DateTime},System.String)">
+            <summary>
+            西元年轉民國年
+            </summary>
+            <param name="dateTime">西元年</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回民國年</returns>
+        </member>
+        <member name="M:ext.TwCalendarToDateTime(System.String,System.String[])">
+            <summary>
+            民國年轉西元年
+            </summary>
+            <param name="twCalendar">民國年</param>
+            <param name="formats">格式化字串</param>
+            <returns>傳回西元年</returns>
+        </member>
+        <member name="M:ext.TwCalendarToDateTime(System.String,System.String)">
+            <summary>
+            民國年轉西元年
+            </summary>
+            <param name="twCalendar">民國年</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回西元年</returns>
+        </member>
+        <member name="M:ext.IsTwCalendar(System.String,System.String[])">
+            <summary>
+            判斷字串是否符合民國年時間格式
+            </summary>
+            <param name="s">要檢查的字串</param>
+            <param name="formats">格式化字串，範例【yyy/MM/dd HH:mm:ss】</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.ToTimeSpan(System.String)">
+            <summary>
+            將時間字串依格式轉為時間
+            </summary>
+            <param name="s">要轉換的字串，轉換失敗時傳回 Null</param>
+            <returns>傳回時間</returns>
+        </member>
+        <member name="M:ext.IsTimeSpan(System.String)">
+            <summary>
+            判斷字串是否符合時間格式
+            </summary>
+            <param name="s">要檢查的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.ToTimeSpan(System.String,System.String)">
+            <summary>
+            將時間字串依格式轉為時間
+            </summary>
+            <param name="s">要轉換的字串</param>
+            <param name="format">格式化字串，範例【yyyy-MM-dd HH:mm:ss】</param>
+            <returns>傳回時間</returns>
+        </member>
+        <member name="M:ext.IsTimeSpan(System.String,System.String)">
+            <summary>
+            判斷字串是否符合時間格式
+            </summary>
+            <param name="s">要檢查的字串</param>
+            <param name="format">格式化字串，範例【yyyy-MM-dd HH:mm:ss】</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.ToTimeSpan(System.String,System.String[])">
+            <summary>
+            將時間字串依格式轉為時間
+            </summary>
+            <param name="s">要轉換的字串</param>
+            <param name="formats">格式化字串，範例【yyyy-MM-dd HH:mm:ss】</param>
+            <returns>傳回時間</returns>
+        </member>
+        <member name="M:ext.IsTimeSpan(System.String,System.String[])">
+            <summary>
+            判斷字串是否符合時間格式
+            </summary>
+            <param name="s">要檢查的字串</param>
+            <param name="formats">格式化字串，範例【yyyy-MM-dd HH:mm:ss】</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.ToGuid(System.String)">
+            <summary>
+            將字串轉為 Guid
+            </summary>
+            <param name="s">要轉換的字串，轉換失敗時傳回 Null</param>
+            <returns>傳回時間</returns>
+        </member>
+        <member name="M:ext.IsGuid(System.String)">
+            <summary>
+            判斷字串是否符合 Guid 格式
+            </summary>
+            <param name="s">要檢查的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.ToGuid(System.String,System.String)">
+            <summary>
+            將字串依格式轉為 Guid
+            </summary>
+            <param name="s">要轉換的字串</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回 Guid</returns>
+        </member>
+        <member name="M:ext.IsGuid(System.String,System.String)">
+            <summary>
+            判斷字串是否符合 Guid 格式
+            </summary>
+            <param name="s">要檢查的字串</param>
+            <param name="format">格式化字串</param>
+            <returns>傳回 Guid</returns>
+        </member>
+        <member name="M:ext.ToBoolean(System.String)">
+            <summary>
+            字串轉成 Boolean
+            </summary>
+            <param name="s">要轉換的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.IsBoolean(System.String)">
+            <summary>
+            判斷字串是否可以轉成 Boolean
+            </summary>
+            <param name="s">要檢查的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.ToByte(System.String)">
+            <summary>
+            字串轉成 Byte
+            </summary>
+            <param name="s">要轉換的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.IsByte(System.String)">
+            <summary>
+            判斷字串是否可以轉成 Byte
+            </summary>
+            <param name="s">要檢查的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.ToInt16(System.String)">
+            <summary>
+            字串轉成 Int16
+            </summary>
+            <param name="s">要轉換的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.IsInt16(System.String)">
+            <summary>
+            判斷字串是否可以轉成 Int16
+            </summary>
+            <param name="s">要檢查的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.ToInt32(System.String)">
+            <summary>
+            字串轉成 Int32
+            </summary>
+            <param name="s">要轉換的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.IsInt32(System.String)">
+            <summary>
+            判斷字串是否可以轉成 Int32
+            </summary>
+            <param name="s">要檢查的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.ToInt64(System.String)">
+            <summary>
+            字串轉成 Int64
+            </summary>
+            <param name="s">要轉換的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.IsInt64(System.String)">
+            <summary>
+            判斷字串是否可以轉成 Int64
+            </summary>
+            <param name="s">要檢查的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.ToDecimal(System.String)">
+            <summary>
+            字串轉成 Decimal
+            </summary>
+            <param name="s">要轉換的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.IsDecimal(System.String)">
+            <summary>
+            判斷字串是否可以轉成 Decimal
+            </summary>
+            <param name="s">要檢查的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.ToSingle(System.String)">
+            <summary>
+            字串轉成 Single
+            </summary>
+            <param name="s">要轉換的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.IsSingle(System.String)">
+            <summary>
+            判斷字串是否可以轉成 Single
+            </summary>
+            <param name="s">要檢查的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.ToDouble(System.String)">
+            <summary>
+            字串轉成 Double
+            </summary>
+            <param name="s">要轉換的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.IsDouble(System.String)">
+            <summary>
+            判斷字串是否可以轉成 Double
+            </summary>
+            <param name="s">要檢查的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.ToSByte(System.String)">
+            <summary>
+            字串轉成 SByte
+            </summary>
+            <param name="s">要轉換的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.IsSByte(System.String)">
+            <summary>
+            判斷字串是否可以轉成 SByte
+            </summary>
+            <param name="s">要檢查的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.ToUInt16(System.String)">
+            <summary>
+            字串轉成 UInt16
+            </summary>
+            <param name="s">要轉換的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.IsUInt16(System.String)">
+            <summary>
+            判斷字串是否可以轉成 UInt16
+            </summary>
+            <param name="s">要檢查的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.ToUInt32(System.String)">
+            <summary>
+            字串轉成 UInt32
+            </summary>
+            <param name="s">要轉換的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.IsUInt32(System.String)">
+            <summary>
+            判斷字串是否可以轉成 UInt32
+            </summary>
+            <param name="s">要檢查的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.ToUInt64(System.String)">
+            <summary>
+            字串轉成 UInt64
+            </summary>
+            <param name="s">要轉換的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.IsUInt64(System.String)">
+            <summary>
+            判斷字串是否可以轉成 UInt64
+            </summary>
+            <param name="s">要檢查的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.InnerJoin(System.Data.DataTable,System.String,System.Data.DataTable,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            DataTable Inner Join
+            </summary>
+            <param name="primaryDataTable">Primary DataTable</param>
+            <param name="primaryColumnName">Primary DataTable 欲做關聯的欄位名稱</param>
+            <param name="foreignDataTable">Foreign DataTable</param>
+            <param name="foreignColumnName">Foreign DataTable 欲做關聯的欄位名稱</param>
+            <param name="caseSensitive">是否區分大小寫</param>
+            <param name="keepSameColumn">遇到同樣的欄位名稱時是否保留欄位</param>
+            <returns>傳回 DataTable</returns>
+        </member>
+        <member name="M:ext.InnerJoin(System.Data.DataTable,System.String[],System.Data.DataTable,System.String[],System.Boolean,System.Boolean)">
+            <summary>
+            DataTable Inner Join
+            </summary>
+            <param name="primaryDataTable">Primary DataTable</param>
+            <param name="primaryColumnNames">Primary DataTable 欲做關聯的欄位名稱</param>
+            <param name="foreignDataTable">Foreign DataTable</param>
+            <param name="foreignColumnNames">Foreign DataTable 欲做關聯的欄位名稱</param>
+            <param name="caseSensitive">是否區分大小寫</param>
+            <param name="keepSameColumn">遇到同樣的欄位名稱時是否保留欄位</param>
+            <returns>傳回 DataTable</returns>
+        </member>
+        <member name="M:ext.LeftJoin(System.Data.DataTable,System.String,System.Data.DataTable,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            DataTable Left Outer Join
+            </summary>
+            <param name="primaryDataTable">Primary DataTable</param>
+            <param name="primaryColumnName">Primary DataTable 欲做關聯的欄位名稱</param>
+            <param name="foreignDataTable">Foreign DataTable</param>
+            <param name="foreignColumnName">Foreign DataTable 欲做關聯的欄位名稱</param>
+            <param name="caseSensitive">是否區分大小寫</param>
+            <param name="keepSameColumn">遇到同樣的欄位名稱時是否保留欄位</param>
+            <returns>傳回 DataTable</returns>
+        </member>
+        <member name="M:ext.LeftJoin(System.Data.DataTable,System.String[],System.Data.DataTable,System.String[],System.Boolean,System.Boolean)">
+            <summary>
+            DataTable Left Outer Join
+            </summary>
+            <param name="primaryDataTable">Primary DataTable</param>
+            <param name="primaryColumnNames">Primary DataTable 欲做關聯的欄位名稱</param>
+            <param name="foreignDataTable">Foreign DataTable</param>
+            <param name="foreignColumnNames">Foreign DataTable 欲做關聯的欄位名稱</param>
+            <param name="caseSensitive">是否區分大小寫</param>
+            <param name="keepSameColumn">遇到同樣的欄位名稱時是否保留欄位</param>
+            <returns>傳回 DataTable</returns>
+        </member>
+        <member name="M:ext.ExceptKey(System.Data.DataTable,System.String,System.Data.DataTable,System.String,System.Boolean)">
+            <summary>
+            DataTable Except Key(差集)
+            </summary>
+            <param name="primaryDataTable">Primary DataTable</param>
+            <param name="primaryColumnName">Primary DataTable 欲做關聯的欄位名稱</param>
+            <param name="foreignDataTable">Foreign DataTable</param>
+            <param name="foreignColumnName">Foreign DataTable 欲做關聯的欄位名稱</param>
+            <param name="caseSensitive">是否區分大小寫</param>
+            <returns>傳回 DataTable</returns>
+        </member>
+        <member name="M:ext.ExceptKey(System.Data.DataTable,System.String[],System.Data.DataTable,System.String[],System.Boolean)">
+            <summary>
+            DataTable Except Key(差集)
+            </summary>
+            <param name="primaryDataTable">Primary DataTable</param>
+            <param name="primaryColumnNames">Primary DataTable 欲做關聯的欄位名稱</param>
+            <param name="foreignDataTable">Foreign DataTable</param>
+            <param name="foreignColumnNames">Foreign DataTable 欲做關聯的欄位名稱</param>
+            <param name="caseSensitive">是否區分大小寫</param>
+            <returns>傳回 DataTable</returns>
+        </member>
+        <member name="M:ext.IntersectKey(System.Data.DataTable,System.String,System.Data.DataTable,System.String,System.Boolean)">
+            <summary>
+            DataTable Intersect Key(交集)
+            </summary>
+            <param name="primaryDataTable">Primary DataTable</param>
+            <param name="primaryColumnName">Primary DataTable 欲做關聯的欄位名稱</param>
+            <param name="foreignDataTable">Foreign DataTable</param>
+            <param name="foreignColumnName">Foreign DataTable 欲做關聯的欄位名稱</param>
+            <param name="caseSensitive">是否區分大小寫</param>
+            <returns>傳回 DataTable</returns>
+        </member>
+        <member name="M:ext.IntersectKey(System.Data.DataTable,System.String[],System.Data.DataTable,System.String[],System.Boolean)">
+            <summary>
+            DataTable Intersect Key(交集)
+            </summary>
+            <param name="primaryDataTable">Primary DataTable</param>
+            <param name="primaryColumnNames">Primary DataTable 欲做關聯的欄位名稱</param>
+            <param name="foreignDataTable">Foreign DataTable</param>
+            <param name="foreignColumnNames">Foreign DataTable 欲做關聯的欄位名稱</param>
+            <param name="caseSensitive">是否區分大小寫</param>
+            <returns>傳回 DataTable</returns>
+        </member>
+        <member name="M:ext.AddRowNumber(System.Data.DataTable,System.String)">
+            <summary>
+            DataTable 增加資料編號的欄位
+            </summary>
+            <param name="dataTable">欲增加資料編號欄位的 DataTable</param>
+            <param name="columnName">資料編號的欄位名稱</param>
+        </member>
+        <member name="M:ext.DistinctDataColumns(System.Data.DataTable,System.Boolean,System.String[])">
+            <summary>
+            留下指定欄位重複資料的最後一筆，並將指定欄位值為 Null 的資料列移除及欄位設為 Primary Key
+            </summary>
+            <param name="dataTable">資料來源的 DataTable</param>
+            <param name="caseSensitive">是否區分大小寫</param>
+            <param name="columnNames">指定的欄位名稱(陣列)，至少需指定一個欄位</param>
+        </member>
+        <member name="M:ext.IsBlank(System.String)">
+            <summary>
+            判斷字串是否全部為空白(與 string.IsNullOrWhiteSpace 相同)
+            </summary>
+            <param name="s">字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.IsNotBlank(System.String)">
+            <summary>
+            判斷字串是否非全部空白(與 IsBlank 相反)
+            </summary>
+            <param name="s">字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.Substr(System.String,System.Int32,System.Int32)">
+            <summary>
+            從指定的位置開始取子字串(Substring 加強版)
+            </summary>
+            <param name="s">字串</param>
+            <param name="startIndex">指定的位置</param>
+            <param name="length">指定的長度</param>
+            <returns>傳回子字串</returns>
+        </member>
+        <member name="M:ext.Substr(System.String,System.Int32)">
+            <summary>
+            從指定的位置開始取子字串(Substring 加強版)
+            </summary>
+            <param name="s">字串</param>
+            <param name="startIndex">指定的位置</param>
+            <returns>傳回子字串</returns>
+        </member>
+        <member name="M:ext.Ins(System.String,System.Int32,System.String)">
+            <summary>
+            從指定的位置插入子字串(Insert 加強版)
+            </summary>
+            <param name="s">字串</param>
+            <param name="startIndex">插入的索引位置</param>
+            <param name="value">要插入的字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.Del(System.String,System.Int32,System.Int32)">
+            <summary>
+            從指定的位置開始刪除字元(Remove 加強版)
+            </summary>
+            <param name="s">字串</param>
+            <param name="startIndex">起始的位置</param>
+            <param name="count">要刪除的字元數</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.Del(System.String,System.Int32)">
+            <summary>
+            從指定的位置開始刪除字元(Remove 加強版)
+            </summary>
+            <param name="s">字串</param>
+            <param name="startIndex">起始的位置</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.IsMatchRegex(System.String,System.String)">
+            <summary>
+            判斷字串是否符合指定的規則運算式
+            </summary>
+            <param name="input">用來比對的字串</param>
+            <param name="pattern">規則運算式</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.IsMatchRegex(System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            判斷字串是否符合指定的規則運算式
+            </summary>
+            <param name="input">用來比對的字串</param>
+            <param name="pattern">規則運算式</param>
+            <param name="options">比對的選項</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.IsMatchId(System.String)">
+            <summary>
+            判斷字串是否僅由【-0-9A-Z_a-z|~】等符號組成的 Id 格式
+            </summary>
+            <param name="s">欲檢查的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.RemoveNumber(System.String)">
+            <summary>
+            字串移除數字的字元
+            </summary>
+            <param name="s">欲處理的字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.RemoveNumber(System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            字串移除數字的字元
+            </summary>
+            <param name="s">欲處理的字串</param>
+            <param name="options">比對的選項</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.RemoveNonNumber(System.String)">
+            <summary>
+            字串移除非數字的字元
+            </summary>
+            <param name="s">欲處理的字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.RemoveNonNumber(System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            字串移除非數字的字元
+            </summary>
+            <param name="s">欲處理的字串</param>
+            <param name="options">比對的選項</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.ToUpperTitleCaseInvariant(System.String)">
+            <summary>
+            轉換指定字串為字首大寫(與文化特性無關)
+            </summary>
+            <param name="s">要轉換的字串</param>
+            <returns>傳回轉換後的字串</returns>
+        </member>
+        <member name="M:ext.ToLowerTitleCaseInvariant(System.String)">
+            <summary>
+            轉換指定字串為字首大寫，但第一個字首為小寫(與文化特性無關)
+            </summary>
+            <param name="s">要轉換的字串</param>
+            <returns>傳回轉換後的字串</returns>
+        </member>
+        <member name="M:ext.RepeatedlyReplace(System.Text.StringBuilder,System.String)">
+            <summary>
+            將多個連續相同的子字串取代為一個
+            </summary>
+            <param name="sb">要處理的 StringBuilder</param>
+            <param name="s">要處理的子字串</param>
+            <returns></returns>
+        </member>
+        <member name="M:ext.RepeatedlyReplace(System.Text.StringBuilder,System.Char)">
+            <summary>
+            將多個連續相同的字元取代為一個
+            </summary>
+            <param name="sb">要處理的 StringBuilder</param>
+            <param name="c">要處理的字元</param>
+            <returns></returns>
+        </member>
+        <member name="M:ext.RepeatedlyReplace(System.String,System.String)">
+            <summary>
+            將多個連續相同的子字串取代為一個
+            </summary>
+            <param name="str">要處理的字串</param>
+            <param name="s">要處理的子字串</param>
+            <returns></returns>
+        </member>
+        <member name="M:ext.RepeatedlyReplace(System.String,System.Char)">
+            <summary>
+            將多個連續相同的字元取代為一個
+            </summary>
+            <param name="str">要處理的字串</param>
+            <param name="c">要處理的字元</param>
+            <returns></returns>
+        </member>
+        <member name="M:ext.ReplaceNewLineToBr(System.String)">
+            <summary>
+            將作業系統的換行符號取代為 HTML 的 <br /> 標籤
+            </summary>
+            <param name="s">要處理的字串</param>
+            <returns>傳回取代後的字串</returns>
+        </member>
+        <member name="M:ext.ReplaceBrToNewLine(System.String)">
+            <summary>
+            將 HTML 的 <br /> 標籤取代為作業系統的換行符號
+            </summary>
+            <param name="s">要處理的字串</param>
+            <returns>傳回取代後的字串</returns>
+        </member>
+        <member name="M:ext.ParseTag(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            解析被指定標籤包住的內容(不分大小寫)
+            </summary>
+            <param name="s">要解析的字串</param>
+            <param name="leftTag">左邊的標籤</param>
+            <param name="rightTag">右邊的標籤</param>
+            <param name="reserveTag">解析的結果是否保留標籤</param>
+            <returns>傳回字串列舉</returns>
+        </member>
+        <member name="M:ext.ParseTag(System.String,System.String,System.Boolean)">
+            <summary>
+            解析被指定標籤包住的內容(不分大小寫)
+            </summary>
+            <param name="s">要解析的字串</param>
+            <param name="tag">指定的標籤</param>
+            <param name="reserveTag">解析的結果是否保留標籤</param>
+            <returns>傳回字串列舉</returns>
+        </member>
+        <member name="M:ext.HtmlSplit(System.String)">
+            <summary>
+            依 HTML 標籤分割字串
+            </summary>
+            <param name="html">HTML 字串</param>
+            <returns>傳回字串列舉</returns>
+        </member>
+        <member name="M:ext.ReplaceHtmlTag(System.String,System.String)">
+            <summary>
+            取代 HTML 標籤
+            </summary>
+            <param name="html">HTML 字串</param>
+            <param name="replacement">取代字串</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.AccuratelyRound(System.Decimal,System.SByte)">
+            <summary>
+            精確版四捨五入
+            </summary>
+            <param name="num">數字</param>
+            <param name="digits">位數(可以是負數)</param>
+            <returns>傳回 System.Decimal</returns>
+        </member>
+        <member name="M:ext.AccuratelyRound(System.Double,System.SByte)">
+            <summary>
+            精確版四捨五入
+            </summary>
+            <param name="num">數字</param>
+            <param name="digits">位數(可以是負數)</param>
+            <returns>傳回 System.Double</returns>
+        </member>
+        <member name="M:ext.AccuratelyRound(System.Single,System.SByte)">
+            <summary>
+            精確版四捨五入
+            </summary>
+            <param name="num">數字</param>
+            <param name="digits">位數(可以是負數)</param>
+            <returns>傳回 System.Single</returns>
+        </member>
+        <member name="M:ext.AccuratelyRound(System.Decimal)">
+            <summary>
+            精確版四捨五入
+            </summary>
+            <param name="num">數字</param>
+            <returns>傳回 System.Decimal</returns>
+        </member>
+        <member name="M:ext.AccuratelyRound(System.Double)">
+            <summary>
+            精確版四捨五入
+            </summary>
+            <param name="num">數字</param>
+            <returns>傳回 System.Double</returns>
+        </member>
+        <member name="M:ext.AccuratelyRound(System.Single)">
+            <summary>
+            精確版四捨五入
+            </summary>
+            <param name="num">數字</param>
+            <returns>傳回 System.Single</returns>
+        </member>
+        <member name="M:ext.AccuratelyTruncate(System.Decimal,System.SByte)">
+            <summary>
+            精確版無條件捨去
+            </summary>
+            <param name="num">數字</param>
+            <param name="digits">位數(可以是負數)</param>
+            <returns>傳回 System.Decimal</returns>
+        </member>
+        <member name="M:ext.AccuratelyTruncate(System.Double,System.SByte)">
+            <summary>
+            精確版無條件捨去
+            </summary>
+            <param name="num">數字</param>
+            <param name="digits">位數(可以是負數)</param>
+            <returns>傳回 System.Double</returns>
+        </member>
+        <member name="M:ext.AccuratelyTruncate(System.Single,System.SByte)">
+            <summary>
+            精確版無條件捨去
+            </summary>
+            <param name="num">數字</param>
+            <param name="digits">位數(可以是負數)</param>
+            <returns>傳回 System.Single</returns>
+        </member>
+        <member name="M:ext.AccuratelyTruncate(System.Decimal)">
+            <summary>
+            精確版無條件捨去
+            </summary>
+            <param name="num">數字</param>
+            <returns>傳回 System.Decimal</returns>
+        </member>
+        <member name="M:ext.AccuratelyTruncate(System.Double)">
+            <summary>
+            精確版無條件捨去
+            </summary>
+            <param name="num">數字</param>
+            <returns>傳回 System.Double</returns>
+        </member>
+        <member name="M:ext.AccuratelyTruncate(System.Single)">
+            <summary>
+            精確版無條件捨去
+            </summary>
+            <param name="num">數字</param>
+            <returns>傳回 System.Single</returns>
+        </member>
+        <member name="M:ext.AccuratelyCeiling(System.Decimal,System.SByte)">
+            <summary>
+            精確版取天花板數值(無條件往正的方向進位)
+            </summary>
+            <param name="num">數字</param>
+            <param name="digits">位數(可以是負數)</param>
+            <returns>傳回 System.Decimal</returns>
+        </member>
+        <member name="M:ext.AccuratelyCeiling(System.Double,System.SByte)">
+            <summary>
+            精確版取天花板數值(無條件往正的方向進位)
+            </summary>
+            <param name="num">數字</param>
+            <param name="digits">位數(可以是負數)</param>
+            <returns>傳回 System.Double</returns>
+        </member>
+        <member name="M:ext.AccuratelyCeiling(System.Single,System.SByte)">
+            <summary>
+            精確版取天花板數值(無條件往正的方向進位)
+            </summary>
+            <param name="num">數字</param>
+            <param name="digits">位數(可以是負數)</param>
+            <returns>傳回 System.Single</returns>
+        </member>
+        <member name="M:ext.AccuratelyCeiling(System.Decimal)">
+            <summary>
+            精確版取天花板數值(無條件往正的方向進位)
+            </summary>
+            <param name="num">數字</param>
+            <returns>傳回 System.Decimal</returns>
+        </member>
+        <member name="M:ext.AccuratelyCeiling(System.Double)">
+            <summary>
+            精確版取天花板數值(無條件往正的方向進位)
+            </summary>
+            <param name="num">數字</param>
+            <returns>傳回 System.Double</returns>
+        </member>
+        <member name="M:ext.AccuratelyCeiling(System.Single)">
+            <summary>
+            精確版取天花板數值(無條件往正的方向進位)
+            </summary>
+            <param name="num">數字</param>
+            <returns>傳回 System.Single</returns>
+        </member>
+        <member name="M:ext.AccuratelyFloor(System.Decimal,System.SByte)">
+            <summary>
+            精確版取地板數值(無條件往負的方向進位)
+            </summary>
+            <param name="num">數字</param>
+            <param name="digits">位數(可以是負數)</param>
+            <returns>傳回 System.Decimal</returns>
+        </member>
+        <member name="M:ext.AccuratelyFloor(System.Double,System.SByte)">
+            <summary>
+            精確版取地板數值(無條件往負的方向進位)
+            </summary>
+            <param name="num">數字</param>
+            <param name="digits">位數(可以是負數)</param>
+            <returns>傳回 System.Double</returns>
+        </member>
+        <member name="M:ext.AccuratelyFloor(System.Single,System.SByte)">
+            <summary>
+            精確版取地板數值(無條件往負的方向進位)
+            </summary>
+            <param name="num">數字</param>
+            <param name="digits">位數(可以是負數)</param>
+            <returns>傳回 System.Single</returns>
+        </member>
+        <member name="M:ext.AccuratelyFloor(System.Decimal)">
+            <summary>
+            精確版取地板數值(無條件往負的方向進位)
+            </summary>
+            <param name="num">數字</param>
+            <returns>傳回 System.Decimal</returns>
+        </member>
+        <member name="M:ext.AccuratelyFloor(System.Double)">
+            <summary>
+            精確版取地板數值(無條件往負的方向進位)
+            </summary>
+            <param name="num">數字</param>
+            <returns>傳回 System.Double</returns>
+        </member>
+        <member name="M:ext.AccuratelyFloor(System.Single)">
+            <summary>
+            精確版取地板數值(無條件往負的方向進位)
+            </summary>
+            <param name="num">數字</param>
+            <returns>傳回 System.Single</returns>
+        </member>
+        <member name="M:ext.ToDateTime(System.Int64)">
+            <summary>
+            將時間刻度轉成 DateTime
+            </summary>
+            <param name="ticks">時間刻度</param>
+            <returns>傳回 DateTime</returns>
+        </member>
+        <member name="M:ext.ToDateTime(System.Int64,System.DateTimeKind)">
+            <summary>
+            將時間刻度轉成 DateTime
+            </summary>
+            <param name="ticks">時間刻度</param>
+            <param name="kind">時間種類</param>
+            <returns>傳回 DateTime</returns>
+        </member>
+        <member name="M:ext.ToTimeSpan(System.Int64)">
+            <summary>
+            將時間刻度轉成 TimeSpan
+            </summary>
+            <param name="ticks">時間刻度</param>
+            <returns>傳回 TimeSpan</returns>
+        </member>
+        <member name="M:ext.TruncateUntilYear(System.DateTime)">
+            <summary>
+            截斷 DateTime 年以後的部分
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回 System.DateTime</returns>
+        </member>
+        <member name="M:ext.TruncateUntilMonth(System.DateTime)">
+            <summary>
+            截斷 DateTime 月以後的部分
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回 System.DateTime</returns>
+        </member>
+        <member name="M:ext.TruncateUntilDay(System.DateTime)">
+            <summary>
+            截斷 DateTime 日以後的部分
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回 System.DateTime</returns>
+        </member>
+        <member name="M:ext.TruncateUntilHour(System.DateTime)">
+            <summary>
+            截斷 DateTime 小時以後的部分
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回 System.DateTime</returns>
+        </member>
+        <member name="M:ext.TruncateUntilMinute(System.DateTime)">
+            <summary>
+            截斷 DateTime 分鐘以後的部分
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回 System.DateTime</returns>
+        </member>
+        <member name="M:ext.TruncateUntilSecond(System.DateTime)">
+            <summary>
+            截斷 DateTime 秒數以後的部分
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回 System.DateTime</returns>
+        </member>
+        <member name="M:ext.TruncateUntilHour(System.TimeSpan)">
+            <summary>
+            截斷 TimeSpan 小時以後的部分
+            </summary>
+            <param name="timeSpan">TimeSpan</param>
+            <returns>傳回 System.TimeSpan</returns>
+        </member>
+        <member name="M:ext.TruncateUntilMinute(System.TimeSpan)">
+            <summary>
+            截斷 TimeSpan 分鐘以後的部分
+            </summary>
+            <param name="timeSpan">TimeSpan</param>
+            <returns>傳回 System.TimeSpan</returns>
+        </member>
+        <member name="M:ext.TruncateUntilSecond(System.TimeSpan)">
+            <summary>
+            截斷 TimeSpan 秒數以後的部分
+            </summary>
+            <param name="timeSpan">TimeSpan</param>
+            <returns>傳回 System.TimeSpan</returns>
+        </member>
+        <member name="M:ext.ToTwTimeUtc(System.DateTime)">
+            <summary>
+            轉成台灣時間(UTC+8)
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>UtcTwDateTime</returns>
+        </member>
+        <member name="M:ext.GetThisDayBeginValue(System.DateTime)">
+            <summary>
+            取得當日的起始時間
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回 DateTime</returns>
+        </member>
+        <member name="M:ext.GetThisDayEndValue(System.DateTime)">
+            <summary>
+            取得當日的結束時間
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回 DateTime</returns>
+        </member>
+        <member name="M:ext.GetThisMonthBeginValue(System.DateTime)">
+            <summary>
+            取得當月的起始時間
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回 DateTime</returns>
+        </member>
+        <member name="M:ext.GetThisMonthEndValue(System.DateTime)">
+            <summary>
+            取得當月的結束時間
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回 DateTime</returns>
+        </member>
+        <member name="M:ext.GetThisQuarterBeginValue(System.DateTime)">
+            <summary>
+            取得當季的起始時間
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回 DateTime</returns>
+        </member>
+        <member name="M:ext.GetThisQuarterEndValue(System.DateTime)">
+            <summary>
+            取得當季的結束時間
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回 DateTime</returns>
+        </member>
+        <member name="M:ext.GetThisYearBeginValue(System.DateTime)">
+            <summary>
+            取得當年度的起始時間
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回 DateTime</returns>
+        </member>
+        <member name="M:ext.GetThisYearEndValue(System.DateTime)">
+            <summary>
+            取得當年度的結束時間
+            </summary>
+            <param name="dateTime">DateTime</param>
+            <returns>傳回 DateTime</returns>
+        </member>
+        <member name="M:ext.GetDaysInMonth(System.DateTime)">
+            <summary>
+            取得指定日期所屬年月的天數
+            </summary>
+            <param name="dateTime">指定日期</param>
+            <returns>傳回範圍 1 ~ 31 的整數</returns>
+        </member>
+        <member name="M:ext.IsLeapYear(System.DateTime)">
+            <summary>
+            判斷指定日期所屬年份是否為閏年
+            </summary>
+            <param name="dateTime">指定日期</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:ext.CombineValues``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Boolean,System.Boolean)">
+            <summary>
+            組成以符號為分隔的字串
+            </summary>
+            <param name="TEnum">相同型別的列舉值</param>
+            <param name="strSeparator">作為分隔的符號</param>
+            <param name="blnDistinct">是否去除重複的元素(預設是)</param>
+            <param name="blnExceptNullOrWhiteSpace">是否去除由 Null、泛空白字元所組成的元素(預設是)</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.CombineValues``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Boolean)">
+            <summary>
+            組成以符號為分隔的字串
+            </summary>
+            <param name="TEnum">相同型別的列舉值</param>
+            <param name="strSeparator">作為分隔的符號</param>
+            <param name="blnDistinct">是否去除重複的元素(預設是)</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.CombineValues``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            組成以符號為分隔的字串
+            </summary>
+            <param name="TEnum">相同型別的列舉值</param>
+            <param name="strSeparator">作為分隔的符號</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.CombineValues(System.Data.DataTable,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            組成以符號為分隔的字串
+            </summary>
+            <param name="dataTable">DataTable</param>
+            <param name="columnName">欄位名稱</param>
+            <param name="strSeparator">作為分隔的符號</param>
+            <param name="blnDistinct">是否去除重複的元素(預設是)</param>
+            <param name="blnExceptNullOrWhiteSpace">是否去除由 Null、泛空白字元所組成的元素(預設是)</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.CombineValues(System.Data.DataTable,System.String,System.String,System.Boolean)">
+            <summary>
+            組成以符號為分隔的字串
+            </summary>
+            <param name="dataTable">DataTable</param>
+            <param name="columnName">欄位名稱</param>
+            <param name="strSeparator">作為分隔的符號</param>
+            <param name="blnDistinct">是否去除重複的元素(預設是)</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.CombineValues(System.Data.DataTable,System.String,System.String)">
+            <summary>
+            組成以符號為分隔的字串
+            </summary>
+            <param name="dataTable">DataTable</param>
+            <param name="columnName">欄位名稱</param>
+            <param name="strSeparator">作為分隔的符號</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.GetByteCount(System.String)">
+            <summary>
+            取得字串的位元組長度
+            </summary>
+            <param name="s">字串</param>
+            <returns>傳回長度</returns>
+        </member>
+        <member name="M:ext.ByteCountToLength(System.String,System.Int32)">
+            <summary>
+            指定字串的位元組數換算成 Unicode 的長度
+            </summary>
+            <param name="s">字串</param>
+            <param name="byteCount">指定位元組數</param>
+            <returns>傳回長度</returns>
+        </member>
+        <member name="M:ext.NameOf(System.Linq.Expressions.Expression)">
+            <summary>
+            模擬 C# 6.0 的 nameof
+            </summary>
+            <param name="expression">Lambda 運算式</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.NameOf``2(``0,System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            模擬 C# 6.0 的 nameof
+            </summary>
+            <typeparam name="T">委派所封裝之方法的參數型別</typeparam>
+            <typeparam name="TResult">委派所封裝之方法的傳回值之型別</typeparam>
+            <param name="t">泛型物件</param>
+            <param name="expression">Lambda 運算式</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:ext.DataSetToCustomXml(System.Data.DataSet)">
+            <summary>
+            自訂 DataSet 轉 XmlDocument
+            </summary>
+            <param name="dataSet">DataSet</param>
+            <returns>傳回 XmlDocument</returns>
+        </member>
+        <member name="M:ext.CustomXmlToDataSet(System.Xml.XmlDocument)">
+            <summary>
+            自訂 XmlDocument 轉 DataSet
+            </summary>
+            <param name="xmlDocument">XmlDocument</param>
+            <returns>傳回 DataSet</returns>
+        </member>
+        <member name="T:NumConv">
+            <summary>
+            數字進制轉換
+            </summary>
+        </member>
+        <member name="M:NumConv.IsNcarry(System.String,System.String)">
+            <summary>
+            字串是否符合 N 進位規則(區分大小寫)
+            </summary>
+            <param name="num">要判斷的字串</param>
+            <param name="pattern">用來代表數字的符號</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:NumConv.BigintToNcarry(System.Numerics.BigInteger,System.String)">
+            <summary>
+            數字轉 N 進位字串
+            </summary>
+            <param name="num">要轉換的數字</param>
+            <param name="pattern">用來代表數字的符號</param>
+            <returns>傳回轉換的結果</returns>
+        </member>
+        <member name="M:NumConv.NcarryToBigint(System.String,System.String)">
+            <summary>
+            N 進位字串轉數字
+            </summary>
+            <param name="num">要轉換的字串</param>
+            <param name="pattern">用來代表數字的符號</param>
+            <returns>傳回轉換的結果</returns>
+        </member>
+        <member name="M:NumConv.CalcNcarryComplement(System.String,System.String)">
+            <summary>
+            計算 N 進位字串的補數
+            </summary>
+            <param name="num">要換算的字串</param>
+            <param name="pattern">用來代表數字的符號</param>
+            <returns>傳回補數</returns>
+        </member>
+        <member name="F:NumConv.Num02Pattern">
+            <summary>
+            用來代表二進制數字的符號
+            </summary>
+        </member>
+        <member name="M:NumConv.IsCarry02(System.String)">
+            <summary>
+            判斷是否二進位的數字
+            </summary>
+            <param name="num">要判斷的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:NumConv.BigintToCarry02(System.Numerics.BigInteger)">
+            <summary>
+            十進位轉二進位
+            </summary>
+            <param name="num">要轉換的數字</param>
+            <returns>傳回轉換的結果</returns>
+        </member>
+        <member name="M:NumConv.Carry02ToBigint(System.String)">
+            <summary>
+            二進位轉十進位
+            </summary>
+            <param name="num">要轉換的數字</param>
+            <returns>傳回轉換的結果</returns>
+        </member>
+        <member name="M:NumConv.CalcCarry02Complement(System.String)">
+            <summary>
+            轉換二進位數字字串的補數
+            </summary>
+            <param name="num">要轉換的數字字串</param>
+            <returns>傳回補數</returns>
+        </member>
+        <member name="F:NumConv.Num04Pattern">
+            <summary>
+            用來代表四進制數字的符號
+            </summary>
+        </member>
+        <member name="M:NumConv.IsCarry04(System.String)">
+            <summary>
+            判斷是否四進位的數字
+            </summary>
+            <param name="num">要判斷的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:NumConv.BigintToCarry04(System.Numerics.BigInteger)">
+            <summary>
+            十進位轉四進位
+            </summary>
+            <param name="num">要轉換的數字</param>
+            <returns>傳回轉換的結果</returns>
+        </member>
+        <member name="M:NumConv.Carry04ToBigint(System.String)">
+            <summary>
+            四進位轉十進位
+            </summary>
+            <param name="num">要轉換的數字</param>
+            <returns>傳回轉換的結果</returns>
+        </member>
+        <member name="M:NumConv.CalcCarry04Complement(System.String)">
+            <summary>
+            轉換四進位數字字串的補數
+            </summary>
+            <param name="num">要轉換的數字字串</param>
+            <returns>傳回補數</returns>
+        </member>
+        <member name="F:NumConv.Num08Pattern">
+            <summary>
+            用來代表八進制數字的符號
+            </summary>
+        </member>
+        <member name="M:NumConv.IsCarry08(System.String)">
+            <summary>
+            判斷是否八進位的數字
+            </summary>
+            <param name="num">要判斷的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:NumConv.BigintToCarry08(System.Numerics.BigInteger)">
+            <summary>
+            十進位轉八進位
+            </summary>
+            <param name="num">要轉換的數字</param>
+            <returns>傳回轉換的結果</returns>
+        </member>
+        <member name="M:NumConv.Carry08ToBigint(System.String)">
+            <summary>
+            八進位轉十進位
+            </summary>
+            <param name="num">要轉換的數字</param>
+            <returns>傳回轉換的結果</returns>
+        </member>
+        <member name="M:NumConv.CalcCarry08Complement(System.String)">
+            <summary>
+            轉換八進位數字字串的補數
+            </summary>
+            <param name="num">要轉換的數字字串</param>
+            <returns>傳回補數</returns>
+        </member>
+        <member name="F:NumConv.Num12Pattern">
+            <summary>
+            用來代表十二進制數字的符號
+            </summary>
+        </member>
+        <member name="M:NumConv.IsCarry12(System.String)">
+            <summary>
+            判斷是否十二進位的數字
+            </summary>
+            <param name="num">要判斷的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:NumConv.BigintToCarry12(System.Numerics.BigInteger)">
+            <summary>
+            十進位轉十二進位
+            </summary>
+            <param name="num">要轉換的數字</param>
+            <returns>傳回轉換的結果</returns>
+        </member>
+        <member name="M:NumConv.Carry12ToBigint(System.String)">
+            <summary>
+            十二進位轉十進位
+            </summary>
+            <param name="num">要轉換的數字</param>
+            <returns>傳回轉換的結果</returns>
+        </member>
+        <member name="M:NumConv.CalcCarry12Complement(System.String)">
+            <summary>
+            轉換十二進位數字字串的補數
+            </summary>
+            <param name="num">要轉換的數字字串</param>
+            <returns>傳回補數</returns>
+        </member>
+        <member name="F:NumConv.Num16Pattern">
+            <summary>
+            用來代表十六進制數字的符號
+            </summary>
+        </member>
+        <member name="M:NumConv.IsCarry16(System.String)">
+            <summary>
+            判斷是否十六進位的數字
+            </summary>
+            <param name="num">要判斷的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:NumConv.BigintToCarry16(System.Numerics.BigInteger)">
+            <summary>
+            十進位轉十六進位
+            </summary>
+            <param name="num">要轉換的數字</param>
+            <returns>傳回轉換的結果</returns>
+        </member>
+        <member name="M:NumConv.Carry16ToBigint(System.String)">
+            <summary>
+            十六進位轉十進位
+            </summary>
+            <param name="num">要轉換的數字</param>
+            <returns>傳回轉換的結果</returns>
+        </member>
+        <member name="M:NumConv.CalcCarry16Complement(System.String)">
+            <summary>
+            轉換十六進位數字字串的補數
+            </summary>
+            <param name="num">要轉換的數字字串</param>
+            <returns>傳回補數</returns>
+        </member>
+        <member name="F:NumConv.Num26Pattern">
+            <summary>
+            用來代表二十六進制數字的符號
+            </summary>
+        </member>
+        <member name="M:NumConv.IsCarry26(System.String)">
+            <summary>
+            判斷是否二十六進位的數字
+            </summary>
+            <param name="num">要判斷的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:NumConv.BigintToCarry26(System.Numerics.BigInteger)">
+            <summary>
+            十進位轉二十六進位
+            </summary>
+            <param name="num">要轉換的數字</param>
+            <returns>傳回轉換的結果</returns>
+        </member>
+        <member name="M:NumConv.Carry26ToBigint(System.String)">
+            <summary>
+            二十六進位轉十進位
+            </summary>
+            <param name="num">要轉換的數字</param>
+            <returns>傳回轉換的結果</returns>
+        </member>
+        <member name="M:NumConv.CalcCarry26Complement(System.String)">
+            <summary>
+            轉換二十六進位數字字串的補數
+            </summary>
+            <param name="num">要轉換的數字字串</param>
+            <returns>傳回補數</returns>
+        </member>
+        <member name="F:NumConv.Num36Pattern">
+            <summary>
+            用來代表三十六進制數字的符號
+            </summary>
+        </member>
+        <member name="M:NumConv.IsCarry36(System.String)">
+            <summary>
+            判斷是否三十六進位的數字
+            </summary>
+            <param name="num">要判斷的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:NumConv.BigintToCarry36(System.Numerics.BigInteger)">
+            <summary>
+            十進位轉三十六進位
+            </summary>
+            <param name="num">要轉換的數字</param>
+            <returns>傳回轉換的結果</returns>
+        </member>
+        <member name="M:NumConv.Carry36ToBigint(System.String)">
+            <summary>
+            三十六進位轉十進位
+            </summary>
+            <param name="num">要轉換的數字</param>
+            <returns>傳回轉換的結果</returns>
+        </member>
+        <member name="M:NumConv.CalcCarry36Complement(System.String)">
+            <summary>
+            轉換三十六進位數字字串的補數
+            </summary>
+            <param name="num">要轉換的數字字串</param>
+            <returns>傳回補數</returns>
+        </member>
+        <member name="F:NumConv.Num62Pattern">
+            <summary>
+            用來代表六十二進制數字的符號
+            </summary>
+        </member>
+        <member name="M:NumConv.IsCarry62(System.String)">
+            <summary>
+            判斷是否六十二進位的數字
+            </summary>
+            <param name="num">要判斷的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:NumConv.BigintToCarry62(System.Numerics.BigInteger)">
+            <summary>
+            十進位轉六十二進位
+            </summary>
+            <param name="num">要轉換的數字</param>
+            <returns>傳回轉換的結果</returns>
+        </member>
+        <member name="M:NumConv.Carry62ToBigint(System.String)">
+            <summary>
+            六十二進位轉十進位
+            </summary>
+            <param name="num">要轉換的數字</param>
+            <returns>傳回轉換的結果</returns>
+        </member>
+        <member name="M:NumConv.CalcCarry62Complement(System.String)">
+            <summary>
+            轉換六十二進位數字字串的補數
+            </summary>
+            <param name="num">要轉換的數字字串</param>
+            <returns>傳回補數</returns>
+        </member>
+        <member name="F:NumConv.Num64Pattern">
+            <summary>
+            用來代表六十四進制數字的符號
+            </summary>
+        </member>
+        <member name="M:NumConv.IsCarry64(System.String)">
+            <summary>
+            判斷是否六十四進位的數字
+            </summary>
+            <param name="num">要判斷的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:NumConv.BigintToCarry64(System.Numerics.BigInteger)">
+            <summary>
+            十進位轉六十四進位
+            </summary>
+            <param name="num">要轉換的數字</param>
+            <returns>傳回轉換的結果</returns>
+        </member>
+        <member name="M:NumConv.Carry64ToBigint(System.String)">
+            <summary>
+            六十四進位轉十進位
+            </summary>
+            <param name="num">要轉換的數字</param>
+            <returns>傳回轉換的結果</returns>
+        </member>
+        <member name="M:NumConv.CalcCarry64Complement(System.String)">
+            <summary>
+            轉換六十四進位數字字串的補數
+            </summary>
+            <param name="num">要轉換的數字字串</param>
+            <returns>傳回補數</returns>
+        </member>
+        <member name="T:UniId">
+            <summary>
+            UniId (Unique Identifier)，格式：yyyyMMdd-HHmm-ssff-XXXX-XXXXXXXXXXXX
+            </summary>
+        </member>
+        <member name="F:UniId.DateTimeFormat">
+            <summary>
+            時間格式
+            </summary>
+        </member>
+        <member name="F:UniId._CreateDateTime">
+            <summary>
+            建立時間，時間精確度百分之一秒
+            </summary>
+        </member>
+        <member name="F:UniId._HasValue">
+            <summary>
+            是否有值
+            </summary>
+        </member>
+        <member name="F:UniId._Value">
+            <summary>
+            代表 UniId 的字串，值可能為 Null
+            </summary>
+        </member>
+        <member name="F:UniId.MaxId">
+            <summary>
+            最大 ID
+            </summary>
+        </member>
+        <member name="F:UniId.MinId">
+            <summary>
+            最小 ID
+            </summary>
+        </member>
+        <member name="P:UniId.CreateDateTime">
+            <summary>
+            建立時間，時間精確度百分之一秒
+            </summary>
+        </member>
+        <member name="P:UniId.HasValue">
+            <summary>
+            是否有值
+            </summary>
+        </member>
+        <member name="P:UniId.Value">
+            <summary>
+            代表 UniId 的字串，值可能為 Null
+            </summary>
+        </member>
+        <member name="M:UniId.AssembleUniId(System.DateTime,System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            組成 UniId
+            </summary>
+            <param name="dateTime">自訂時間</param>
+            <param name="lastByte4">自訂倒數第四個 Byte</param>
+            <param name="lastByte3">自訂倒數第三個 Byte</param>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:UniId.#ctor(System.String)">
+            <summary>
+            建構式
+            </summary>
+            <param name="s">欲轉成 UniId 的字串</param>
+        </member>
+        <member name="M:UniId.#ctor">
+            <summary>
+            建構式
+            </summary>
+        </member>
+        <member name="M:UniId.#ctor(System.Byte)">
+            <summary>
+            建構式
+            </summary>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+        </member>
+        <member name="M:UniId.#ctor(System.Byte,System.Byte)">
+            <summary>
+            建構式
+            </summary>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+        </member>
+        <member name="M:UniId.#ctor(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            建構式
+            </summary>
+            <param name="lastByte3">自訂倒數第三個 Byte</param>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+        </member>
+        <member name="M:UniId.#ctor(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            建構式
+            </summary>
+            <param name="lastByte4">自訂倒數第四個 Byte</param>
+            <param name="lastByte3">自訂倒數第三個 Byte</param>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+        </member>
+        <member name="M:UniId.#ctor(System.UInt16)">
+            <summary>
+            建構式
+            </summary>
+            <param name="lastUshort1">自訂倒數第一個 UInt16</param>
+        </member>
+        <member name="M:UniId.#ctor(System.UInt16,System.UInt16)">
+            <summary>
+            建構式
+            </summary>
+            <param name="lastUshort2">自訂倒數第二個 UInt16</param>
+            <param name="lastUshort1">自訂倒數第一個 UInt16</param>
+        </member>
+        <member name="M:UniId.#ctor(System.UInt32)">
+            <summary>
+            建構式
+            </summary>
+            <param name="lastUint1">自訂倒數第一個 UInt32</param>
+        </member>
+        <member name="M:UniId.#ctor(System.DateTime)">
+            <summary>
+            建構式
+            </summary>
+            <param name="dateTime">自訂時間</param>
+        </member>
+        <member name="M:UniId.#ctor(System.DateTime,System.Byte)">
+            <summary>
+            建構式
+            </summary>
+            <param name="dateTime">自訂時間</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+        </member>
+        <member name="M:UniId.#ctor(System.DateTime,System.Byte,System.Byte)">
+            <summary>
+            建構式
+            </summary>
+            <param name="dateTime">自訂時間</param>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+        </member>
+        <member name="M:UniId.#ctor(System.DateTime,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            建構式
+            </summary>
+            <param name="dateTime">自訂時間</param>
+            <param name="lastByte3">自訂倒數第三個 Byte</param>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+        </member>
+        <member name="M:UniId.#ctor(System.DateTime,System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            建構式
+            </summary>
+            <param name="dateTime">自訂時間</param>
+            <param name="lastByte4">自訂倒數第四個 Byte</param>
+            <param name="lastByte3">自訂倒數第三個 Byte</param>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+        </member>
+        <member name="M:UniId.#ctor(System.DateTime,System.UInt16)">
+            <summary>
+            建構式
+            </summary>
+            <param name="dateTime">自訂時間</param>
+            <param name="lastUshort1">自訂倒數第一個 UInt16</param>
+        </member>
+        <member name="M:UniId.#ctor(System.DateTime,System.UInt16,System.UInt16)">
+            <summary>
+            建構式
+            </summary>
+            <param name="dateTime">自訂時間</param>
+            <param name="lastUshort2">自訂倒數第二個 UInt16</param>
+            <param name="lastUshort1">自訂倒數第一個 UInt16</param>
+        </member>
+        <member name="M:UniId.#ctor(System.DateTime,System.UInt32)">
+            <summary>
+            建構式
+            </summary>
+            <param name="dateTime">自訂時間</param>
+            <param name="lastUint1">自訂倒數第一個 UInt32</param>
+        </member>
+        <member name="M:UniId.IsUniId(System.String)">
+            <summary>
+            判斷字串是否可轉成 UniId
+            </summary>
+            <param name="s">欲判斷的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:UniId.NewUniId">
+            <summary>
+            產生新的 UniId
+            </summary>
+            <returns>傳回 UniId</returns>
+        </member>
+        <member name="M:UniId.NewUniId(System.Byte)">
+            <summary>
+            產生新的 UniId
+            </summary>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+            <returns>傳回 UniId</returns>
+        </member>
+        <member name="M:UniId.NewUniId(System.Byte,System.Byte)">
+            <summary>
+            產生新的 UniId
+            </summary>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+            <returns>傳回 UniId</returns>
+        </member>
+        <member name="M:UniId.NewUniId(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            產生新的 UniId
+            </summary>
+            <param name="lastByte3">自訂倒數第三個 Byte</param>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+            <returns>傳回 UniId</returns>
+        </member>
+        <member name="M:UniId.NewUniId(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            產生新的 UniId
+            </summary>
+            <param name="lastByte4">自訂倒數第四個 Byte</param>
+            <param name="lastByte3">自訂倒數第三個 Byte</param>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+            <returns>傳回 UniId</returns>
+        </member>
+        <member name="M:UniId.NewUniId(System.UInt16)">
+            <summary>
+            產生新的 UniId
+            </summary>
+            <param name="lastUshort1">自訂倒數第一個 UInt16</param>
+            <returns>傳回 UniId</returns>
+        </member>
+        <member name="M:UniId.NewUniId(System.UInt16,System.UInt16)">
+            <summary>
+            產生新的 UniId
+            </summary>
+            <param name="lastUshort2">自訂倒數第二個 UInt16</param>
+            <param name="lastUshort1">自訂倒數第一個 UInt16</param>
+            <returns>傳回 UniId</returns>
+        </member>
+        <member name="M:UniId.NewUniId(System.UInt32)">
+            <summary>
+            產生新的 UniId
+            </summary>
+            <param name="lastUint1">自訂倒數第一個 UInt32</param>
+            <returns>傳回 UniId</returns>
+        </member>
+        <member name="M:UniId.NewUniId(System.DateTime)">
+            <summary>
+            產生新的 UniId
+            </summary>
+            <param name="dateTime">自訂時間</param>
+            <returns>傳回 UniId</returns>
+        </member>
+        <member name="M:UniId.NewUniId(System.DateTime,System.Byte)">
+            <summary>
+            產生新的 UniId
+            </summary>
+            <param name="dateTime">自訂時間</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+            <returns>傳回 UniId</returns>
+        </member>
+        <member name="M:UniId.NewUniId(System.DateTime,System.Byte,System.Byte)">
+            <summary>
+            產生新的 UniId
+            </summary>
+            <param name="dateTime">自訂時間</param>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+            <returns>傳回 UniId</returns>
+        </member>
+        <member name="M:UniId.NewUniId(System.DateTime,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            產生新的 UniId
+            </summary>
+            <param name="dateTime">自訂時間</param>
+            <param name="lastByte3">自訂倒數第三個 Byte</param>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+            <returns>傳回 UniId</returns>
+        </member>
+        <member name="M:UniId.NewUniId(System.DateTime,System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            產生新的 UniId
+            </summary>
+            <param name="dateTime">自訂時間</param>
+            <param name="lastByte4">自訂倒數第四個 Byte</param>
+            <param name="lastByte3">自訂倒數第三個 Byte</param>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+            <returns>傳回 UniId</returns>
+        </member>
+        <member name="M:UniId.NewUniId(System.DateTime,System.UInt16)">
+            <summary>
+            產生新的 UniId
+            </summary>
+            <param name="dateTime">自訂時間</param>
+            <param name="lastUshort1">自訂倒數第一個 UInt16</param>
+            <returns>傳回 UniId</returns>
+        </member>
+        <member name="M:UniId.NewUniId(System.DateTime,System.UInt16,System.UInt16)">
+            <summary>
+            產生新的 UniId
+            </summary>
+            <param name="dateTime">自訂時間</param>
+            <param name="lastUshort2">自訂倒數第二個 UInt16</param>
+            <param name="lastUshort1">自訂倒數第一個 UInt16</param>
+            <returns>傳回 UniId</returns>
+        </member>
+        <member name="M:UniId.NewUniId(System.DateTime,System.UInt32)">
+            <summary>
+            產生新的 UniId
+            </summary>
+            <param name="dateTime">自訂時間</param>
+            <param name="lastUint1">自訂倒數第一個 UInt32</param>
+            <returns>傳回 UniId</returns>
+        </member>
+        <member name="M:UniId.ToString">
+            <summary>
+            UniId 轉成字串，若 Value 值為 Null 則傳回空字串
+            </summary>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:UniId.ToUniId(System.String)">
+            <summary>
+            字串轉成 UniId，若轉換失敗則傳回 Value 值為 Null 的 UniId
+            </summary>
+            <param name="s">欲轉換的字串</param>
+            <returns>傳回 UniId</returns>
+        </member>
+        <member name="M:UniId.Finalize">
+            <summary>
+            解構式
+            </summary>
+        </member>
+        <member name="T:Uuid">
+            <summary>
+            Uuid (Universally Unique Identifier)，格式：XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+            </summary>
+        </member>
+        <member name="F:Uuid._CreateDateTime">
+            <summary>
+            建立時間(UTC)
+            </summary>
+        </member>
+        <member name="F:Uuid._HasValue">
+            <summary>
+            是否有值
+            </summary>
+        </member>
+        <member name="F:Uuid._Value">
+            <summary>
+            代表 Uuid 的字串
+            </summary>
+        </member>
+        <member name="F:Uuid.Uuid0">
+            <summary>
+            值全部為 0 的 Uuid
+            </summary>
+        </member>
+        <member name="F:Uuid.Uuid1">
+            <summary>
+            值全部為 1 的 Uuid
+            </summary>
+        </member>
+        <member name="F:Uuid.Uuid2">
+            <summary>
+            值全部為 2 的 Uuid
+            </summary>
+        </member>
+        <member name="F:Uuid.Uuid3">
+            <summary>
+            值全部為 3 的 Uuid
+            </summary>
+        </member>
+        <member name="F:Uuid.Uuid4">
+            <summary>
+            值全部為 4 的 Uuid
+            </summary>
+        </member>
+        <member name="F:Uuid.Uuid5">
+            <summary>
+            值全部為 5 的 Uuid
+            </summary>
+        </member>
+        <member name="F:Uuid.Uuid6">
+            <summary>
+            值全部為 6 的 Uuid
+            </summary>
+        </member>
+        <member name="F:Uuid.Uuid7">
+            <summary>
+            值全部為 7 的 Uuid
+            </summary>
+        </member>
+        <member name="F:Uuid.Uuid8">
+            <summary>
+            值全部為 8 的 Uuid
+            </summary>
+        </member>
+        <member name="F:Uuid.Uuid9">
+            <summary>
+            值全部為 9 的 Uuid
+            </summary>
+        </member>
+        <member name="F:Uuid.UuidA">
+            <summary>
+            值全部為 A 的 Uuid
+            </summary>
+        </member>
+        <member name="F:Uuid.UuidB">
+            <summary>
+            值全部為 B 的 Uuid
+            </summary>
+        </member>
+        <member name="F:Uuid.UuidC">
+            <summary>
+            值全部為 C 的 Uuid
+            </summary>
+        </member>
+        <member name="F:Uuid.UuidD">
+            <summary>
+            值全部為 D 的 Uuid
+            </summary>
+        </member>
+        <member name="F:Uuid.UuidE">
+            <summary>
+            值全部為 E 的 Uuid
+            </summary>
+        </member>
+        <member name="F:Uuid.UuidF">
+            <summary>
+            值全部為 F 的 Uuid
+            </summary>
+        </member>
+        <member name="P:Uuid.CreateDateTime">
+            <summary>
+            建立時間(UTC)
+            </summary>
+        </member>
+        <member name="P:Uuid.HasValue">
+            <summary>
+            是否有值
+            </summary>
+        </member>
+        <member name="P:Uuid.Value">
+            <summary>
+            代表 Uuid 的字串
+            </summary>
+        </member>
+        <member name="M:Uuid.AssembleUuid(System.DateTime,System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            組成 Uuid
+            </summary>
+            <param name="dateTime">自訂時間</param>
+            <param name="lastByte4">自訂倒數第四個 Byte</param>
+            <param name="lastByte3">自訂倒數第三個 Byte</param>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:Uuid.#ctor(System.String)">
+            <summary>
+            建構式
+            </summary>
+            <param name="s">欲轉成 Uuid 的字串</param>
+        </member>
+        <member name="M:Uuid.#ctor">
+            <summary>
+            建構式
+            </summary>
+        </member>
+        <member name="M:Uuid.#ctor(System.Byte)">
+            <summary>
+            建構式
+            </summary>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+        </member>
+        <member name="M:Uuid.#ctor(System.Byte,System.Byte)">
+            <summary>
+            建構式
+            </summary>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+        </member>
+        <member name="M:Uuid.#ctor(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            建構式
+            </summary>
+            <param name="lastByte3">自訂倒數第三個 Byte</param>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+        </member>
+        <member name="M:Uuid.#ctor(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            建構式
+            </summary>
+            <param name="lastByte4">自訂倒數第四個 Byte</param>
+            <param name="lastByte3">自訂倒數第三個 Byte</param>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+        </member>
+        <member name="M:Uuid.#ctor(System.UInt16)">
+            <summary>
+            建構式
+            </summary>
+            <param name="lastUshort1">自訂倒數第一個 UInt16</param>
+        </member>
+        <member name="M:Uuid.#ctor(System.UInt16,System.UInt16)">
+            <summary>
+            建構式
+            </summary>
+            <param name="lastUshort2">自訂倒數第二個 UInt16</param>
+            <param name="lastUshort1">自訂倒數第一個 UInt16</param>
+        </member>
+        <member name="M:Uuid.#ctor(System.UInt32)">
+            <summary>
+            建構式
+            </summary>
+            <param name="lastUint1">自訂倒數第一個 UInt32</param>
+        </member>
+        <member name="M:Uuid.#ctor(System.DateTime)">
+            <summary>
+            建構式
+            </summary>
+            <param name="dateTime">自訂時間(UTC)</param>
+        </member>
+        <member name="M:Uuid.#ctor(System.DateTime,System.Byte)">
+            <summary>
+            建構式
+            </summary>
+            <param name="dateTime">自訂時間(UTC)</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+        </member>
+        <member name="M:Uuid.#ctor(System.DateTime,System.Byte,System.Byte)">
+            <summary>
+            建構式
+            </summary>
+            <param name="dateTime">自訂時間(UTC)</param>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+        </member>
+        <member name="M:Uuid.#ctor(System.DateTime,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            建構式
+            </summary>
+            <param name="dateTime">自訂時間(UTC)</param>
+            <param name="lastByte3">自訂倒數第三個 Byte</param>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+        </member>
+        <member name="M:Uuid.#ctor(System.DateTime,System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            建構式
+            </summary>
+            <param name="dateTime">自訂時間(UTC)</param>
+            <param name="lastByte4">自訂倒數第四個 Byte</param>
+            <param name="lastByte3">自訂倒數第三個 Byte</param>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+        </member>
+        <member name="M:Uuid.#ctor(System.DateTime,System.UInt16)">
+            <summary>
+            建構式
+            </summary>
+            <param name="dateTime">自訂時間(UTC)</param>
+            <param name="lastUshort1">自訂倒數第一個 UInt16</param>
+        </member>
+        <member name="M:Uuid.#ctor(System.DateTime,System.UInt16,System.UInt16)">
+            <summary>
+            建構式
+            </summary>
+            <param name="dateTime">自訂時間(UTC)</param>
+            <param name="lastUshort2">自訂倒數第二個 UInt16</param>
+            <param name="lastUshort1">自訂倒數第一個 UInt16</param>
+        </member>
+        <member name="M:Uuid.#ctor(System.DateTime,System.UInt32)">
+            <summary>
+            建構式
+            </summary>
+            <param name="dateTime">自訂時間(UTC)</param>
+            <param name="lastUint1">自訂倒數第一個 UInt32</param>
+        </member>
+        <member name="M:Uuid.IsUuid(System.String)">
+            <summary>
+            判斷字串是否可轉成 Uuid
+            </summary>
+            <param name="s">欲判斷的字串</param>
+            <returns>傳回布林值</returns>
+        </member>
+        <member name="M:Uuid.NewUuid">
+            <summary>
+            產生新的 Uuid
+            </summary>
+            <returns>傳回 Uuid</returns>
+        </member>
+        <member name="M:Uuid.NewUuid(System.Byte)">
+            <summary>
+            產生新的 Uuid
+            </summary>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+            <returns>傳回 Uuid</returns>
+        </member>
+        <member name="M:Uuid.NewUuid(System.Byte,System.Byte)">
+            <summary>
+            產生新的 Uuid
+            </summary>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+            <returns>傳回 Uuid</returns>
+        </member>
+        <member name="M:Uuid.NewUuid(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            產生新的 Uuid
+            </summary>
+            <param name="lastByte3">自訂倒數第三個 Byte</param>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+            <returns>傳回 Uuid</returns>
+        </member>
+        <member name="M:Uuid.NewUuid(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            產生新的 Uuid
+            </summary>
+            <param name="lastByte4">自訂倒數第四個 Byte</param>
+            <param name="lastByte3">自訂倒數第三個 Byte</param>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+            <returns>傳回 Uuid</returns>
+        </member>
+        <member name="M:Uuid.NewUuid(System.UInt16)">
+            <summary>
+            產生新的 Uuid
+            </summary>
+            <param name="lastUshort1">自訂倒數第一個 UInt16</param>
+            <returns>傳回 Uuid</returns>
+        </member>
+        <member name="M:Uuid.NewUuid(System.UInt16,System.UInt16)">
+            <summary>
+            產生新的 Uuid
+            </summary>
+            <param name="lastUshort2">自訂倒數第二個 UInt16</param>
+            <param name="lastUshort1">自訂倒數第一個 UInt16</param>
+            <returns>傳回 Uuid</returns>
+        </member>
+        <member name="M:Uuid.NewUuid(System.UInt32)">
+            <summary>
+            產生新的 Uuid
+            </summary>
+            <param name="lastUint1">自訂倒數第一個 UInt32</param>
+            <returns>傳回 Uuid</returns>
+        </member>
+        <member name="M:Uuid.NewUuid(System.DateTime)">
+            <summary>
+            產生新的 Uuid
+            </summary>
+            <param name="dateTime">自訂時間(UTC)</param>
+            <returns>傳回 Uuid</returns>
+        </member>
+        <member name="M:Uuid.NewUuid(System.DateTime,System.Byte)">
+            <summary>
+            產生新的 Uuid
+            </summary>
+            <param name="dateTime">自訂時間(UTC)</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+            <returns>傳回 Uuid</returns>
+        </member>
+        <member name="M:Uuid.NewUuid(System.DateTime,System.Byte,System.Byte)">
+            <summary>
+            產生新的 Uuid
+            </summary>
+            <param name="dateTime">自訂時間(UTC)</param>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+            <returns>傳回 Uuid</returns>
+        </member>
+        <member name="M:Uuid.NewUuid(System.DateTime,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            產生新的 Uuid
+            </summary>
+            <param name="dateTime">自訂時間(UTC)</param>
+            <param name="lastByte3">自訂倒數第三個 Byte</param>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+            <returns>傳回 Uuid</returns>
+        </member>
+        <member name="M:Uuid.NewUuid(System.DateTime,System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            產生新的 Uuid
+            </summary>
+            <param name="dateTime">自訂時間(UTC)</param>
+            <param name="lastByte4">自訂倒數第四個 Byte</param>
+            <param name="lastByte3">自訂倒數第三個 Byte</param>
+            <param name="lastByte2">自訂倒數第二個 Byte</param>
+            <param name="lastByte1">自訂倒數第一個 Byte</param>
+            <returns>傳回 Uuid</returns>
+        </member>
+        <member name="M:Uuid.NewUuid(System.DateTime,System.UInt16)">
+            <summary>
+            產生新的 Uuid
+            </summary>
+            <param name="dateTime">自訂時間(UTC)</param>
+            <param name="lastUshort1">自訂倒數第一個 UInt16</param>
+            <returns>傳回 Uuid</returns>
+        </member>
+        <member name="M:Uuid.NewUuid(System.DateTime,System.UInt16,System.UInt16)">
+            <summary>
+            產生新的 Uuid
+            </summary>
+            <param name="dateTime">自訂時間(UTC)</param>
+            <param name="lastUshort2">自訂倒數第二個 UInt16</param>
+            <param name="lastUshort1">自訂倒數第一個 UInt16</param>
+            <returns>傳回 Uuid</returns>
+        </member>
+        <member name="M:Uuid.NewUuid(System.DateTime,System.UInt32)">
+            <summary>
+            產生新的 Uuid
+            </summary>
+            <param name="dateTime">自訂時間(UTC)</param>
+            <param name="lastUint1">自訂倒數第一個 UInt32</param>
+            <returns>傳回 Uuid</returns>
+        </member>
+        <member name="M:Uuid.ToString">
+            <summary>
+            Uuid 轉成字串，若 Value 值為 Null 則傳回空字串
+            </summary>
+            <returns>傳回字串</returns>
+        </member>
+        <member name="M:Uuid.ToUuid(System.String)">
+            <summary>
+            字串轉成 Uuid，若轉換失敗則傳回 Value 值為 Null 的 Uuid
+            </summary>
+            <param name="s">欲轉換的字串</param>
+            <returns>傳回 Uuid</returns>
+        </member>
+        <member name="M:Uuid.Finalize">
+            <summary>
+            解構式
+            </summary>
+        </member>
+    </members>
+</doc>

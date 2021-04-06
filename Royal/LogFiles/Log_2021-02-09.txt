@@ -1,0 +1,8 @@
+{"Event":"PageStart","RequestTime":"2021-02-09 16:40:36.495","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/GetPlayerInfo.aspx","RemoteUrl":"http://localhost:65298/GameInfo.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageEnd","RequestTime":"2021-02-09 16:40:36.589","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/GetPlayerInfo.aspx","RemoteUrl":"http://localhost:65298/GameInfo.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageStart","RequestTime":"2021-02-09 16:40:40.265","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/MoveStakeAccount.aspx","RemoteUrl":"http://localhost:65298/GameInfo.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageEnd","RequestTime":"2021-02-09 16:40:45.951","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/MoveStakeAccount.aspx","RemoteUrl":"http://localhost:65298/GameInfo.aspx","HttpMethod":"GET","Params":{}}
+

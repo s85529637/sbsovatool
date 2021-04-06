@@ -1,0 +1,1262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://slotgame.org" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://slotgame.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://slotgame.org">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemState">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSystemStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSystemStateResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerGameHistory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="player_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="web_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="session_no" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pageindex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pagesize" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerGameHistoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPlayerGameHistoryResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerGameHistoryDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="player_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="web_id" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SequenNumber" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerGameHistoryDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPlayerGameHistoryDetailResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="web_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="player_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlayerInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPlayerInfoResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJackpotPoolValue">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetJackpotPoolValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetJackpotPoolValueResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJackpotHitList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Web_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJackpotHitListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetJackpotHitListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJackpotHitListByMaxid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Web_id" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Maxid" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJackpotHitListByMaxidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetJackpotHitListByMaxidResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAPILogList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Web_id" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Max_id" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="DataCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAPILogListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAPILogListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAPILogErrorList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Web_id" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Max_id" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="DataCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAPILogErrorListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAPILogErrorListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAPILogBySessionNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Web_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Player_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAPILogBySessionNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAPILogBySessionNoResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAPILogMaxid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Web_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAPILogMaxidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAPILogMaxidResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnlineMemberList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Web_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnlineMemberListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOnlineMemberListResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KickUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Web_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Player_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KickUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KickUserResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SlotTest_Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SlotTest_LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SlotTest_LoginResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SlotTest_LockAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SlotTest_LockAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SlotTest_LockAccountResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SlotTest_ReturnAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SlotTest_ReturnAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SlotTest_ReturnAccountResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SlotTest_Logout">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SlotTest_LogoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SlotTest_LogoutResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemStateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSystemState" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemStateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSystemStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerGameHistorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlayerGameHistory" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerGameHistorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlayerGameHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerGameHistoryDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlayerGameHistoryDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerGameHistoryDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlayerGameHistoryDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlayerInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlayerInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotPoolValueSoapIn">
+    <wsdl:part name="parameters" element="tns:GetJackpotPoolValue" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotPoolValueSoapOut">
+    <wsdl:part name="parameters" element="tns:GetJackpotPoolValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotHitListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetJackpotHitList" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotHitListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetJackpotHitListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotHitListByMaxidSoapIn">
+    <wsdl:part name="parameters" element="tns:GetJackpotHitListByMaxid" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotHitListByMaxidSoapOut">
+    <wsdl:part name="parameters" element="tns:GetJackpotHitListByMaxidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAPILogList" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAPILogListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogErrorListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAPILogErrorList" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogErrorListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAPILogErrorListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogBySessionNoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAPILogBySessionNo" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogBySessionNoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAPILogBySessionNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogMaxidSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAPILogMaxid" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogMaxidSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAPILogMaxidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOnlineMemberList" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOnlineMemberListResponse" />
+  </wsdl:message>
+  <wsdl:message name="KickUserSoapIn">
+    <wsdl:part name="parameters" element="tns:KickUser" />
+  </wsdl:message>
+  <wsdl:message name="KickUserSoapOut">
+    <wsdl:part name="parameters" element="tns:KickUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="SlotTest_LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:SlotTest_Login" />
+  </wsdl:message>
+  <wsdl:message name="SlotTest_LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:SlotTest_LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="SlotTest_LockAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:SlotTest_LockAccount" />
+  </wsdl:message>
+  <wsdl:message name="SlotTest_LockAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:SlotTest_LockAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="SlotTest_ReturnAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:SlotTest_ReturnAccount" />
+  </wsdl:message>
+  <wsdl:message name="SlotTest_ReturnAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:SlotTest_ReturnAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="SlotTest_LogoutSoapIn">
+    <wsdl:part name="parameters" element="tns:SlotTest_Logout" />
+  </wsdl:message>
+  <wsdl:message name="SlotTest_LogoutSoapOut">
+    <wsdl:part name="parameters" element="tns:SlotTest_LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemStateHttpPostIn" />
+  <wsdl:message name="GetSystemStateHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerGameHistoryHttpPostIn">
+    <wsdl:part name="player_id" type="s:string" />
+    <wsdl:part name="web_id" type="s:string" />
+    <wsdl:part name="session_no" type="s:string" />
+    <wsdl:part name="pageindex" type="s:string" />
+    <wsdl:part name="pagesize" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerGameHistoryHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerGameHistoryDetailHttpPostIn">
+    <wsdl:part name="player_id" type="s:string" />
+    <wsdl:part name="web_id" type="s:string" />
+    <wsdl:part name="SequenNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerGameHistoryDetailHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerInfoHttpPostIn">
+    <wsdl:part name="web_id" type="s:string" />
+    <wsdl:part name="player_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlayerInfoHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotPoolValueHttpPostIn" />
+  <wsdl:message name="GetJackpotPoolValueHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotHitListHttpPostIn">
+    <wsdl:part name="iType" type="s:string" />
+    <wsdl:part name="Web_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotHitListHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotHitListByMaxidHttpPostIn">
+    <wsdl:part name="Web_id" type="s:string" />
+    <wsdl:part name="Maxid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetJackpotHitListByMaxidHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogListHttpPostIn">
+    <wsdl:part name="Web_id" type="s:string" />
+    <wsdl:part name="Max_id" type="s:string" />
+    <wsdl:part name="DataCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogListHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogErrorListHttpPostIn">
+    <wsdl:part name="Web_id" type="s:string" />
+    <wsdl:part name="Max_id" type="s:string" />
+    <wsdl:part name="DataCount" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogErrorListHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogBySessionNoHttpPostIn">
+    <wsdl:part name="Web_id" type="s:string" />
+    <wsdl:part name="SessionNo" type="s:string" />
+    <wsdl:part name="Player_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogBySessionNoHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogMaxidHttpPostIn">
+    <wsdl:part name="Web_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAPILogMaxidHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberListHttpPostIn">
+    <wsdl:part name="Web_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineMemberListHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="KickUserHttpPostIn">
+    <wsdl:part name="Web_id" type="s:string" />
+    <wsdl:part name="Player_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="KickUserHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="SlotTest_LoginHttpPostIn">
+    <wsdl:part name="PlayerID" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SlotTest_LoginHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="SlotTest_LockAccountHttpPostIn">
+    <wsdl:part name="PlayerID" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SlotTest_LockAccountHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="SlotTest_ReturnAccountHttpPostIn">
+    <wsdl:part name="PlayerID" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SlotTest_ReturnAccountHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="SlotTest_LogoutHttpPostIn">
+    <wsdl:part name="PlayerID" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SlotTest_LogoutHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:portType name="SlotGameWSSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemState">
+      <wsdl:input message="tns:GetSystemStateSoapIn" />
+      <wsdl:output message="tns:GetSystemStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerGameHistory">
+      <wsdl:input message="tns:GetPlayerGameHistorySoapIn" />
+      <wsdl:output message="tns:GetPlayerGameHistorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerGameHistoryDetail">
+      <wsdl:input message="tns:GetPlayerGameHistoryDetailSoapIn" />
+      <wsdl:output message="tns:GetPlayerGameHistoryDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerInfo">
+      <wsdl:input message="tns:GetPlayerInfoSoapIn" />
+      <wsdl:output message="tns:GetPlayerInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotPoolValue">
+      <wsdl:input message="tns:GetJackpotPoolValueSoapIn" />
+      <wsdl:output message="tns:GetJackpotPoolValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitList">
+      <wsdl:input message="tns:GetJackpotHitListSoapIn" />
+      <wsdl:output message="tns:GetJackpotHitListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitListByMaxid">
+      <wsdl:input message="tns:GetJackpotHitListByMaxidSoapIn" />
+      <wsdl:output message="tns:GetJackpotHitListByMaxidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogList">
+      <wsdl:input message="tns:GetAPILogListSoapIn" />
+      <wsdl:output message="tns:GetAPILogListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogErrorList">
+      <wsdl:input message="tns:GetAPILogErrorListSoapIn" />
+      <wsdl:output message="tns:GetAPILogErrorListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogBySessionNo">
+      <wsdl:input message="tns:GetAPILogBySessionNoSoapIn" />
+      <wsdl:output message="tns:GetAPILogBySessionNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogMaxid">
+      <wsdl:input message="tns:GetAPILogMaxidSoapIn" />
+      <wsdl:output message="tns:GetAPILogMaxidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberList">
+      <wsdl:input message="tns:GetOnlineMemberListSoapIn" />
+      <wsdl:output message="tns:GetOnlineMemberListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <wsdl:input message="tns:KickUserSoapIn" />
+      <wsdl:output message="tns:KickUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SlotTest_Login">
+      <wsdl:input message="tns:SlotTest_LoginSoapIn" />
+      <wsdl:output message="tns:SlotTest_LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SlotTest_LockAccount">
+      <wsdl:input message="tns:SlotTest_LockAccountSoapIn" />
+      <wsdl:output message="tns:SlotTest_LockAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SlotTest_ReturnAccount">
+      <wsdl:input message="tns:SlotTest_ReturnAccountSoapIn" />
+      <wsdl:output message="tns:SlotTest_ReturnAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SlotTest_Logout">
+      <wsdl:input message="tns:SlotTest_LogoutSoapIn" />
+      <wsdl:output message="tns:SlotTest_LogoutSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SlotGameWSHttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemState">
+      <wsdl:input message="tns:GetSystemStateHttpPostIn" />
+      <wsdl:output message="tns:GetSystemStateHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerGameHistory">
+      <wsdl:input message="tns:GetPlayerGameHistoryHttpPostIn" />
+      <wsdl:output message="tns:GetPlayerGameHistoryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerGameHistoryDetail">
+      <wsdl:input message="tns:GetPlayerGameHistoryDetailHttpPostIn" />
+      <wsdl:output message="tns:GetPlayerGameHistoryDetailHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerInfo">
+      <wsdl:input message="tns:GetPlayerInfoHttpPostIn" />
+      <wsdl:output message="tns:GetPlayerInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotPoolValue">
+      <wsdl:input message="tns:GetJackpotPoolValueHttpPostIn" />
+      <wsdl:output message="tns:GetJackpotPoolValueHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitList">
+      <wsdl:input message="tns:GetJackpotHitListHttpPostIn" />
+      <wsdl:output message="tns:GetJackpotHitListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitListByMaxid">
+      <wsdl:input message="tns:GetJackpotHitListByMaxidHttpPostIn" />
+      <wsdl:output message="tns:GetJackpotHitListByMaxidHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogList">
+      <wsdl:input message="tns:GetAPILogListHttpPostIn" />
+      <wsdl:output message="tns:GetAPILogListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogErrorList">
+      <wsdl:input message="tns:GetAPILogErrorListHttpPostIn" />
+      <wsdl:output message="tns:GetAPILogErrorListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogBySessionNo">
+      <wsdl:input message="tns:GetAPILogBySessionNoHttpPostIn" />
+      <wsdl:output message="tns:GetAPILogBySessionNoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogMaxid">
+      <wsdl:input message="tns:GetAPILogMaxidHttpPostIn" />
+      <wsdl:output message="tns:GetAPILogMaxidHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberList">
+      <wsdl:input message="tns:GetOnlineMemberListHttpPostIn" />
+      <wsdl:output message="tns:GetOnlineMemberListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <wsdl:input message="tns:KickUserHttpPostIn" />
+      <wsdl:output message="tns:KickUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SlotTest_Login">
+      <wsdl:input message="tns:SlotTest_LoginHttpPostIn" />
+      <wsdl:output message="tns:SlotTest_LoginHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SlotTest_LockAccount">
+      <wsdl:input message="tns:SlotTest_LockAccountHttpPostIn" />
+      <wsdl:output message="tns:SlotTest_LockAccountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SlotTest_ReturnAccount">
+      <wsdl:input message="tns:SlotTest_ReturnAccountHttpPostIn" />
+      <wsdl:output message="tns:SlotTest_ReturnAccountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SlotTest_Logout">
+      <wsdl:input message="tns:SlotTest_LogoutHttpPostIn" />
+      <wsdl:output message="tns:SlotTest_LogoutHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SlotGameWSSoap" type="tns:SlotGameWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://slotgame.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemState">
+      <soap:operation soapAction="http://slotgame.org/GetSystemState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerGameHistory">
+      <soap:operation soapAction="http://slotgame.org/GetPlayerGameHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerGameHistoryDetail">
+      <soap:operation soapAction="http://slotgame.org/GetPlayerGameHistoryDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerInfo">
+      <soap:operation soapAction="http://slotgame.org/GetPlayerInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotPoolValue">
+      <soap:operation soapAction="http://slotgame.org/GetJackpotPoolValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitList">
+      <soap:operation soapAction="http://slotgame.org/GetJackpotHitList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitListByMaxid">
+      <soap:operation soapAction="http://slotgame.org/GetJackpotHitListByMaxid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogList">
+      <soap:operation soapAction="http://slotgame.org/GetAPILogList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogErrorList">
+      <soap:operation soapAction="http://slotgame.org/GetAPILogErrorList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogBySessionNo">
+      <soap:operation soapAction="http://slotgame.org/GetAPILogBySessionNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogMaxid">
+      <soap:operation soapAction="http://slotgame.org/GetAPILogMaxid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberList">
+      <soap:operation soapAction="http://slotgame.org/GetOnlineMemberList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <soap:operation soapAction="http://slotgame.org/KickUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SlotTest_Login">
+      <soap:operation soapAction="http://slotgame.org/SlotTest_Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SlotTest_LockAccount">
+      <soap:operation soapAction="http://slotgame.org/SlotTest_LockAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SlotTest_ReturnAccount">
+      <soap:operation soapAction="http://slotgame.org/SlotTest_ReturnAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SlotTest_Logout">
+      <soap:operation soapAction="http://slotgame.org/SlotTest_Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SlotGameWSSoap12" type="tns:SlotGameWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://slotgame.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemState">
+      <soap12:operation soapAction="http://slotgame.org/GetSystemState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerGameHistory">
+      <soap12:operation soapAction="http://slotgame.org/GetPlayerGameHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerGameHistoryDetail">
+      <soap12:operation soapAction="http://slotgame.org/GetPlayerGameHistoryDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerInfo">
+      <soap12:operation soapAction="http://slotgame.org/GetPlayerInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotPoolValue">
+      <soap12:operation soapAction="http://slotgame.org/GetJackpotPoolValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitList">
+      <soap12:operation soapAction="http://slotgame.org/GetJackpotHitList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitListByMaxid">
+      <soap12:operation soapAction="http://slotgame.org/GetJackpotHitListByMaxid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogList">
+      <soap12:operation soapAction="http://slotgame.org/GetAPILogList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogErrorList">
+      <soap12:operation soapAction="http://slotgame.org/GetAPILogErrorList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogBySessionNo">
+      <soap12:operation soapAction="http://slotgame.org/GetAPILogBySessionNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogMaxid">
+      <soap12:operation soapAction="http://slotgame.org/GetAPILogMaxid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberList">
+      <soap12:operation soapAction="http://slotgame.org/GetOnlineMemberList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <soap12:operation soapAction="http://slotgame.org/KickUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SlotTest_Login">
+      <soap12:operation soapAction="http://slotgame.org/SlotTest_Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SlotTest_LockAccount">
+      <soap12:operation soapAction="http://slotgame.org/SlotTest_LockAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SlotTest_ReturnAccount">
+      <soap12:operation soapAction="http://slotgame.org/SlotTest_ReturnAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SlotTest_Logout">
+      <soap12:operation soapAction="http://slotgame.org/SlotTest_Logout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SlotGameWSHttpPost" type="tns:SlotGameWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemState">
+      <http:operation location="/GetSystemState" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerGameHistory">
+      <http:operation location="/GetPlayerGameHistory" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerGameHistoryDetail">
+      <http:operation location="/GetPlayerGameHistoryDetail" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerInfo">
+      <http:operation location="/GetPlayerInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotPoolValue">
+      <http:operation location="/GetJackpotPoolValue" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitList">
+      <http:operation location="/GetJackpotHitList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJackpotHitListByMaxid">
+      <http:operation location="/GetJackpotHitListByMaxid" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogList">
+      <http:operation location="/GetAPILogList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogErrorList">
+      <http:operation location="/GetAPILogErrorList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogBySessionNo">
+      <http:operation location="/GetAPILogBySessionNo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAPILogMaxid">
+      <http:operation location="/GetAPILogMaxid" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineMemberList">
+      <http:operation location="/GetOnlineMemberList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KickUser">
+      <http:operation location="/KickUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SlotTest_Login">
+      <http:operation location="/SlotTest_Login" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SlotTest_LockAccount">
+      <http:operation location="/SlotTest_LockAccount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SlotTest_ReturnAccount">
+      <http:operation location="/SlotTest_ReturnAccount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SlotTest_Logout">
+      <http:operation location="/SlotTest_Logout" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SlotGameWS">
+    <wsdl:port name="SlotGameWSSoap" binding="tns:SlotGameWSSoap">
+      <soap:address location="http://devslotapi.bt2win.com/SlotGameWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SlotGameWSSoap12" binding="tns:SlotGameWSSoap12">
+      <soap12:address location="http://devslotapi.bt2win.com/SlotGameWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SlotGameWSHttpPost" binding="tns:SlotGameWSHttpPost">
+      <http:address location="http://devslotapi.bt2win.com/SlotGameWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

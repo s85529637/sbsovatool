@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerReturnAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GameId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerAccount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StakeScore" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountScore" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Rows" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MaxDateTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Location" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JackPot" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PKPoint" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SharePoint" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerReturnAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerReturnAccountResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerLockAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GameId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlayerLockAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlayerLockAccountResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RTGGetMaintain">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GameID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Club_id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RTGGetMaintainResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RTGGetMaintainResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlayerReturnAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:PlayerReturnAccount" />
+  </wsdl:message>
+  <wsdl:message name="PlayerReturnAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:PlayerReturnAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLockAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:PlayerLockAccount" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLockAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:PlayerLockAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="RTGGetMaintainSoapIn">
+    <wsdl:part name="parameters" element="tns:RTGGetMaintain" />
+  </wsdl:message>
+  <wsdl:message name="RTGGetMaintainSoapOut">
+    <wsdl:part name="parameters" element="tns:RTGGetMaintainResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn" />
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerReturnAccountHttpGetIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="SessionId" type="s:string" />
+    <wsdl:part name="GameId" type="s:string" />
+    <wsdl:part name="PlayerAccount" type="s:string" />
+    <wsdl:part name="StakeScore" type="s:string" />
+    <wsdl:part name="AccountScore" type="s:string" />
+    <wsdl:part name="Rows" type="s:string" />
+    <wsdl:part name="MaxDateTime" type="s:string" />
+    <wsdl:part name="Location" type="s:string" />
+    <wsdl:part name="JackPot" type="s:string" />
+    <wsdl:part name="PKPoint" type="s:string" />
+    <wsdl:part name="SharePoint" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerReturnAccountHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLockAccountHttpGetIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="IP" type="s:string" />
+    <wsdl:part name="GameId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLockAccountHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="RTGGetMaintainHttpGetIn">
+    <wsdl:part name="GameID" type="s:string" />
+    <wsdl:part name="Club_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RTGGetMaintainHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerReturnAccountHttpPostIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="SessionId" type="s:string" />
+    <wsdl:part name="GameId" type="s:string" />
+    <wsdl:part name="PlayerAccount" type="s:string" />
+    <wsdl:part name="StakeScore" type="s:string" />
+    <wsdl:part name="AccountScore" type="s:string" />
+    <wsdl:part name="Rows" type="s:string" />
+    <wsdl:part name="MaxDateTime" type="s:string" />
+    <wsdl:part name="Location" type="s:string" />
+    <wsdl:part name="JackPot" type="s:string" />
+    <wsdl:part name="PKPoint" type="s:string" />
+    <wsdl:part name="SharePoint" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerReturnAccountHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLockAccountHttpPostIn">
+    <wsdl:part name="PlayerId" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="WebID" type="s:string" />
+    <wsdl:part name="IP" type="s:string" />
+    <wsdl:part name="GameId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlayerLockAccountHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="RTGGetMaintainHttpPostIn">
+    <wsdl:part name="GameID" type="s:string" />
+    <wsdl:part name="Club_id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RTGGetMaintainHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:portType name="RTGSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerReturnAccount">
+      <wsdl:input message="tns:PlayerReturnAccountSoapIn" />
+      <wsdl:output message="tns:PlayerReturnAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLockAccount">
+      <wsdl:input message="tns:PlayerLockAccountSoapIn" />
+      <wsdl:output message="tns:PlayerLockAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RTGGetMaintain">
+      <wsdl:input message="tns:RTGGetMaintainSoapIn" />
+      <wsdl:output message="tns:RTGGetMaintainSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="RTGHttpGet">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpGetIn" />
+      <wsdl:output message="tns:HelloWorldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerReturnAccount">
+      <wsdl:input message="tns:PlayerReturnAccountHttpGetIn" />
+      <wsdl:output message="tns:PlayerReturnAccountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLockAccount">
+      <wsdl:input message="tns:PlayerLockAccountHttpGetIn" />
+      <wsdl:output message="tns:PlayerLockAccountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RTGGetMaintain">
+      <wsdl:input message="tns:RTGGetMaintainHttpGetIn" />
+      <wsdl:output message="tns:RTGGetMaintainHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="RTGHttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerReturnAccount">
+      <wsdl:input message="tns:PlayerReturnAccountHttpPostIn" />
+      <wsdl:output message="tns:PlayerReturnAccountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLockAccount">
+      <wsdl:input message="tns:PlayerLockAccountHttpPostIn" />
+      <wsdl:output message="tns:PlayerLockAccountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RTGGetMaintain">
+      <wsdl:input message="tns:RTGGetMaintainHttpPostIn" />
+      <wsdl:output message="tns:RTGGetMaintainHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RTGSoap" type="tns:RTGSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerReturnAccount">
+      <soap:operation soapAction="http://tempuri.org/PlayerReturnAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLockAccount">
+      <soap:operation soapAction="http://tempuri.org/PlayerLockAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RTGGetMaintain">
+      <soap:operation soapAction="http://tempuri.org/RTGGetMaintain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RTGSoap12" type="tns:RTGSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerReturnAccount">
+      <soap12:operation soapAction="http://tempuri.org/PlayerReturnAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLockAccount">
+      <soap12:operation soapAction="http://tempuri.org/PlayerLockAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RTGGetMaintain">
+      <soap12:operation soapAction="http://tempuri.org/RTGGetMaintain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RTGHttpGet" type="tns:RTGHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerReturnAccount">
+      <http:operation location="/PlayerReturnAccount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLockAccount">
+      <http:operation location="/PlayerLockAccount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RTGGetMaintain">
+      <http:operation location="/RTGGetMaintain" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RTGHttpPost" type="tns:RTGHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerReturnAccount">
+      <http:operation location="/PlayerReturnAccount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlayerLockAccount">
+      <http:operation location="/PlayerLockAccount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RTGGetMaintain">
+      <http:operation location="/RTGGetMaintain" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RTG">
+    <wsdl:port name="RTGSoap" binding="tns:RTGSoap">
+      <soap:address location="http://127.0.0.1:7774/RTG.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RTGSoap12" binding="tns:RTGSoap12">
+      <soap12:address location="http://127.0.0.1:7774/RTG.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RTGHttpGet" binding="tns:RTGHttpGet">
+      <http:address location="http://127.0.0.1:7774/RTG.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RTGHttpPost" binding="tns:RTGHttpPost">
+      <http:address location="http://127.0.0.1:7774/RTG.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
