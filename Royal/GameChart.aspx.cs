@@ -7,22 +7,35 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using Newtonsoft.Json;
 
-public class Openlist
-{
-    public int Win_Flag { get; set; }
-}
 public partial class GameChart : System.Web.UI.Page
 {
-    protected void btnInquire_Click(object sender, EventArgs e)
+    public class server
     {
-        AppSettingsReader reader = new AppSettingsReader();
-        string connString = reader.GetValue("Main.ConnectionString", typeof(string)).ToString();
-        List<Openlist> dt = null;
-        string sqlCommand = @"select Win_Flag　from T_Baccarat_Openlist where Server_id='0604250001'　And No_Run='030406001'";
-        using (var conn = new SqlConnection(connString))
+        public string Server_id { get; set; }
+        public string Server_Name { get; set; }
+
+        
+    }
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
         {
-            dt = conn.Query<Openlist>(sqlCommand, new { }).ToList();
+            AppSettingsReader reader = new AppSettingsReader();
+            string connString = reader.GetValue("Main.ConnectionString", typeof(string)).ToString();
+            List<server> dt = null;
+            string sqlCommand = @"select Server_id,Server_Name FROM [T_Server] where [Server_Name] like '%百家樂%' and [Active] ='1' and Game_id in ('Bacc' , 'InsuBacc' ,'BCBacc')";
+            using (var conn = new SqlConnection(connString))
+            {
+                dt = conn.Query<server>(sqlCommand, new { }).ToList();
+            }
+
+            this.DropDownList1.DataSource = dt;
+            DropDownList1.DataTextField = "Server_Name";
+            DropDownList1.DataValueField = "Server_id";
+            this.DropDownList1.DataBind();
+
         }
     }
 }

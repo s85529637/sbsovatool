@@ -1,0 +1,32 @@
+{"Event":"PageStart","RequestTime":"2021-04-08 11:47:46.535","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/MoveStakeAccount.aspx","RemoteUrl":"http://localhost:65298/GameChart.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageEnd","RequestTime":"2021-04-08 11:47:51.113","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/MoveStakeAccount.aspx","RemoteUrl":"http://localhost:65298/GameChart.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageStart","RequestTime":"2021-04-08 11:52:50.082","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/MoveStakeAccount.aspx","RemoteUrl":"http://localhost:65298/GameChart.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageEnd","RequestTime":"2021-04-08 11:52:50.779","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/MoveStakeAccount.aspx","RemoteUrl":"http://localhost:65298/GameChart.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageStart","RequestTime":"2021-04-08 11:57:55.380","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/MoveStakeAccount.aspx","RemoteUrl":"http://localhost:65298/GameInfo.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageEnd","RequestTime":"2021-04-08 11:57:56.262","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/MoveStakeAccount.aspx","RemoteUrl":"http://localhost:65298/GameInfo.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageStart","RequestTime":"2021-04-08 12:06:48.743","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/MoveStakeAccount.aspx","RemoteUrl":"http://localhost:65298/GameInfo.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageEnd","RequestTime":"2021-04-08 12:06:49.402","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/MoveStakeAccount.aspx","RemoteUrl":"http://localhost:65298/GameInfo.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageStart","RequestTime":"2021-04-08 13:42:00.358","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/MoveStakeAccount.aspx","RemoteUrl":"http://localhost:65298/GameChart.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageEnd","RequestTime":"2021-04-08 13:42:00.376","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/MoveStakeAccount.aspx","RemoteUrl":"http://localhost:65298/GameChart.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageStart","RequestTime":"2021-04-08 13:42:15.681","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/MoveStakeAccount.aspx","RemoteUrl":"http://localhost:65298/UnReturnAccount.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageEnd","RequestTime":"2021-04-08 13:42:15.828","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/MoveStakeAccount.aspx","RemoteUrl":"http://localhost:65298/UnReturnAccount.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageStart","RequestTime":"2021-04-08 13:54:04.659","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/MoveStakeAccount.aspx","RemoteUrl":"http://localhost:65298/GameInfo.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageEnd","RequestTime":"2021-04-08 13:54:04.808","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/MoveStakeAccount.aspx","RemoteUrl":"http://localhost:65298/GameInfo.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageStart","RequestTime":"2021-04-08 15:20:03.523","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/MoveStakeAccount.aspx","RemoteUrl":"http://localhost:65298/MoveStakeAccount.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageEnd","RequestTime":"2021-04-08 15:20:03.535","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/MoveStakeAccount.aspx","RemoteUrl":"http://localhost:65298/MoveStakeAccount.aspx","HttpMethod":"GET","Params":{}}
+

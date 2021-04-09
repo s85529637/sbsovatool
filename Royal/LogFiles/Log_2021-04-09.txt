@@ -1,0 +1,12 @@
+{"Event":"PageStart","RequestTime":"2021-04-09 15:32:31.404","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/DeleteDuplicateRows.aspx","RemoteUrl":"http://localhost:65298/PointCenterLogSearch.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageEnd","RequestTime":"2021-04-09 15:32:31.433","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/DeleteDuplicateRows.aspx","RemoteUrl":"http://localhost:65298/PointCenterLogSearch.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageStart","RequestTime":"2021-04-09 15:37:50.681","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/MoveStakeAccount.aspx","RemoteUrl":"http://localhost:65298/UnReturnAccount.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageEnd","RequestTime":"2021-04-09 15:37:55.974","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/MoveStakeAccount.aspx","RemoteUrl":"http://localhost:65298/UnReturnAccount.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageStart","RequestTime":"2021-04-09 15:38:01.756","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/GetPlayerInfo.aspx","RemoteUrl":"http://localhost:65298/GameInfo.aspx","HttpMethod":"GET","Params":{}}
+
+{"Event":"PageEnd","RequestTime":"2021-04-09 15:38:01.773","UserHostName":"::1","UserHostAddress":"::1","ContentType":"","LocalUrl":"http://localhost:65298/GetPlayerInfo.aspx","RemoteUrl":"http://localhost:65298/GameInfo.aspx","HttpMethod":"GET","Params":{}}
+
