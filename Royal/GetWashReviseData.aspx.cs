@@ -376,7 +376,7 @@ public partial class GetWashReviseData : System.Web.UI.Page
                                 {
                                     Msg.Text = FormateMsg("RTG傳來的開分號中，存在著H1不存在的開分號!!");
                                 }
-                                return;
+                               return;
                             }
 
                             foreach (DataRow row in tmpH1[j].Rows)

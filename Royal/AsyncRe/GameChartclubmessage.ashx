@@ -1,4 +1,4 @@
-﻿<%@ WebHandler Language="C#" Class="GameChart" %>
+﻿<%@ WebHandler Language="C#" Class="GameChartclubmessage" %>
 
 using System;
 using System.Collections.Generic;
@@ -11,39 +11,42 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using Newtonsoft.Json;
 
-public class GameChart : IHttpHandler
+public class GameChartclubmessage : IHttpHandler
 {
 
     public void ProcessRequest(HttpContext context)
     {
         string Server_id = context.Request["DropDownList"];
         string No_Run = context.Request["run"];
-        List<Openlist> JsonsList = Openlistrecord(Server_id, No_Run);
+        string Club_Ename = context.Request["Club_Ename"];
+        List<clubbet> JsonsList = gameChartclubmess(Server_id, No_Run, Club_Ename);
         string jsonStr = JsonConvert.SerializeObject(JsonsList);
         context.Response.Write(jsonStr);
     }
-    public class Openlist
+    public class clubbet
     {
-        public int Win_Flag { get; set; }
 
-        public int No_Active { get; set; }
+        public string Stake_Score { get; set; }
 
+        public string Account_Score { get; set; }  
 
     }
-
-    public List<Openlist> Openlistrecord(string Server_id, string No_Run)
+    public List<clubbet> gameChartclubmess(string Server_id, string No_Run, string Club_Ename)
     {
-
         AppSettingsReader reader = new AppSettingsReader();
         string connString = reader.GetValue("Main.ConnectionString", typeof(string)).ToString();
-        List<Openlist> dt = null;
-        string sqlCommand = @"select No_Active,Win_Flag from T_Baccarat_Openlist_History where Server_id=@Server_id　And No_Run=@No_Run";
+        List<clubbet> dt = null;
+        string sqlCommand = @"select sum(Stake_Score) Stake_Score,sum(Account_Score) Account_Score FROM  T_Club_Stake_History  where Club_Ename =@Club_Ename and Server_id=@Server_id and No_Run=@No_Run ";
         using (var conn = new SqlConnection(connString))
         {
-            dt = conn.Query<Openlist>(sqlCommand, new { Server_id = Server_id, No_Run = No_Run }).ToList();
+            dt = conn.Query<clubbet>(sqlCommand, new { Server_id = Server_id, No_Run = No_Run, Club_Ename = Club_Ename }).ToList();
         }
         return dt;
     }
+
+
+
+
     public bool IsReusable
     {
         get

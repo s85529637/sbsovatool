@@ -333,7 +333,7 @@ public class dbSQL : dbConnectionBase
         {
             using (var conn = this._mainConnection)
             {
-                if (conn.State == ConnectionState.Closed )
+                if (conn.State == ConnectionState.Closed)
                 {
                     conn.Open();
                 }
@@ -395,7 +395,7 @@ public class dbSQL : dbConnectionBase
             {
                 if (row["ttt"] != null)
                 {
-                    num =int.Parse(row["ttt"].ToString());
+                    num = int.Parse(row["ttt"].ToString());
                 }
             }
         }
@@ -404,7 +404,9 @@ public class dbSQL : dbConnectionBase
         {
             rvalue = true;
 
-        }else {
+        }
+        else
+        {
 
             rvalue = false;
         }
@@ -420,7 +422,7 @@ public class dbSQL : dbConnectionBase
     /// <param name="GameCode"></param>
     /// <param name="IsFinalyDay"></param>
     /// <returns></returns>
-    public bool NewSendAmount(DataTable awardData, string JDBdress,out string ErrorMsg)
+    public bool NewSendAmount(DataTable awardData, string JDBdress, out string ErrorMsg)
     {
         string Rank = string.Empty;
 
@@ -472,7 +474,7 @@ public class dbSQL : dbConnectionBase
                 }
                 catch (Exception ex)
                 {
-                    Lib.WritLog("dbSQL.cs.NewSendAmount", string.Format( "連接資料庫時發生例外︰{0} ",ex.ToString()));
+                    Lib.WritLog("dbSQL.cs.NewSendAmount", string.Format("連接資料庫時發生例外︰{0} ", ex.ToString()));
 
                     ErrorMsg = string.Format("連接資料庫時發生例外︰{0} ", ex.ToString());
 
@@ -485,7 +487,7 @@ public class dbSQL : dbConnectionBase
             SqlCommand[] _cmd1 = new SqlCommand[awardData.Rows.Count];
 
             SqlCommand[] _cmd2 = new SqlCommand[awardData.Rows.Count];
-  
+
             foreach (DataRow row in awardData.Rows)
             {
                 Thread.Sleep(10);
@@ -628,7 +630,7 @@ public class dbSQL : dbConnectionBase
             Lib.WritLog("dbSQL.cs.NewSendAmount", Errmsg.ToString());
         }
 
-       ErrorMsg = Errmsg.ToString();
+        ErrorMsg = Errmsg.ToString();
 
         return rvalue;
     }
@@ -638,11 +640,11 @@ public class dbSQL : dbConnectionBase
     /// <param name="awardData"></param>
     /// <param name="JDBdress"></param>
     /// <returns></returns>
-    public bool SendAmount(System.Collections.Generic.IList<AwardData> awardData,string JDBdress)
+    public bool SendAmount(System.Collections.Generic.IList<AwardData> awardData, string JDBdress)
     {
         string Rank = string.Empty;
 
-        string Uid = string.Empty; 
+        string Uid = string.Empty;
 
         string Amount = string.Empty;
 
@@ -869,7 +871,7 @@ public class dbSQL : dbConnectionBase
     /// <param name="_effect"></param>
     /// <param name="_Errormsg"></param>
     /// <returns></returns>
-    public bool SendAmount_bak(string Rank, string Uid, string Amount,string GameCode,out int _ReturnState,out int _effect,out string _Errormsg)
+    public bool SendAmount_bak(string Rank, string Uid, string Amount, string GameCode, out int _ReturnState, out int _effect, out string _Errormsg)
     {
         bool isok = false;
 
@@ -896,7 +898,7 @@ public class dbSQL : dbConnectionBase
                 cmd.Parameters.Add("@KeyFlag", SqlDbType.UniqueIdentifier).Value = new Guid("99FBECDB-05B4-4C0A-968B-2BEF85976945");
                 cmd.Parameters.Add("@Club", SqlDbType.NVarChar).Value = Uid;
                 cmd.Parameters.Add("@SessionNo", SqlDbType.NVarChar).Value = DBNull.Value;
-                cmd.Parameters.Add("@JDBSessionId", SqlDbType.VarChar).Value = string.Format("1,{0},{1}",GameCode, Rank);
+                cmd.Parameters.Add("@JDBSessionId", SqlDbType.VarChar).Value = string.Format("1,{0},{1}", GameCode, Rank);
                 cmd.Parameters.Add("@Game_id", SqlDbType.VarChar).Value = "JDBRoom";
                 cmd.Parameters.Add("@Bet", SqlDbType.Money).Value = 0;
                 cmd.Parameters.Add("@Jackpot", SqlDbType.Money).Value = 0;
@@ -915,19 +917,23 @@ public class dbSQL : dbConnectionBase
                     {
                         isok = true;
 
-                    }else if (iReturnState == -1) {
+                    }
+                    else if (iReturnState == -1)
+                    {
                         Errmsg.Append("A_ms_InsertStakeData_JDB 執行失敗OutPut參數值為NULL︰");
                         Errmsg.Append(iReturnState);
                         Errmsg.Append("\r\n");
                         isok = false;
-                    } else{
+                    }
+                    else
+                    {
                         Errmsg.Append("A_ms_InsertStakeData_JDB 執行失敗回傳值︰");
                         Errmsg.Append(iReturnState);
                         Errmsg.Append("\r\n");
                         isok = false;
                     }
                 }
-                catch (Exception ex )
+                catch (Exception ex)
                 {
                     isok = false;
                     Errmsg.Append("A_ms_InsertStakeData_JDB 執行發生例外︰");
@@ -950,7 +956,9 @@ public class dbSQL : dbConnectionBase
                         if (effect == 1)
                         {
                             isok = true;
-                        }else{
+                        }
+                        else
+                        {
                             Errmsg.Append("UPDATE T_Club 執行失敗回傳受影響筆數︰");
                             Errmsg.Append(effect);
                             Errmsg.Append("\r\n");
@@ -962,10 +970,10 @@ public class dbSQL : dbConnectionBase
                         isok = false;
                         Errmsg.Append("UPDATE T_Club 執行發生例外︰");
                         Errmsg.Append(ex.ToString());
-                        Errmsg.Append("\r\n"); 
+                        Errmsg.Append("\r\n");
                     }
                 }
-            }            
+            }
         }
         catch (Exception ex)
         {
@@ -974,7 +982,9 @@ public class dbSQL : dbConnectionBase
             Errmsg.Append(ex.ToString());
             Errmsg.Append("\r\n");
 
-        }finally {
+        }
+        finally
+        {
 
             if (this._mainConnection != null)
             {
@@ -990,7 +1000,7 @@ public class dbSQL : dbConnectionBase
                 if (this._mainConnection.State == ConnectionState.Open)
                 {
                     this._mainConnection.Close();
-                } 
+                }
             }
         }
 
@@ -1005,13 +1015,15 @@ public class dbSQL : dbConnectionBase
     #endregion
 
     #region RTG
-    public bool updateStakeCurrent(DataTable td,string logname)
+    public bool updateStakeCurrent(DataTable td, string logname)
     {
         if (td == null)
         {
             return false;
 
-        }else if(td.Rows.Count==0) {
+        }
+        else if (td.Rows.Count == 0)
+        {
 
             return false;
         }
@@ -1027,6 +1039,7 @@ public class dbSQL : dbConnectionBase
         double diff_Account_Score = 0;
         double diff_PKPoint = 0;    //公點
         double diff_SharePoint = 0; //分潤
+        double diff_Jackpot_Score = 0;//彩金
         string NewSessionId = string.Empty;
         Int64 stake_id = 0;
         int diff_Rows = 0;
@@ -1042,7 +1055,7 @@ public class dbSQL : dbConnectionBase
         foreach (DataRow row in td.Rows)
         {
             try
-            { 
+            {
                 if (row["IsHistory"].ToString().ToUpper() == "Y")  //表示過帳完
                 {
                     /*因為筆數及下注無法是負數(只有過完帳才需要判斷) 2020-11-26 註解，目前已經發生過注金為負，所以將其註解
@@ -1053,16 +1066,18 @@ public class dbSQL : dbConnectionBase
                         continue;
                     }*/
 
-                     diff_Stake_Score = double.Parse(row["RTG_Stake_Score"].ToString())- double.Parse(row["H1_Stake_Score"].ToString());
-                     diff_Account_Score = double.Parse(row["RTG_Account_Score"].ToString()) - double.Parse(row["H1_Account_Score"].ToString());
-                     diff_Rows = int.Parse(row["RTG_Rows"].ToString()) - int.Parse(row["H1_Rows"].ToString());
-                     diff_PKPoint = double.Parse(row["RTG_PKPoint"].ToString()) - double.Parse(row["H1_PKPoint"].ToString()); ;          //公點
-                     diff_SharePoint = double.Parse(row["RTG_SharePoint"].ToString()) - double.Parse(row["H1_SharePoint"].ToString()); ; //分潤
-                     //2020-12-30 配合做帳不計算公點和分潤，所以將公點和分潤，就算出現差異，也一律設定為0
-                     diff_PKPoint = 0;
-                     diff_SharePoint = 0;
+                    diff_Stake_Score = double.Parse(row["RTG_Stake_Score"].ToString()) - double.Parse(row["H1_Stake_Score"].ToString());
+                    diff_Account_Score = double.Parse(row["RTG_Account_Score"].ToString()) - double.Parse(row["H1_Account_Score"].ToString());
+                    diff_Rows = int.Parse(row["RTG_Rows"].ToString()) - int.Parse(row["H1_Rows"].ToString());
+                    diff_PKPoint = double.Parse(row["RTG_PKPoint"].ToString()) - double.Parse(row["H1_PKPoint"].ToString()); ;          //公點
+                    diff_SharePoint = double.Parse(row["RTG_SharePoint"].ToString()) - double.Parse(row["H1_SharePoint"].ToString()); ; //分潤
+                    diff_Jackpot_Score = double.Parse(row["RTG_JackPot"].ToString()) - double.Parse(row["H1_JackPot"].ToString()); ; //採金
+
+                    //2020-12-30 配合做帳不計算公點和分潤，所以將公點和分潤，就算出現差異，也一律設定為0
+                    diff_PKPoint = 0;
+                    diff_SharePoint = 0;
                     dbSQL bsql = new dbSQL();
-                    if (diff_Stake_Score == 0 && diff_Account_Score == 0 && diff_Rows == 0 && diff_PKPoint==0 && diff_SharePoint==0)  //表示帳務資料未改變，不予處理
+                    if (diff_Stake_Score == 0 && diff_Account_Score == 0 && diff_Rows == 0 && diff_PKPoint == 0 && diff_SharePoint == 0 && diff_Jackpot_Score==0)  //表示帳務資料未改變，不予處理
                     {
                         InsertResult[j] = 1;  //因為新增注單的SP已經綁交易，故增加這個陣列先判斷注單SP是否成功，再決定其它交是否提交
                         j++;
@@ -1070,7 +1085,7 @@ public class dbSQL : dbConnectionBase
                     }
                     stake_id = objbsSQL.HasStakeCurrentData(row["H1_SessionId"].ToString(), row["H1_Club_id"].ToString());
                     NewSessionId = DateTime.Now.ToString("yyyyMMddHHmmssfff");
-                    MaHao = string.Format("{0},,0.00,{1},0", diff_Rows.ToString(), row["RTG_SessionId"].ToString());  
+                    MaHao = string.Format("{0},,0.00,{1},0", diff_Rows.ToString(), row["RTG_SessionId"].ToString());
                     if (stake_id == 0)  //等於0，表示要新增補單
                     {
                         cmdToExecute[j] = new SqlCommand();
@@ -1087,22 +1102,25 @@ public class dbSQL : dbConnectionBase
                         cmdToExecute[j].Parameters.Add("@Desk_id", SqlDbType.Int).Value = row["H1_Desk_id"].ToString();
                         cmdToExecute[j].Parameters.Add("@No_Run", SqlDbType.VarChar).Value = row["H1_No_Run"].ToString();
                         cmdToExecute[j].Parameters.Add("@No_Active", SqlDbType.VarChar).Value = row["H1_No_Active"].ToString();
-                        cmdToExecute[j].Parameters.Add("@JiTai_No", SqlDbType.VarChar).Value = row["H1_JiTai_No"].ToString(); 
+                        cmdToExecute[j].Parameters.Add("@JiTai_No", SqlDbType.VarChar).Value = row["H1_JiTai_No"].ToString();
                         cmdToExecute[j].Parameters.Add("@MaHao", SqlDbType.VarChar).Value = MaHao.ToString();
                         cmdToExecute[j].Parameters.Add("@StartSeqNoFlag", SqlDbType.BigInt).Value = Int64.Parse(NewSessionId);
                         cmdToExecute[j].Parameters.Add("@EndSeqNoFlag", SqlDbType.BigInt).Value = Int64.Parse(row["H1_SessionId"].ToString()); ;
-                        cmdToExecute[j].Parameters.Add("@TTLJackpot", SqlDbType.Money).Value = row["H1_JackPot"].ToString();
+                        cmdToExecute[j].Parameters.Add("@TTLJackpot", SqlDbType.Money).Value = diff_Jackpot_Score.ToString();
                         cmdToExecute[j].Parameters.Add("@ActionTime", SqlDbType.DateTime).Value = DateTime.Now.ToString();//row["H1_MaxDateTime"].ToString();
                         cmdToExecute[j].Parameters.Add("@YouXiaoYaFen", SqlDbType.Money).Value = diff_Stake_Score.ToString();
                         cmdToExecute[j].Parameters.Add("@YaMa", SqlDbType.Money).Value = diff_Stake_Score.ToString();
                         cmdToExecute[j].Parameters.Add("@TableFee", SqlDbType.Money).Value = diff_PKPoint;      //公點  //row["RTG_PKPoint"].ToString();
                         cmdToExecute[j].Parameters.Add("@Commission", SqlDbType.Money).Value = diff_SharePoint; //分潤  //row["RTG_SharePoint"].ToString();
+                        //cmdToExecute[j].Parameters.Add("@Jackpot_Score", SqlDbType.Money).Value = diff_Jackpot_Score.ToString(); //彩金  //row["RTG_SJackpot"].ToString();
                         SqlParameter returnState = cmdToExecute[j].Parameters.Add("@ReturnState", SqlDbType.Int);
                         returnState.Direction = ParameterDirection.Output;
                         //cmdToExecute[j].ExecuteNonQuery();
                         bsql.RunSQL(cmdToExecute[j]);
-                        InsertResult[j] = int.Parse(returnState.Value.ToString()); 
-                    }else {  //表示已經有補單了，只要針對現有補單再修改
+                        InsertResult[j] = int.Parse(returnState.Value.ToString());
+                    }
+                    else
+                    {  //表示已經有補單了，只要針對現有補單再修改
                         cmdText = @"UPDATE TOP(1) t
 			                           SET t.Stake_Score   = ISNULL(@Stake_Score, t.Stake_Score)
                                          , t.Account_Score = ISNULL(@Account_Score, t.Account_Score)
@@ -1115,6 +1133,7 @@ public class dbSQL : dbConnectionBase
                                          , t.Datetime        = ISNULL(@Datetime, t.Datetime)
                                          , t.TableFee        = ISNULL(@TableFee, t.TableFee)  
                                          , t.Commission        = ISNULL(@Commission, t.Commission)
+                                         , t.Jackpot_Score =ISNULL(@Jackpot_Score, t.Jackpot_Score)
                                       FROM T_Club_Stake_Current t with(RowLock)
 			                          WHERE t.Id = @Id";
                         MaHao = string.Format("{0},,0.00,{1},0", row["RTG_Rows"].ToString(), row["RTG_SessionId"].ToString());
@@ -1130,11 +1149,14 @@ public class dbSQL : dbConnectionBase
                         cmdToExecute[j].Parameters.Add("@ReportTime", SqlDbType.DateTime).Value = DateTime.Now.ToString();
                         cmdToExecute[j].Parameters.Add("@Datetime", SqlDbType.DateTime).Value = DateTime.Now.ToString();
                         cmdToExecute[j].Parameters.Add("@TableFee", SqlDbType.Money).Value = diff_PKPoint;      //公點  
-                        cmdToExecute[j].Parameters.Add("@Commission", SqlDbType.Money).Value = diff_SharePoint; //分潤  
+                        cmdToExecute[j].Parameters.Add("@Commission", SqlDbType.Money).Value = diff_SharePoint; //分潤 
+                        cmdToExecute[j].Parameters.Add("@Jackpot_Score", SqlDbType.Money).Value = diff_Jackpot_Score;//彩金
                         effecttotal = cmdToExecute[j].ExecuteNonQuery();
                         InsertResult[j] = 1;
                     }
-                }else{
+                }
+                else
+                {
                     cmdText = @"UPDATE TOP(1) t
 			           SET t.Stake_Score   = ISNULL(@Stake_Score, t.Stake_Score)
                          , t.Account_Score = ISNULL(@Account_Score, t.Account_Score)
@@ -1143,6 +1165,7 @@ public class dbSQL : dbConnectionBase
                          , t.MaHao         = ISNULL(@MaHao, t.MaHao) --如果有要異動就去掉注解
                          , t.TableFee      = ISNULL(@TableFee, t.TableFee)  
                          , t.Commission    = ISNULL(@Commission, t.Commission)
+                         , t.Jackpot_Score =ISNULL(@Jackpot_Score, t.Jackpot_Score)
                       FROM T_Club_Stake_Current t with(RowLock)
 			         WHERE t.Id = @Id";
                     MaHao = string.Format("{0},,0.00,{1},0", row["RTG_Rows"].ToString(), row["RTG_SessionId"].ToString());
@@ -1152,6 +1175,7 @@ public class dbSQL : dbConnectionBase
                     cmdToExecute[j].Parameters.Add("@Stake_Score", SqlDbType.Money).Value = row["RTG_Stake_Score"].ToString();
                     cmdToExecute[j].Parameters.Add("@YouXiaoYaFen", SqlDbType.Money).Value = row["RTG_Stake_Score"].ToString();
                     cmdToExecute[j].Parameters.Add("@Account_Score", SqlDbType.Money).Value = row["RTG_Account_Score"].ToString();
+                    cmdToExecute[j].Parameters.Add("@Jackpot_Score", SqlDbType.Money).Value = row["RTG_JackPot"].ToString();
                     cmdToExecute[j].Parameters.Add("@MaHao", SqlDbType.VarChar).Value = MaHao.ToString();
                     //2020-12-30 配合做帳不計算公點和分潤，所以將公點和分潤，就算出現差異，也一律設定為0
                     cmdToExecute[j].Parameters.Add("@TableFee", SqlDbType.Money).Value = 0;    //公點  
@@ -1200,12 +1224,16 @@ public class dbSQL : dbConnectionBase
             if (CanCommit)
             {
                 objTrans.Commit();
-            }else {
+            }
+            else
+            {
                 objTrans.Rollback();
                 isok = false;
             }
 
-        }else {
+        }
+        else
+        {
 
             objTrans.Rollback();
         }
@@ -1218,10 +1246,10 @@ public class dbSQL : dbConnectionBase
     /// <param name="td"></param>
     /// <param name="logname"></param>
     /// <returns></returns>
-    public bool HandleEditStakeHistory(string Rows,string Club_id,string Now_XinYong,
-        string Account_Score,string Datetime,string Game_id,string Jackpot_Score,string StartSeqNoFlag,
-        string Id,string Stake_Score,string IsHistory,string Stake_id,string ZhuDan_Type,
-        string Active,string Desk_id,string No_Run,string No_Active,string JiTai_No,string TableFee,string Commission)
+    public bool HandleEditStakeHistory(string Rows, string Club_id, string Now_XinYong,
+        string Account_Score, string Datetime, string Game_id, string Jackpot_Score, string StartSeqNoFlag,
+        string Id, string Stake_Score, string IsHistory, string Stake_id, string ZhuDan_Type,
+        string Active, string Desk_id, string No_Run, string No_Active, string JiTai_No, string TableFee, string Commission)
     {
         string NewSessionId = string.Empty;
         string MaHao = string.Empty;
@@ -1236,7 +1264,7 @@ public class dbSQL : dbConnectionBase
         stake_id = objbsSQL.HasStakeCurrentData(StartSeqNoFlag.ToString(), Club_id.ToString());
         objstrg.Append(string.Format("資料ID︰ID︰{0}", stake_id));
         NewSessionId = DateTime.Now.ToString("yyyyMMddHHmmssfff");
-        MaHao = string.Format("{0},,0.00,{1},0", Rows,StartSeqNoFlag);
+        MaHao = string.Format("{0},,0.00,{1},0", Rows, StartSeqNoFlag);
         objstrg.Append(string.Format("MaHao︰{0}", MaHao));
         objstrg.Append(string.Format("NewSessionId︰{0}", NewSessionId));
         if (this._mainConnection.State != ConnectionState.Open)
@@ -1326,7 +1354,7 @@ public class dbSQL : dbConnectionBase
     /// <param name="StartSeqNoFlag"></param>
     /// <param name="Rows"></param>
     /// <returns></returns>
-    public bool HandleEditStakeCurrent(string Id,string Stake_Score,string Account_Score,string StartSeqNoFlag,string Rows,string TableFee,string Commission)
+    public bool HandleEditStakeCurrent(string Id, string Stake_Score, string Account_Score, string StartSeqNoFlag, string Rows, string TableFee, string Commission, string Jackpot_Score)
     {
         string MaHao = string.Empty;
         string cmdText = string.Empty;
@@ -1340,6 +1368,7 @@ public class dbSQL : dbConnectionBase
                          , t.MaHao         = ISNULL(@MaHao, t.MaHao) --如果有要異動就去掉注解
                          , t.TableFee      = ISNULL(@TableFee, t.TableFee)
                          , t.Commission    = ISNULL(@Commission, t.Commission)
+                         , t.Jackpot_Score   = ISNULL(@Jackpot_Score, t.Jackpot_Score)
                       FROM T_Club_Stake_Current t with(RowLock)
 			         WHERE t.Id = @Id";
         if (this._mainConnection.State != ConnectionState.Open)
@@ -1356,6 +1385,7 @@ public class dbSQL : dbConnectionBase
         cmdToExecute.Parameters.Add("@MaHao", SqlDbType.VarChar).Value = MaHao.ToString();
         cmdToExecute.Parameters.Add("@TableFee", SqlDbType.Money).Value = TableFee;
         cmdToExecute.Parameters.Add("@Commission", SqlDbType.Money).Value = Commission;
+        cmdToExecute.Parameters.Add("@Jackpot_Score", SqlDbType.Money).Value = Jackpot_Score.ToString();
         InsertResult = cmdToExecute.ExecuteNonQuery();
         return InsertResult == 1 ? true : false;
     }

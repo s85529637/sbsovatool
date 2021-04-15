@@ -414,7 +414,7 @@ public partial class EditWashReviseData : System.Web.UI.Page
                     else
                     {
                         objstrg.Append("，修改原單，");
-                        Result = objdb.HandleEditStakeCurrent(Id, Stake_Score, Account_Score, StartSeqNoFlag, Rows,TableFee, Commission);
+                        Result = objdb.HandleEditStakeCurrent(Id, Stake_Score, Account_Score, StartSeqNoFlag, Rows,TableFee, Commission, Jackpot_Score);
                     }
 
                     if (Result)
