@@ -37,7 +37,20 @@ public class GameChart : IHttpHandler
         AppSettingsReader reader = new AppSettingsReader();
         string connString = reader.GetValue("Main.ConnectionString", typeof(string)).ToString();
         List<Openlist> dt = null;
-        string sqlCommand = @"select No_Active,Win_Flag from T_Baccarat_Openlist_History where Server_id=@Server_id　And No_Run=@No_Run";
+        string sqlCommand = @"declare @Server_Name nvarchar(20)
+                               select @Server_Name=Server_Name from T_Server where Server_id=@Server_id
+                               if(@Server_Name　LIKE '百家樂%')
+                               (
+                               select No_Active,Win_Flag from T_Baccarat_Openlist_History where Server_id=@Server_id　And No_Run=@No_Run
+                               )
+                               IF(@Server_Name　LIKE '區塊鏈百家樂%')
+                               (
+                               select No_Active,Win_Flag from T_BCBacc_Openlist_History where Server_id=@Server_id　And No_Run=@No_Run
+                               )
+                               IF(@Server_Name　LIKE '保險百家樂%')
+                               (
+                               select No_Active,Win_Flag from T_InsuBacc_Openlist_History where Server_id=@Server_id　And No_Run=@No_Run
+                               )";
         using (var conn = new SqlConnection(connString))
         {
             dt = conn.Query<Openlist>(sqlCommand, new { Server_id = Server_id, No_Run = No_Run }).ToList();

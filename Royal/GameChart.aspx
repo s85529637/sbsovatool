@@ -78,7 +78,7 @@
     <a href="#" download="路圖.png" onclick="this.href=canvas.toDataURL();">下載</a>
     <br>
     <%--style="display:none"--%>
-    <table class="clubtable">
+    <table class="clubtable" >
         <tr>
             <td class="title">下注金額</td>
             <td class="title">輸贏金額</td>
@@ -312,6 +312,13 @@
                 }
             });
             NO_Run = Array.from(new Set(NO_Run));
+            var select = document.getElementById("Run");
+            $('#Run').find('option').remove().end()
+            var option2 = document.createElement("option");
+
+            option2.appendChild(document.createTextNode("選擇輪號"));
+            select.appendChild(option2);
+
             for (var x = 0; x < NO_Run.length; x++) {
                 var select = document.getElementById("Run");
                 select.options[0].selected = true;
@@ -325,8 +332,6 @@
         function onclickclub() {
             var Club_Ename = $('.txtlblclub').val();
             var selectdata = $('.txtdata').val();
-
-
             axios.get('/AsyncRe/GameChartselect.ashx', { params: { Club_Ename, selectdata } })
                 .then(function (jsonStr) {
                     result = jsonStr;
@@ -338,9 +343,12 @@
                     });
                     Server_id = Array.from(new Set(Server_id));
                     Server_Name = Array.from(new Set(Server_Name));
-
+                    var select = document.getElementById("server_id");
+                    $('#server_id').find('option').remove().end()
+                    var option2 = document.createElement("option");
+                    option2.appendChild(document.createTextNode("選擇桌號"));
+                    select.appendChild(option2);
                     for (var x = 0; x < Server_id.length; x++) {
-                        var select = document.getElementById("server_id");
                         select.options[0].selected = true;
                         var option = document.createElement("option");
                         option.setAttribute("value", Server_id[x]);
