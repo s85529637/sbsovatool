@@ -41,21 +41,30 @@ public class GameChart : IHttpHandler
                                select @Server_Name=Server_Name from T_Server where Server_id=@Server_id
                                if(@Server_Name　LIKE '百家樂%')
                                (
-                               select No_Active,Win_Flag from T_Baccarat_Openlist_History where Server_id=@Server_id　And No_Run=@No_Run
+                               select No_Active,Win_Flag from T_Baccarat_Openlist_History where Server_id=@Server_id　And No_Run=@No_Run  
                                )
                                IF(@Server_Name　LIKE '區塊鏈百家樂%')
                                (
-                               select No_Active,Win_Flag from T_BCBacc_Openlist_History where Server_id=@Server_id　And No_Run=@No_Run
+                               select No_Active,Win_Flag from T_BCBacc_Openlist_History where Server_id=@Server_id　And No_Run=@No_Run  
                                )
                                IF(@Server_Name　LIKE '保險百家樂%')
                                (
-                               select No_Active,Win_Flag from T_InsuBacc_Openlist_History where Server_id=@Server_id　And No_Run=@No_Run
+                               select No_Active,Win_Flag from T_InsuBacc_Openlist_History where Server_id=@Server_id　And No_Run=@No_Run  
                                )";
-        using (var conn = new SqlConnection(connString))
+        try
         {
-            dt = conn.Query<Openlist>(sqlCommand, new { Server_id = Server_id, No_Run = No_Run }).ToList();
+            using (var conn = new SqlConnection(connString))
+            {
+                dt = conn.Query<Openlist>(sqlCommand, new { Server_id = Server_id, No_Run = No_Run }).OrderBy(x => x.No_Active).ToList();
+            }
+            return dt;
         }
-        return dt;
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            throw;
+        }
+
     }
     public bool IsReusable
     {

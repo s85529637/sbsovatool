@@ -243,4 +243,7 @@
   <data name="GameChart" xml:space="preserve">
     <value>遊戲路圖</value>
   </data>
+  <data name="Clublogin" xml:space="preserve">
+    <value>會員登入查詢</value>
+  </data>
 </root>

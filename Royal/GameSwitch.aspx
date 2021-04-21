@@ -79,7 +79,7 @@
                     </td>
                     <td class="auto-style3">
                         <asp:TextBox ID="txtGclub2" runat="server" TextMode="Password"></asp:TextBox>
-                        <asp:Button ID="Button1" runat="server" Text="開啟" OnClick="btGclub_Click2"
+                        <asp:Button ID="Button1" runat="server" Text="修改" OnClick="btGclub_Click2"
                             OnClientClick="if (document.getElementById('ContentPlaceHolder1_txtGclub2').value=='') { alert(InputPass);  return false;}else{ if(document.getElementById('ContentPlaceHolder1_rbGclub2_1').checked) { GcluekickAll(); } if(document.getElementById('ContentPlaceHolder1_rbGclub2_0').checked){ GclueOpenHall(); } }" />
                     </td>
 

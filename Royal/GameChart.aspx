@@ -65,6 +65,11 @@
     <br />
     <asp:Label ID="lblclub" runat="server" Text="會員帳號:"></asp:Label>
     <asp:TextBox ID="txtlblclub" runat="server" Width="200px" class="txtlblclub"></asp:TextBox>
+    <asp:Label ID="Label1" runat="server" Text="金錢單位:"></asp:Label>
+    <select name="money" id="money">
+        <option value="Million">萬</option>
+        <option value="thousand">千</option>
+    </select>
     <input type="button" name="name" onclick="onclickclub()" value="查詢" />
     <br>
     <select name="server_id" id="server_id" onchange="selecrun()">
@@ -78,10 +83,12 @@
     <a href="#" download="路圖.png" onclick="this.href=canvas.toDataURL();">下載</a>
     <br>
     <%--style="display:none"--%>
-    <table class="clubtable" >
+    <table class="clubtable">
         <tr>
             <td class="title">下注金額</td>
             <td class="title">輸贏金額</td>
+            <td class="title">局號</td>
+            <td class="title">下注區</td>
         </tr>
         <tbody id="content" class="content">
         </tbody>
@@ -116,28 +123,31 @@
             ctx.fillStyle = 'black';
             ctx.fillText(i.No_Active, xx, yy);
         }
-        function clubnote(xa, y, i) {//會員下注局數
+        function clubnote(xa, ya, i, MaHao) {//會員下注局數
             xa = xa - 12;
-            y = y + 5;
+            ya = ya + 5;
             var c = document.getElementById("canvas");
             var ctx = c.getContext("2d");
             ctx.font = "10px orbitron";
-            ctx.fillStyle = 'black';
-            ctx.fillText(i, xa, y);
+            if (MaHao == 'Zhuang') {
+                ctx.fillStyle = 'red';
+            }
+            else { ctx.fillStyle = 'blue'; }
+            ctx.fillText(i, xa, ya);
         }
         var xa = 15;
-        var y = 45;
+        var ya = 45;
         var xx = 0;
         var yy = 20;
-        function right(xa, y) {//不相同換行
+        function right(xa, ya) {//不相同換行
             xa = xa + 30;
-            y = 45;
-            return [xa, y];
+            ya = 45;
+            return [xa, ya];
         };
-        function under(xa, y) {//相同往下
+        function under(xa, ya) {//相同往下
 
-            y = y + 30;
-            return [xa, y];
+            ya = ya + 30;
+            return [xa, ya];
         };
         function bureauunder(xx) {//開頭局數換行
 
@@ -181,7 +191,7 @@
             //完成描绘
             ctx.stroke();
             xa = 15;
-            y = 45;
+            ya = 45;
             xx = 0;
             yy = 20;
             j = 0;
@@ -203,70 +213,83 @@
 
         var result;
         var j = 0;
+
         function GcluekickAll() {
             var run = $('#Run').children("option:selected").val();
             var No_Active = result.data.filter(p =>
-                p.No_Run == run
+                p.No_Run == run && p.MaHao == 'Zhuang' || p.MaHao == 'Xian'
             );
 
             axios.all([getDrawing(), getclubmessage()])
                 .then(axios.spread((Drawing, clubmess) => {//第一局
+
+                    var Wrapvalue;
                     number(xx, yy, Drawing.data[0]);
-                    draw(xa, y, Drawing.data[0]);
+                    draw(xa, ya, Drawing.data[0]);
+
                     if (j != No_Active.length) {
                         if (No_Active[j].No_Active == Drawing.data[0].No_Active) {
-                            clubnote(xa, y, No_Active[j].Stake_Score)
+                            clubnote(xa, ya, No_Active[j].Stake_Score, No_Active[j].MaHao)
                             j++
                         }
                     }
                     if (Drawing.data[0].Win_Flag == 3 || Drawing.data[0].Win_Flag == Drawing.data[1].Win_Flag) {//相同或和局,判斷第二局         
-                        [xa, y] = under(xa, y);
-                        draw(xa, y, Drawing.data[1]);
+                        [xa, ya] = under(xa, ya);
+                        draw(xa, ya, Drawing.data[1]);
                         if (j != No_Active.length) {
                             if (No_Active[j].No_Active == Drawing.data[1].No_Active) {
-                                clubnote(xa, y, No_Active[j].Stake_Score)
+                                clubnote(xa, ya, No_Active[j].Stake_Score, No_Active[j].MaHao)
                                 j++
                             }
                         }
                     }
                     else {//判斷是否與第一局不同
                         [xx] = bureauunder(xx, yy);
-                        [xa, y] = right(xa, y);
+                        [xa, y] = right(xa, ya);
                         number(xx, yy, Drawing.data[1]);
-                        draw(xa, y, Drawing.data[1]);
+                        draw(xa, ya, Drawing.data[1]);
+                        Wrapvalue = Drawing.data[1];
                         if (j != No_Active.length) {
                             if (No_Active[j].No_Active == Drawing.data[1].No_Active) {
-                                clubnote(xa, y, No_Active[j].Stake_Score)
+                                clubnote(xa, ya, No_Active[j].Stake_Score, No_Active[j].MaHao)
                                 j++
                             }
                         }
                     }
 
-                    while (j < No_Active.length) {
-                        for (var i = 2; i < Drawing.data.length; i++) {//相同或和局
-                            if (Drawing.data[i].Win_Flag == Drawing.data[i - 1].Win_Flag || Drawing.data[i].Win_Flag == 3) {
+                    for (var i = 2; i < Drawing.data.length; i++) {//相同或和局
+                        if (Drawing.data[i].Win_Flag == Wrapvalue || Drawing.data[i].Win_Flag == 3
+                            ) {
 
-                                [xa, y] = under(xa, y);
-                                draw(xa, y, Drawing.data[i]);
-                            }
-                            else {//換行
-                                [xa, y] = right(xa, y);
-                                [xx] = bureauunder(xx, yy);
-                                number(xx, yy, Drawing.data[i]);
-                                draw(xa, y, Drawing.data[i]);
-                            }
+                            [xa, ya] = under(xa, ya);
+                            draw(xa, ya, Drawing.data[i]);
                             if (j != No_Active.length) {
                                 if (No_Active[j].No_Active == Drawing.data[i].No_Active) {
-                                    clubnote(xa, y, No_Active[j].Stake_Score)
+                                    clubnote(xa, ya, No_Active[j].Stake_Score, No_Active[j].MaHao)
+                                    j++
+                                }
+                            }
+                        }
+                        else {//換行
+                            [xa, ya] = right(xa, ya);
+                            [xx] = bureauunder(xx, yy);
+                            number(xx, yy, Drawing.data[i]);
+                            draw(xa, ya, Drawing.data[i]);
+                            Wrapvalue = Drawing.data[i].Win_Flag;
+                            if (j != No_Active.length) {
+                                if (No_Active[j].No_Active == Drawing.data[i].No_Active) {
+                                    clubnote(xa, ya, No_Active[j].Stake_Score, No_Active[j].MaHao)
                                     j++
                                 }
                             }
                         }
 
                     }
-
-
-                    $('#content').html('<tr><td>' + clubmess.data[0].Stake_Score + '</td><td>' + clubmess.data[0].Account_Score + '</td></tr>');
+                    var item;
+                    for (i = 0; i < clubmess.data.length; i++) {
+                        item += '<tr><td>' + clubmess.data[i].Stake_Score + '</td><td>' + clubmess.data[i].Account_Score + '</td><td>' + clubmess.data[i].No_Active + '</td><td>' + clubmess.data[i].MaHao + '</td></tr>'
+                    }
+                    $('#content').html(item);
                 }));
 
             //axios.get('/AsyncRe/GameChart.ashx', { params: { DropDownList, run } })
@@ -306,10 +329,14 @@
         }
         function selecrun() {
             var DropDownList = $('#server_id').children("option:selected").val();
-            var NO_Run = result.data.map(function (item, index, array) {
-                if (item.Server_id == DropDownList) {
-                    return item.No_Run;
-                }
+            var NO_Run = result.data.filter(p =>
+                p.Server_id == DropDownList
+            );
+            NO_Run = NO_Run.map(function (item, index, array) {
+
+                return item.No_Run;
+
+
             });
             NO_Run = Array.from(new Set(NO_Run));
             var select = document.getElementById("Run");
@@ -332,7 +359,8 @@
         function onclickclub() {
             var Club_Ename = $('.txtlblclub').val();
             var selectdata = $('.txtdata').val();
-            axios.get('/AsyncRe/GameChartselect.ashx', { params: { Club_Ename, selectdata } })
+            var money = $('#money').children("option:selected").val();
+            axios.get('/AsyncRe/GameChartselect.ashx', { params: { Club_Ename, selectdata, money } })
                 .then(function (jsonStr) {
                     result = jsonStr;
                     var Server_id = jsonStr.data.map(function (item, index, array) {
