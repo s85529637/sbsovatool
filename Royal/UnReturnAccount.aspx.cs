@@ -7,12 +7,14 @@ using System.Linq;
 using System.Web.UI;
 using System.Text;
 using RTGLib;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 public partial class UnReturnAccount : NewBasePage
 {
     private static readonly string _SubSystem = ConfigurationManager.AppSettings["SubSystem"].ToString();
 
-    public int ReloadInterval = string.IsNullOrEmpty( ConfigurationManager.AppSettings["ReloadInterval"].ToString()) ? 20000 : int.Parse(ConfigurationManager.AppSettings["ReloadInterval"].ToString());
+    public int ReloadInterval = string.IsNullOrEmpty(ConfigurationManager.AppSettings["ReloadInterval"].ToString()) ? 20000 : int.Parse(ConfigurationManager.AppSettings["ReloadInterval"].ToString());
 
     private JDBlib objjdb = new JDBlib("5");
 
@@ -48,7 +50,7 @@ public partial class UnReturnAccount : NewBasePage
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    protected void gvList_RowDataBound(object sender,GridViewRowEventArgs e)
+    protected void gvList_RowDataBound(object sender, GridViewRowEventArgs e)
     {
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
@@ -76,11 +78,12 @@ public partial class UnReturnAccount : NewBasePage
                 txtLk.NavigateUrl = "javascript:ShowRTGStatus('" + txtLk.ClientID + "','" + e.Row.Cells[2].Text + "','" + e.Row.Cells[4].Text + "','" + ddlThirdPartyId.SelectedValue + "','','" + e.Row.Cells[10].Text + "');";
                 //scriptarea.Text = "<script >royalchgvalue('" + txtLk.ClientID + "','" + e.Row.Cells[2].Text + "','" + e.Row.Cells[4].Text + "','" + ddlThirdPartyId.SelectedValue + "');</script>";
             }
-            else if (ddlThirdPartyId.SelectedValue.ToUpper() == "GCLUB")
+            else if (ddlThirdPartyId.SelectedValue.ToUpper() == "GClub")
             {
-                //txtLk.Text = "檢視";
+                txtLk.Text = "檢視";
+                txtLk.NavigateUrl = "";
                 //txtLk.Enabled = false;
-                kick.Visible = false;
+                //kick.Visible = false;
             }
         }
     }
@@ -92,8 +95,8 @@ public partial class UnReturnAccount : NewBasePage
     /// <param name="IResult">結果0表成功，大於0表失敗</param>
     private void page(int ITotalCount, string SResultMessage, int IResult)
     {
-        int totalpage =(int) Math.Ceiling(double.Parse(string.IsNullOrEmpty(ITotalCount.ToString())? "0.0" : ITotalCount.ToString()) / double.Parse(PageSize.ToString()));
-        int start = (PageIndex - 1)<=1 ? 1 : PageIndex;
+        int totalpage = (int)Math.Ceiling(double.Parse(string.IsNullOrEmpty(ITotalCount.ToString()) ? "0.0" : ITotalCount.ToString()) / double.Parse(PageSize.ToString()));
+        int start = (PageIndex - 1) <= 1 ? 1 : PageIndex;
 
         if (totalpage <= 1)
         {
@@ -109,17 +112,21 @@ public partial class UnReturnAccount : NewBasePage
             spage.Append("<Select onchange='location.href=this.value'>");
             for (int j = 1; j <= totalpage; j++)
             {
-                spage.Append(string.Format("<option value='UnReturnAccount.aspx?page={0}' {2}>{1}</option>", j, j,((PageIndex==j)?"selected": "")));
+                spage.Append(string.Format("<option value='UnReturnAccount.aspx?page={0}' {2}>{1}</option>", j, j, ((PageIndex == j) ? "selected" : "")));
             }
             spage.Append("</Select>");
             spage.Append("頁</td></tr></table>");
             objpage.Text = spage.ToString();
-        }else{
+        }
+        else
+        {
             if (ITotalCount <= 0)
             {
                 spage.Append("<h1>查無資料!!</h1>");
                 objpage.Text = spage.ToString();
-            }else if (IResult > 0){
+            }
+            else if (IResult > 0)
+            {
                 spage.Append(string.Format("<h1>{0}</h1>", SResultMessage));
                 objpage.Text = spage.ToString();
             }
@@ -160,7 +167,7 @@ public partial class UnReturnAccount : NewBasePage
         dv.Sort = Sort;
         gvList.DataSource = dv;
         gvList.DataBind();
-        page(ITotalCount, SResultMessage,IResult);
+        page(ITotalCount, SResultMessage, IResult);
     }
 
     protected void chkAuto_CheckedChanged(object sender, EventArgs e)
@@ -256,7 +263,7 @@ public partial class UnReturnAccount : NewBasePage
         string ClubEname = string.Empty;
         string GameId = string.Empty;
         string ThirdPartyId = string.Empty;
-        string ZuBie =string.Empty ;
+        string ZuBie = string.Empty;
         string Msg = string.Empty;
         if ("Kick".Equals(e.CommandName))
         {
@@ -267,14 +274,14 @@ public partial class UnReturnAccount : NewBasePage
             ClubEname = row.Cells[3].Text.Trim();
             GameId = row.Cells[5].Text.Trim();
             ThirdPartyId = row.Cells[8].Text.Trim();
-            ZuBie =  row.Cells[10].Text.Trim();
+            ZuBie = row.Cells[10].Text.Trim();
             string Status = "", Message = "", Alert = "踢線", Success = "成功", Failure = "失敗";
             switch (ThirdPartyId)
             {
                 case "Royal":
                     // 改由設定檔抓遊戲對應代碼
                     var key = ConfigurationManager.AppSettings.AllKeys.Where(x => x == "RoyalGame2Id_" + GameId).FirstOrDefault();
-                   
+
                     if (key != null)
                     {
                         Message = Royal2Kick(ClubId, ref Status);
@@ -296,7 +303,9 @@ public partial class UnReturnAccount : NewBasePage
                     if (Status == "1" && Msg == "Success")
                     {
                         Status = "1";
-                    }else {
+                    }
+                    else
+                    {
                         Status = "0";
                     }
                     break;
@@ -306,13 +315,36 @@ public partial class UnReturnAccount : NewBasePage
                     if (objKickUserResult.MsgID.ToString() == "0")
                     {
                         Status = "1";
-                    }else {
+                    }
+                    else
+                    {
                         Status = objKickUserResult.MsgID.ToString();
                         Failure = objKickUserResult.Message.ToString();
                     }
                     break;
+                case "GClub":
+                    string uri = "http://localhost:65298/AsyncRe/GClubtake.ashx?"+ ClubId;
+
+                    using (HttpClient client = new HttpClient())
+                    {
+                        try
+                        {
+                            client.Timeout = TimeSpan.FromSeconds(30);
+                            HttpResponseMessage response = client.GetAsync(uri).Result;
+                            response.EnsureSuccessStatusCode();
+                            Status = response.Content.ReadAsStringAsync().Result;
+
+                            Console.WriteLine(Status);
+                        }
+                        catch (HttpRequestException ex)
+                        {
+                            Console.WriteLine("\nException Caught!");
+                            Console.WriteLine("Message :{0} ", ex.Message);
+                        }
+                    }
+                    break;
                 default:
-                    Alert ="尚未開放";
+                    Alert = "尚未開放";
                     break;
             }
 
@@ -340,7 +372,7 @@ public partial class UnReturnAccount : NewBasePage
         string sValue = "";
         using (SlotGameWS.SlotGameWSSoapClient ws = new SlotGameWS.SlotGameWSSoapClient())
         {
-           
+
             XmlNode root = ws.KickUser("mobile", ClubId);
             foreach (XmlNode cn in root.ChildNodes)
             {

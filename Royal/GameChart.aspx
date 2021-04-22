@@ -217,7 +217,7 @@
         function GcluekickAll() {
             var run = $('#Run').children("option:selected").val();
             var No_Active = result.data.filter(p =>
-                p.No_Run == run && p.MaHao == 'Zhuang' || p.MaHao == 'Xian'
+               p.No_Run == run && (p.MaHao == 'Zhuang' || p.MaHao == 'Xian')
             );
 
             axios.all([getDrawing(), getclubmessage()])

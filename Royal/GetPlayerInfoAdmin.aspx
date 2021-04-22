@@ -47,7 +47,6 @@
         <asp:ListItem Value="Royal">皇家電子</asp:ListItem>
         <asp:ListItem Value="JDB">JDB電子</asp:ListItem>
         <asp:ListItem Value="RTG">棋牌遊戲</asp:ListItem>
-        <asp:ListItem Value="GCLUB">GCLUB電子</asp:ListItem>
     </asp:DropDownList>
     <asp:Button ID="btChkHasAccount" runat="server" Text="檢查是否存在帳務" Visible="False"  OnClick="btChkHasAccount_Click"/><br />
     <asp:Button ID="btnPowerReturnAccount" runat="server" Text="強制解鎖會員(請白馬確認該會員無帳務紀錄才能使用此功能)" OnClick="btnPowerReturnAccount_Click" Visible="False" OnClientClick="return confirm('確定該會員無帳務紀錄？');" ForeColor="Red" Enabled="false" />
