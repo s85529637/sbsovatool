@@ -9,6 +9,7 @@ using System.Text;
 using RTGLib;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 public partial class UnReturnAccount : NewBasePage
 {
@@ -275,7 +276,7 @@ public partial class UnReturnAccount : NewBasePage
             GameId = row.Cells[5].Text.Trim();
             ThirdPartyId = row.Cells[8].Text.Trim();
             ZuBie = row.Cells[10].Text.Trim();
-            string Status = "", Message = "", Alert = "踢線", Success = "成功", Failure = "失敗";
+            string Status = "", Message = "", Alert = "踢線", Success = "成功", Failure = "失敗", GClubAPI = string.Empty, GClubStatus = string.Empty, ERROR = string.Empty;
             switch (ThirdPartyId)
             {
                 case "Royal":
@@ -323,7 +324,7 @@ public partial class UnReturnAccount : NewBasePage
                     }
                     break;
                 case "GClub":
-                    string uri = "http://localhost:65298/AsyncRe/GClubtake.ashx?"+ ClubId;
+                    string uri = "http://localhost:65298/AsyncRe/GClubtake.ashx?" + ClubId;
 
                     using (HttpClient client = new HttpClient())
                     {
@@ -331,10 +332,18 @@ public partial class UnReturnAccount : NewBasePage
                         {
                             client.Timeout = TimeSpan.FromSeconds(30);
                             HttpResponseMessage response = client.GetAsync(uri).Result;
-                            response.EnsureSuccessStatusCode();
-                            Status = response.Content.ReadAsStringAsync().Result;
 
-                            Console.WriteLine(Status);
+                            response.EnsureSuccessStatusCode();
+                            var res = response.Content.ReadAsStringAsync().Result;
+                            string StatusCodec = res.Substring(10, 3);
+
+                            if (StatusCodec == "200")
+                            { GClubStatus = "1"; }
+                            else
+                            {
+                                GClubStatus = "0";
+                                ERROR = res.Substring(65, 15);
+                            }
                         }
                         catch (HttpRequestException ex)
                         {
@@ -347,6 +356,13 @@ public partial class UnReturnAccount : NewBasePage
                     Alert = "尚未開放";
                     break;
             }
+
+            if (GClubStatus == "1")
+            { Alert = "API通知成功,洗分成功"; }
+            else
+            { Alert = "API通知成功,洗分失敗" + ERROR; }
+
+
 
             if (Status != "")
             {

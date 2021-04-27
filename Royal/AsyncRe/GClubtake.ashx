@@ -1,8 +1,14 @@
 ﻿<%@ WebHandler Language="C#" Class="GClubtake" %>
 
 using System;
+using System.Text;
 using System.Web;
 using System.Configuration;
+using System.Net.Http;
+using System.Security.Policy;
+using System.Security;
+using System.Security.Cryptography;
+
 
 
 public class GClubtake : IHttpHandler
@@ -10,44 +16,40 @@ public class GClubtake : IHttpHandler
 
     public void ProcessRequest(HttpContext context)
     {
-
-
-        string LogString = string.Empty;
-        string LogResponseString = string.Empty;
         try
         {
-            string id = context.Request.QueryString.ToString();
-            var Mytimestamp = " ";/*GetTimestamp();*/
-            var Mysignature = (id + Mytimestamp + "B7Jupv4PDHmI").ToLower();
-            var RequestData = new
-            {
-                channelId = "RG",
-                username = id,
-                timestamp = Mytimestamp,
-                signature = Mysignature
-            };
-            string QueryString = "channelId=RG&" + "username=" + id + "&" + "timestamp=" + Mytimestamp + "&" + "signature=" + Mysignature;
-            //AppSettingsReader reader = new AppSettingsReader();
-            //string RoyalAPI = reader.GetValue("GClub.API.ConnectionString", typeof(string)).ToString();
             string RoyalAPI = System.Web.Configuration.WebConfigurationManager.AppSettings["GClub.API.ConnectionString"];
-            //    ResponseModel<Common_UserLoginModel> ResponseData = new ResponseModel<Common_UserLoginModel>();
-            //    LogString = "/GClub/logoutgame.php?" + QueryString + RoyalAPI;
-            //    //傳送資料的Log
-            //    LogModel Requestlog = new LogModel("WebSite", "api/LogOutGClubGame", "")
-            //    {
-            //        Requestdata = RoyalAPI + "/GClub/logoutgame.php?" + QueryString
-            //    };
-            //    LogDAL.logger_Debug(Requestlog);
-            //    string ResponseString = CommonTool.GetServer(RequestData, "/GClub/logoutgame.php?" + QueryString, RoyalAPI, this._ihc).Result;
-            //    ResponseData = Common_Serializable_JSON.ObjectDeSerializable<ResponseModel<Common_UserLoginModel>>(ResponseString);
-            //    //接收資料的Log
-            //    LogModel Responselog = new LogModel("WebSite", "api/LogOutGClubGame", "")
-            //    {
-            //        ErrorMessage = ResponseString,
-            //        Requestdata = RoyalAPI + "/GClub/logoutgame.php?" + QueryString
-            //    };
-            //    LogDAL.logger_Debug(Responselog);
-            //    return Json(new { result = ResponseString });
+            string RoyalAPIkey = System.Web.Configuration.WebConfigurationManager.AppSettings["secret"];
+            var id = "2005293653"; /*context.Request.QueryString.ToString();*/
+            var Mytimestamp = GetTimestamp();
+            var Mysignature = CreateMD5(id + Mytimestamp + RoyalAPIkey).ToLower();
+
+
+            string QueryString = "channelId=RG&" + "username=" + id + "&" + "timestamp=" + Mytimestamp + "&" + "signature=" + Mysignature;
+
+
+
+            string ResponseString = RoyalAPI + "/GClub/logoutgame.php?" + QueryString;
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.Timeout = TimeSpan.FromSeconds(30);
+                    HttpResponseMessage response = client.GetAsync(ResponseString).Result;
+
+                    response.EnsureSuccessStatusCode();
+                    var responseBody =  response.Content.ReadAsStringAsync().Result;
+                    context.Response.Write(responseBody);
+                }
+                catch (HttpRequestException ex)
+                {
+                    Console.WriteLine("\nException Caught!");
+                    Console.WriteLine("Message :{0} ", ex.Message);
+                }
+            }
+
+
+
         }
         catch (Exception ex)
         {
@@ -59,16 +61,41 @@ public class GClubtake : IHttpHandler
             //    LogDAL.logger_exception(log);
             //    return Json(new { result = ex.ToString() });
             //}
-        }
-        /// <summary>
-        /// 時間簽章
-        /// </summary>
-        //public static long GetTimestamp()
-        //{
-        //    DateTime Jan1st1970 = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-        //    return (long)((DateTime.UtcNow - Jan1st1970).TotalSeconds);
-        //}
 
+            throw ex;
+        }
+
+    }
+    /// <summary>
+    /// MD5編譯
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    public string CreateMD5(string input)
+    {
+        if (string.IsNullOrEmpty(input)) return "";
+        using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
+        {
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+            byte[] hashBytes = md5.ComputeHash(inputBytes);
+
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hashBytes.Length; i++)
+            {
+                sb.Append(hashBytes[i].ToString("X2"));
+            }
+            return sb.ToString();
+        }
+    }
+
+    /// < summary >
+    /// 時間簽章
+    /// </ summary >
+    public static long GetTimestamp()
+    {
+        DateTime Jan1st1970 = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        return (long)((DateTime.UtcNow - Jan1st1970).TotalSeconds);
+    }
 
     public bool IsReusable
     {
