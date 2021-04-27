@@ -43,7 +43,7 @@ public class GameChartselect : IHttpHandler
         try
         {
             AppSettingsReader reader = new AppSettingsReader();
-            string connString = reader.GetValue("Main.ConnectionString", typeof(string)).ToString();
+            string connString = reader.GetValue("Mon.ConnectionString", typeof(string)).ToString();
             List<clubserver> dt = null;
             string sqlCommand = string.Empty;
             if (money == "Million")

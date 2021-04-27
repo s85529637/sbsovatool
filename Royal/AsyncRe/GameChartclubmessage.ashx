@@ -38,7 +38,7 @@ public class GameChartclubmessage : IHttpHandler
     public List<clubbet> gameChartclubmess(string Server_id, string No_Run, string Club_Ename)
     {
         AppSettingsReader reader = new AppSettingsReader();
-        string connString = reader.GetValue("Main.ConnectionString", typeof(string)).ToString();
+        string connString = reader.GetValue("Mon.ConnectionString", typeof(string)).ToString();
         List<clubbet> dt = null;
         string sqlCommand = @"select Stake_Score,Account_Score,No_Active,
                                      case  when MaHao='Zhuang' then '莊'

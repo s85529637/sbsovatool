@@ -35,7 +35,7 @@ public class GameChart : IHttpHandler
     {
 
         AppSettingsReader reader = new AppSettingsReader();
-        string connString = reader.GetValue("Main.ConnectionString", typeof(string)).ToString();
+        string connString = reader.GetValue("Mon.ConnectionString", typeof(string)).ToString();
         List<Openlist> dt = null;
         string sqlCommand = @"declare @Server_Name nvarchar(20)
                                select @Server_Name=Server_Name from T_Server where Server_id=@Server_id
