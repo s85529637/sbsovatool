@@ -20,7 +20,7 @@ public class GClubtake : IHttpHandler
         {
             string RoyalAPI = System.Web.Configuration.WebConfigurationManager.AppSettings["GClub.API.ConnectionString"];
             string RoyalAPIkey = System.Web.Configuration.WebConfigurationManager.AppSettings["secret"];
-            var id = "2005293653"; /*context.Request.QueryString.ToString();*/
+            var id = "2005161773"; /*context.Request.QueryString.ToString();*/
             var Mytimestamp = GetTimestamp();
             var Mysignature = CreateMD5(id + Mytimestamp + RoyalAPIkey).ToLower();
 
