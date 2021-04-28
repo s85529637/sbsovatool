@@ -158,7 +158,7 @@
 
             let canvas = document.getElementById("canvas");
             var ctx = canvas.getContext("2d");
-            canvas.height = "300";
+            canvas.height = "450";
             canvas.width = "1800";
 
             //描绘背景
@@ -169,7 +169,7 @@
             ctx.fillRect = (0, 0, canvas.width, canvas.height);
             //描绘边框
             var grid_cols = 60;
-            var grid_rows = 10;
+            var grid_rows = 15;
             var cell_height = canvas.height / grid_rows;
             var cell_width = canvas.width / grid_cols;
             ctx.lineWidth = 1;

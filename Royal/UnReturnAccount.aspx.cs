@@ -10,6 +10,8 @@ using RTGLib;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json.Linq;
+using System.IO;
 
 public partial class UnReturnAccount : NewBasePage
 {
@@ -277,6 +279,7 @@ public partial class UnReturnAccount : NewBasePage
             ThirdPartyId = row.Cells[8].Text.Trim();
             ZuBie = row.Cells[10].Text.Trim();
             string Status = "", Message = "", Alert = "踢線", Success = "成功", Failure = "失敗", GClubAPI = string.Empty, GClubStatus = string.Empty, ERROR = string.Empty;
+            var res = "";
             switch (ThirdPartyId)
             {
                 case "Royal":
@@ -324,33 +327,64 @@ public partial class UnReturnAccount : NewBasePage
                     }
                     break;
                 case "GClub":
-                    string uri = "http://localhost:65298/AsyncRe/GClubtake.ashx?" + ClubId;
 
-                    using (HttpClient client = new HttpClient())
+
+
+                    try
                     {
-                        try
+                        string RoyalAPI = System.Web.Configuration.WebConfigurationManager.AppSettings["GClub.API.ConnectionString"];
+                        string RoyalAPIkey = System.Web.Configuration.WebConfigurationManager.AppSettings["secret"];
+                        var id = ClubId;
+                        var Mytimestamp = GetTimestamp();
+                        var Mysignature = CreateMD5(id + Mytimestamp + RoyalAPIkey).ToLower();
+
+
+                        string QueryString = "channelId=RG&" + "username=" + id + "&" + "timestamp=" + Mytimestamp + "&" + "signature=" + Mysignature;
+
+
+
+                        string ResponseString = RoyalAPI + "/GClub/logoutgame.php?" + QueryString;
+                        using (HttpClient client = new HttpClient())
                         {
-                            client.Timeout = TimeSpan.FromSeconds(30);
-                            HttpResponseMessage response = client.GetAsync(uri).Result;
-
-                            response.EnsureSuccessStatusCode();
-                            var res = response.Content.ReadAsStringAsync().Result;
-                            string StatusCodec = res.Substring(10, 3);
-
-                            if (StatusCodec == "200")
-                            { GClubStatus = "1"; }
-                            else
+                            try
                             {
-                                GClubStatus = "0";
-                                ERROR = res.Substring(65, 15);
+                                client.Timeout = TimeSpan.FromSeconds(30);
+                                HttpResponseMessage response = client.GetAsync(ResponseString).Result;
+
+                                response.EnsureSuccessStatusCode();
+                                var responseBody = response.Content.ReadAsStringAsync().Result;
+                              
+                                string path = System.AppDomain.CurrentDomain.BaseDirectory + "/LOG/";
+                                string filename = DateTime.Today.ToString("yyyy-MM-dd") + ".txt";
+                                File.AppendAllText(path + filename, id );
+                                string StatusCodec = responseBody.Substring(10, 3);
+
+                                if (StatusCodec == "200")
+                                { GClubStatus = "1"; }
+                                else
+                                {
+                                    GClubStatus = "0";
+                                    
+                                }
+                            }
+                            catch (HttpRequestException ex)
+                            {
+                                string path = System.AppDomain.CurrentDomain.BaseDirectory + "/LOG/";
+                                string filename = DateTime.Today.ToString("yyyy-MM-dd") + ".txt";
+                                File.AppendAllText(path + filename, ex.Message);
+                                Console.WriteLine("\nException Caught!");
+                                Console.WriteLine("Message :{0} ", ex.Message);
                             }
                         }
-                        catch (HttpRequestException ex)
-                        {
-                            Console.WriteLine("\nException Caught!");
-                            Console.WriteLine("Message :{0} ", ex.Message);
-                        }
+
+
                     }
+                    catch (HttpRequestException ex)
+                    {
+                        Console.WriteLine("\nException Caught!");
+                        Console.WriteLine("Message :{0} ", ex.Message);
+                    }
+
                     break;
                 default:
                     Alert = "尚未開放";
@@ -360,7 +394,7 @@ public partial class UnReturnAccount : NewBasePage
             if (GClubStatus == "1")
             { Alert = "API通知成功,洗分成功"; }
             else
-            { Alert = "API通知成功,洗分失敗" + ERROR; }
+            { Alert = "API通知成功,洗分失敗"; }
 
 
 
@@ -451,5 +485,35 @@ public partial class UnReturnAccount : NewBasePage
             Status = ws.ServerKickPlayer(ClubId).ToString();
         }
         return sValue;
+    }
+    /// <summary>
+    /// MD5編譯
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    public string CreateMD5(string input)
+    {
+        if (string.IsNullOrEmpty(input)) return "";
+        using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
+        {
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+            byte[] hashBytes = md5.ComputeHash(inputBytes);
+
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < hashBytes.Length; i++)
+            {
+                sb.Append(hashBytes[i].ToString("X2"));
+            }
+            return sb.ToString();
+        }
+    }
+
+    /// < summary >
+    /// 時間簽章
+    /// </ summary >
+    public static long GetTimestamp()
+    {
+        DateTime Jan1st1970 = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        return (long)((DateTime.UtcNow - Jan1st1970).TotalSeconds);
     }
 }
