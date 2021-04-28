@@ -17,7 +17,7 @@
     </style>
     <script src="javascript/jquery-3.5.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <canvas id="canvas" width="1800" height="300"></canvas>
+    <canvas id="canvas" width="1800" height="450"></canvas>
 
     <script type="text/javascript">
 
@@ -32,7 +32,7 @@
         ctx.fillRect = (0, 0, canvas.width, canvas.height);
         //描绘边框
         var grid_cols = 60;
-        var grid_rows = 10;
+        var grid_rows = 15;
         var cell_height = canvas.height / grid_rows;
         var cell_width = canvas.width / grid_cols;
         ctx.lineWidth = 1;
